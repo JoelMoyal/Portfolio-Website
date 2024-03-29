@@ -1,0 +1,231 @@
+[
+  {
+    "name": " CONcoin Crypto Prototype",
+    "desc": " A fictitious cryptocurrency with a detailed website advertising products and print products ",
+    "image": "concoin",
+    "category": "coding",
+    "links": {
+      "view": "https://joelmoyal.github.io/ConCoinCryptoPrototype/",
+      "code": "https://github.com/JoelMoyal/ConCoinCryptoPrototype"
+    }
+  },
+  {
+    "name": "Food Counter",
+    "desc": "All in one SPPU Engineering resources. Built using Java, XML and Firebase.",
+    "image": "Fruit",
+    "category": "Coding",
+    "links": {
+      "view": "https://github.com/JoelMoyal/food-counter",
+      "code": "https://github.com/JoelMoyal/food-counter"
+    }
+  },
+  {
+    "name": "Bürgerbautrupp",
+    "desc": "building a website for a village project",
+    "image": "bürgerbautrupp",
+    "category": "Coding",
+    "links": {
+      "view": "http://www.xn--brgerbautrupp-wob.de/",
+      "code": "https://github.com/JoelMoyal/Buergerbautrupp"
+    }
+  },
+  {
+    "name": "My Portfolio",
+    "desc": "Native android app built using Java, XML and Volley dependencies. Provides weather forecast.",
+    "image": "weatherlyandroid",
+    "category": "Coding",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "name": "Limetless",
+    "desc": "A Futuristic Magazines",
+    "image": "instagrammern",
+    "category": "design",
+    "links": {
+      "view": " https://www.behance.net/gallery/194495239/Future-Magazine "
+    }
+  },
+  {
+    "name": "Tickify",
+    "desc": "#",
+    "image": "#",
+    "category": "mern",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "name": "Rocketz",
+    "desc": "#",
+    "image": "#",
+    "category": "mern",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "name": "Portfolio Website",
+    "desc": "You're Here Only!",
+    "image": "#",
+    "category": "basicweb",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "name": "#",
+    "desc": "#",
+    "image": "#",
+    "category": "basicweb",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "name": "#",
+    "desc": "#",
+    "image": "#",
+    "category": "basicweb",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "name": "#",
+    "desc": "#",
+    "image": "#",
+    "category": "basicweb",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "name": "#",
+    "desc": "#",
+    "image": "#",
+    "category": "basicweb",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "name": "#",
+    "desc": "#",
+    "image": "#",
+    "category": "mern",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "name": "#",
+    "desc": "#",
+    "image": "#",
+    "category": "android",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "name": "#",
+    "desc": "#",
+    "image": "#",
+    "category": "basicweb",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "name": "#",
+    "desc": "#",
+    "image": "#",
+    "category": "basicweb",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "name": "#",
+    "desc": "#",
+    "image": "#",
+    "category": "#",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "name": "#",
+    "desc": "#",
+    "image": "#",
+    "category": "basicweb",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "name": "#",
+    "desc": "#",
+    "image": "#",
+    "category": "basicweb",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "name": " ",
+    "desc": "#",
+    "image": "#",
+    "category": "basicweb",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "name": "d",
+    "desc": "  ",
+    "image": "#",
+    "category": "basicweb",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "name": "Unity Game",
+    "desc": "In Progress",
+    "image": "#",
+    "category": "basicweb",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
+    "name": "Unity Game ",
+    "desc": "In Progress",
+    "image": "#",
+    "category": "basicweb",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  }
+]
