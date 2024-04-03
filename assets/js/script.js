@@ -60,7 +60,7 @@ document.addEventListener('visibilitychange',
     function () {
         if (document.visibilityState === "visible") {
             document.title = "Portfolio | Joel Moyal";
-            $("#favicon").attr("href", "assets/images/JM _logo_schwarz_weiß_Namen_.png");
+            $("#favicon").attr("href", "assets/images/JM_Logo_blue.png");
         }
         else {
             document.title = "Come Back To my Portfolio";

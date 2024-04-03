@@ -25,7 +25,7 @@ document.addEventListener('visibilitychange',
         }
         else {
             document.title = "Come Back To My Portfolio";
-            $("#favicon").attr("href", "assets/images/JM _logo_schwarz_weiß_Namen_.png");
+            $("#favicon").attr("href", "assets/images/JM_Logo_blue.png");
         }
     });
 
