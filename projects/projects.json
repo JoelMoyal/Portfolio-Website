@@ -2,12 +2,7 @@
   {
     "name": " CONcoin Crypto Prototype",
     "desc": " A fictitious cryptocurrency with a detailed website advertising products and print products ",
-    "video" :{
-      "title": "video thing",
-      "format": "mp4",
-      "data": ""
-    },
-    "image": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTVnY3V0dzZ5MjdxM3Zzd2duNW1wYW9nMDNqcnpueTA1aHB1YXVteSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KoKiRJkpfA5t6JVBQo/giphy-downsized.gif",
+    "image" :"concoin",
     "category": "coding",
     "links": {
       "view": "https://joelmoyal.github.io/ConCoinCryptoPrototype/",
@@ -17,7 +12,7 @@
   {
     "name": "Food Counter",
     "desc": "All in one SPPU Engineering resources. Built using Java, XML and Firebase.",
-    "image": "https://i.imgur.com/W0QXPdq.mp4",
+    "image": "ticket_system",
     "category": "Coding",
     "links": {
       "view": "https://github.com/JoelMoyal/food-counter",
@@ -27,7 +22,7 @@
   {
     "name": "Bürgerbautrupp",
     "desc": "building a website for a village project",
-    "image": "bürgerbautrupp",
+    "image": "buergerbautrupp",
     "category": "Coding",
     "links": {
       "view": "http://www.xn--brgerbautrupp-wob.de/",
@@ -37,7 +32,7 @@
   {
     "name": "My Portfolio",
     "desc": "Native android app built using Java, XML and Volley dependencies. Provides weather forecast.",
-    "image": "weatherlyandroid",
+    "image": "portfolio",
     "category": "Coding",
     "links": {
       "view": "#",
@@ -47,16 +42,16 @@
   {
     "name": "Limetless",
     "desc": "A Futuristic Magazines",
-    "image": "instagrammern",
+    "image": "catalog",
     "category": "design",
     "links": {
       "view": " https://www.behance.net/gallery/194495239/Future-Magazine "
     }
   },
   {
-    "name": "Tickify",
+    "name": "Flamenco Hotel Design",
     "desc": "#",
-    "image": "#",
+    "image": "Card",
     "category": "mern",
     "links": {
       "view": "#",
@@ -64,9 +59,9 @@
     }
   },
   {
-    "name": "Rocketz",
+    "name": "Advertisment",
     "desc": "#",
-    "image": "#",
+    "image": "Advertisment",
     "category": "mern",
     "links": {
       "view": "#",
@@ -74,9 +69,9 @@
     }
   },
   {
-    "name": "Portfolio Website",
+    "name": "Photograph",
     "desc": "You're Here Only!",
-    "image": "#",
+    "image": "Photograph",
     "category": "basicweb",
     "links": {
       "view": "#",
@@ -84,9 +79,9 @@
     }
   },
   {
-    "name": "#",
+    "name": "Trettman Website",
     "desc": "#",
-    "image": "#",
+    "image": "Trettman",
     "category": "basicweb",
     "links": {
       "view": "#",
@@ -94,9 +89,9 @@
     }
   },
   {
-    "name": "#",
+    "name": "Rocketlight",
     "desc": "#",
-    "image": "#",
+    "image": "rocketlight",
     "category": "basicweb",
     "links": {
       "view": "#",
