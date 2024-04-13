@@ -21,7 +21,7 @@
   },
   {
     "name": "Bürgerbautrupp",
-    "desc": "building a website for a village project",
+    "desc": "The NGO Village Project website, managed by me, documents projects, provides event details, fosters community involvement, and ensures legal compliance.",
     "image": "buergerbautrupp",
     "category": "Coding",
     "links": {
@@ -99,7 +99,7 @@
     }
   },
   {
-    "name": "#",
+    "name": "Ticket system",
     "desc": "#",
     "image": "#",
     "category": "basicweb",
@@ -109,7 +109,7 @@
     }
   },
   {
-    "name": "#",
+    "name": "Calculator",
     "desc": "#",
     "image": "#",
     "category": "basicweb",
@@ -119,7 +119,7 @@
     }
   },
   {
-    "name": "#",
+    "name": "Flappy clone",
     "desc": "#",
     "image": "#",
     "category": "mern",
