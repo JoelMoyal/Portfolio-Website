@@ -33,8 +33,8 @@
         "icon": "https://img.assets/images/Liquid_logo.png"
     },
     {
-        "name": "Ruby",
-        "icon": ""
+        "name": "python",
+        "icon": "https://img.icons8.com/color/48/python--v1.png"
     },
     {
         "name": "Shopify",
@@ -90,7 +90,7 @@
     },
     {
         "name": "Canva",
-        "icon": "https://img.icons8.com/color/48/000000/postgreesql.png"
+        "icon": "https://img.icons8.com/fluency/48/canva.png"
     },
     {
         "name": "Notion",
