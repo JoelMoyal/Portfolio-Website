@@ -121,7 +121,7 @@
   {
     "name": "Flappy clone",
     "desc": "#",
-    "image": "#",
+    "image": "flappy-clone",
     "category": "mern",
     "links": {
       "view": "#",
