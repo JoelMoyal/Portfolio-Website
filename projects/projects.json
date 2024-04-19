@@ -128,13 +128,13 @@
     }
   },
   {
-    "name": "#",
+    "name": "Mad Libs Game with C",
     "desc": "#",
     "image": "#",
     "category": "android",
     "links": {
       "view": "#",
-      "code": "#"
+      "code": "https://github.com/JoelMoyal/MadLibsGame"
     }
   },
   {
