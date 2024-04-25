@@ -6,8 +6,7 @@
     "category": "coding",
     "links": {
       "view": "https://joelmoyal.github.io/ConCoinCryptoPrototype/",
-      "code": "https://github.com/JoelMoyal/ConCoinCryptoPrototype",
-      "Design": "https://github.com/JoelMoyal/Flappy-Clone"
+      "code": "https://github.com/JoelMoyal/ConCoinCryptoPrototype"
     }
   },
   {
@@ -64,8 +63,7 @@
     "image": "Advertisment",
     "category": "mern",
     "links": {
-      "view": "https://www.behance.net/gallery/195535217/Billboard-Advertising",
-      "code": "#"
+      "view": "https://www.behance.net/gallery/195535217/Billboard-Advertising"
     }
   },
   {
@@ -74,8 +72,7 @@
     "image": "Photograph",
     "category": "basicweb",
     "links": {
-      "view": "https://www.behance.net/gallery/195795697/A-Glimpse-Through-My-Lens",
-      "code": "#"
+      "view": "https://www.behance.net/gallery/195795697/A-Glimpse-Through-My-Lens"
     }
   },
   {
@@ -110,12 +107,12 @@
   },
   {
     "name": "Calculator",
-    "desc": "#",
-    "image": "#",
+    "desc": "Fully functional 4-function calculator programmed in C",
+    "image": "calculator",
     "category": "basicweb",
     "links": {
       "view": "#",
-      "code": "#"
+      "code": "https://github.com/JoelMoyal/Calculator-C"
     }
   },
   {
@@ -139,23 +136,22 @@
     }
   },
   {
-    "name": "#",
-    "desc": "#",
-    "image": "#",
+    "name": "Calendar in C",
+    "desc": "A calendar program in C that empowers users to select any year and effortlessly visualizes the corresponding calendar.",
+    "image": "calendar",
     "category": "basicweb",
     "links": {
-      "view": "#",
-      "code": "#"
+      "code": "https://github.com/JoelMoyal/calendar-C"
     }
   },
   {
-    "name": "#",
-    "desc": "#",
-    "image": "#",
+    "name": "Simple Calculator in C",
+    "desc": "About Create a basic calculator using C that performs addition and subtraction functions. This project serves as a learning exercise in programming.",
+    "image": "calculator2",
     "category": "basicweb",
     "links": {
       "view": "#",
-      "code": "#"
+      "code": "https://github.com/JoelMoyal/Simple-Calculator-C"
     }
   },
   {
