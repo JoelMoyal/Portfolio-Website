@@ -91,8 +91,7 @@
     "image": "rocketlight",
     "category": "basicweb",
     "links": {
-      "view": "https://www.behance.net/gallery/195828105/Rocketlight",
-      "code": "#"
+      "view": "https://www.behance.net/gallery/195828105/Rocketlight"
     }
   },
   {
@@ -127,11 +126,10 @@
   },
   {
     "name": "Mad Libs Game with C",
-    "desc": "#",
-    "image": "#",
+    "desc": "I developed a barebones Mad Libs game in C as a learning project.",
+    "image": "madlibs",
     "category": "android",
     "links": {
-      "view": "#",
       "code": "https://github.com/JoelMoyal/MadLibsGame"
     }
   },
@@ -150,7 +148,7 @@
     "image": "calculator2",
     "category": "basicweb",
     "links": {
-      "view": "#",
+     "view": "",
       "code": "https://github.com/JoelMoyal/Simple-Calculator-C"
     }
   },
@@ -160,7 +158,7 @@
     "image": "#",
     "category": "#",
     "links": {
-      "view": "#",
+      "view": "",
       "code": "#"
     }
   },
@@ -170,7 +168,7 @@
     "image": "#",
     "category": "basicweb",
     "links": {
-      "view": "#",
+      "view": "",
       "code": "#"
     }
   },
