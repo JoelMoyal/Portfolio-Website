@@ -50,39 +50,38 @@
   },
   {
     "name": "Flamenco Hotel Design",
-    "desc": "#",
+    "desc": "The project cleverly integrates a graceful flamingo and prestigious hotel stars on a business card, effectively communicating the luxury brand's elegance and exclusivity.",
     "image": "Card",
-    "category": "mern",
+    "category": "design",
     "links": {
       "view": "https://www.behance.net/gallery/195806893/Flamingo-Hotel"
     }
   },
   {
     "name": "Advertisment",
-    "desc": "#",
+    "desc": "Advertising without Image and Colour",
     "image": "Advertisment",
-    "category": "mern",
+    "category": "design",
     "links": {
       "view": "https://www.behance.net/gallery/195535217/Billboard-Advertising"
     }
   },
   {
     "name": "Photograph",
-    "desc": "You're Here Only!",
+    "desc": "A Glimpse Through My Lens: A Journey Through the World of Photography",
     "image": "Photograph",
-    "category": "basicweb",
+    "category": "design",
     "links": {
       "view": "https://www.behance.net/gallery/195795697/A-Glimpse-Through-My-Lens"
     }
   },
   {
     "name": "Trettman Website",
-    "desc": "#",
+    "desc": "The website is a project to learn to create websites with guidance from W3Schools.",
     "image": "trettman",
-    "category": "basicweb",
+    "category": "code",
     "links": {
-      "view": "#",
-      "code": "#"
+      "code": "https://github.com/JoelMoyal/Trettman-website"
     }
   },
   {
@@ -153,19 +152,18 @@
     }
   },
   {
-    "name": "#",
-    "desc": "#",
-    "image": "#",
+    "name": "Guessing Game",
+    "desc": "This C-based game challenges the user to guess the correct number within the range of 0 to 15 in three attempts, employing while loops for implementation.",
+    "image": "guessing",
     "category": "#",
     "links": {
-      "view": "",
-      "code": "#"
+      "code": "https://github.com/JoelMoyal/guessing-Game"
     }
   },
   {
-    "name": "#",
+    "name": "Ticket System",
     "desc": "#",
-    "image": "#",
+    "imagge": "flappy",
     "category": "basicweb",
     "links": {
       "view": "",
