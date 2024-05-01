@@ -1,50 +1,45 @@
 $(document).ready(function () {
+  $("#menu").click(function () {
+    $(this).toggleClass("fa-times");
+    $(".navbar").toggleClass("nav-toggle");
+  });
 
-    $('#menu').click(function () {
-        $(this).toggleClass('fa-times');
-        $('.navbar').toggleClass('nav-toggle');
-    });
+  $(window).on("scroll load", function () {
+    $("#menu").removeClass("fa-times");
+    $(".navbar").removeClass("nav-toggle");
 
-    $(window).on('scroll load', function () {
-        $('#menu').removeClass('fa-times');
-        $('.navbar').removeClass('nav-toggle');
-
-        if (window.scrollY > 60) {
-            document.querySelector('#scroll-top').classList.add('active');
-        } else {
-            document.querySelector('#scroll-top').classList.remove('active');
-        }
-    });
+    if (window.scrollY > 60) {
+      document.querySelector("#scroll-top").classList.add("active");
+    } else {
+      document.querySelector("#scroll-top").classList.remove("active");
+    }
+  });
 });
 
-document.addEventListener('visibilitychange',
-    function () {
-        if (document.visibilityState === "visible") {
-            document.title = "Projects | Portfolio joel Moyal";
-            $("#favicon").attr("href", "assets/images/JM_Logo_blue.png");
-        }
-        else {
-            document.title = "Come Back To My Portfolio";
-            $("#favicon").attr("href", "assets/images/JM_Logo_blue.png");
-        }
-    });
-
+document.addEventListener("visibilitychange", function () {
+  if (document.visibilityState === "visible") {
+    document.title = "Projects | Portfolio joel Moyal";
+    $("#favicon").attr("href", "assets/images/JM_Logo_blue.png");
+  } else {
+    document.title = "Come Back To My Portfolio";
+    $("#favicon").attr("href", "assets/images/JM_Logo_blue.png");
+  }
+});
 
 // fetch projects start
 function getProjects() {
-    return fetch("projects.json")
-        .then(response => response.json())
-        .then(data => {
-            return data
-        });
+  return fetch("projects.json")
+    .then((response) => response.json())
+    .then((data) => {
+      return data;
+    });
 }
 
-
 function showProjects(projects) {
-    let projectsContainer = document.querySelector(".work .box-container");
-    let projectsHTML = "";
-    projects.forEach(project => {
-        projectsHTML += `
+  let projectsContainer = document.querySelector(".work .box-container");
+  let projectsHTML = "";
+  projects.forEach((project) => {
+    projectsHTML += `
         <div class="grid-item ${project.category}">
         <div class="box tilt" style="width: 380px; margin: 1rem">
       <img draggable="false" src="/assets/images/projects/${project.image}.png" alt="project" />
@@ -54,71 +49,75 @@ function showProjects(projects) {
         </div>
         <div class="desc">
           <p>${project.desc}</p>
-          <div class="btns">
-            <a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>`
-        if (project.links.code){
-            projectsHTML+= `<a href="${project.links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>`
-            }
-        
-        projectsHTML += `
+          <div class="btns">`;
+    if (project.links.view) {
+        projectsHTML += `<a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>`;
+    }
+    if (project.links.code) {
+      projectsHTML += `<a href="${project.links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>`;
+    }
+
+    projectsHTML += `
         </div>
         </div>
       </div>
     </div>
     </div>`;
-});
-        
-    projectsContainer.innerHTML = projectsHTML;
+  });
 
-    // vanilla tilt.js
-    // VanillaTilt.init(document.querySelectorAll(".tilt"), {
-    //     max: 20,
-    // });
-    // // vanilla tilt.js  
+  projectsContainer.innerHTML = projectsHTML;
 
-    // /* ===== SCROLL REVEAL ANIMATION ===== */
-    // const srtop = ScrollReveal({
-    //     origin: 'bottom',
-    //     distance: '80px',
-    //     duration: 1000,
-    //     reset: true
-    // });
+  // vanilla tilt.js
+  // VanillaTilt.init(document.querySelectorAll(".tilt"), {
+  //     max: 20,
+  // });
+  // // vanilla tilt.js
 
-    // /* SCROLL PROJECTS */
-    // srtop.reveal('.work .box', { interval: 200 });
+  // /* ===== SCROLL REVEAL ANIMATION ===== */
+  // const srtop = ScrollReveal({
+  //     origin: 'bottom',
+  //     distance: '80px',
+  //     duration: 1000,
+  //     reset: true
+  // });
 
-    // isotope filter products
-    var $grid = $('.box-container').isotope({
-        itemSelector: '.grid-item',
-        layoutMode: 'fitRows',
-        masonry: {
-            columnWidth: 200
-        }
-    });
+  // /* SCROLL PROJECTS */
+  // srtop.reveal('.work .box', { interval: 200 });
 
-    // filter items on button click
-    $('.button-group').on('click', 'button', function () {
-        $('.button-group').find('.is-checked').removeClass('is-checked');
-        $(this).addClass('is-checked');
-        var filterValue = $(this).attr('data-filter');
-        $grid.isotope({ filter: filterValue });
-    });
+  // isotope filter products
+  var $grid = $(".box-container").isotope({
+    itemSelector: ".grid-item",
+    layoutMode: "fitRows",
+    masonry: {
+      columnWidth: 200,
+    },
+  });
+
+  // filter items on button click
+  $(".button-group").on("click", "button", function () {
+    $(".button-group").find(".is-checked").removeClass("is-checked");
+    $(this).addClass("is-checked");
+    var filterValue = $(this).attr("data-filter");
+    $grid.isotope({ filter: filterValue });
+  });
 }
 
-getProjects().then(data => {
-    showProjects(data);
-})
+getProjects().then((data) => {
+  showProjects(data);
+});
 // fetch projects end
 
 // Start of Tawk.to Live Chat
-var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+var Tawk_API = Tawk_API || {},
+  Tawk_LoadStart = new Date();
 (function () {
-    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-    s1.async = true;
-    s1.src = 'embed.tawk.to/65f8e6081ec1082f04d8c77e/1hpa454aj';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin', '*');
-    s0.parentNode.insertBefore(s1, s0);
+  var s1 = document.createElement("script"),
+    s0 = document.getElementsByTagName("script")[0];
+  s1.async = true;
+  s1.src = "embed.tawk.to/65f8e6081ec1082f04d8c77e/1hpa454aj";
+  s1.charset = "UTF-8";
+  s1.setAttribute("crossorigin", "*");
+  s0.parentNode.insertBefore(s1, s0);
 })();
 // End of Tawk.to Live Chat
 
