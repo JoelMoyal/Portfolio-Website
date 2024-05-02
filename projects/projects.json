@@ -88,7 +88,7 @@
     "name": "Rocketlight",
     "desc": "#",
     "image": "rocketlight",
-    "category": "basicweb",
+    "category": "design",
     "links": {
       "view": "https://www.behance.net/gallery/195828105/Rocketlight"
     }
@@ -97,7 +97,7 @@
     "name": "Ticket system",
     "desc": "#",
     "image": "#",
-    "category": "basicweb",
+    "category": "Coding",
     "links": {
       "view": "#",
       "code": "https://github.com/JoelMoyal/ticket-system"
@@ -107,7 +107,7 @@
     "name": "Calculator",
     "desc": "Fully functional 4-function calculator programmed in C",
     "image": "calculator",
-    "category": "basicweb",
+    "category": "coding",
     "links": {
       "view": "#",
       "code": "https://github.com/JoelMoyal/Calculator-C"
@@ -117,7 +117,7 @@
     "name": "Flappy clone",
     "desc": "#",
     "image": "flappy-clone",
-    "category": "mern",
+    "category": "coding",
     "links": {
       "view": "https://play.unity.com/mg/other/webgl-builds-401239",
       "code": "https://github.com/JoelMoyal/Flappy-Clone"
@@ -127,7 +127,7 @@
     "name": "Mad Libs Game with C",
     "desc": "I developed a barebones Mad Libs game in C as a learning project.",
     "image": "madlibs",
-    "category": "android",
+    "category": "coding",
     "links": {
       "code": "https://github.com/JoelMoyal/MadLibsGame"
     }
@@ -136,7 +136,7 @@
     "name": "Calendar in C",
     "desc": "A calendar program in C that empowers users to select any year and effortlessly visualizes the corresponding calendar.",
     "image": "calendar",
-    "category": "basicweb",
+    "category": "coding",
     "links": {
       "code": "https://github.com/JoelMoyal/calendar-C"
     }
@@ -145,7 +145,7 @@
     "name": "Simple Calculator in C",
     "desc": "About Create a basic calculator using C that performs addition and subtraction functions. This project serves as a learning exercise in programming.",
     "image": "calculator2",
-    "category": "basicweb",
+    "category": "coding",
     "links": {
      "view": "",
       "code": "https://github.com/JoelMoyal/Simple-Calculator-C"
@@ -155,7 +155,7 @@
     "name": "Guessing Game",
     "desc": "This C-based game challenges the user to guess the correct number within the range of 0 to 15 in three attempts, employing while loops for implementation.",
     "image": "guessing",
-    "category": "#",
+    "category": "coding",
     "links": {
       "code": "https://github.com/JoelMoyal/guessing-Game"
     }
