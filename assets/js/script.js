@@ -133,9 +133,9 @@ function showProjects(projects) {
     projectsContainer.innerHTML = projectHTML;
 
     // <!-- tilt js effect starts -->
-    VanillaTilt.init(document.querySelectorAll(".tilt"), {
-        max: 15,
-    });
+    // VanillaTilt.init(document.querySelectorAll(".tilt"), {
+    //     max: 15,
+    // });
     // <!-- tilt js effect ends -->
 
     /* ===== SCROLL REVEAL ANIMATION ===== */
