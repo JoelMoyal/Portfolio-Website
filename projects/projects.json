@@ -1,19 +1,58 @@
 [
   {
     "name": " CONcoin Crypto Prototype",
-    "desc": " A fictitious cryptocurrency with a detailed website advertising products and print products ",
+    "desc": " A fictitious cryptocurrency with a detailed website advertising physical and digital products.",
     "image" :"concoin",
-    "category": "coding",
+    "category": "Web",
     "links": {
       "view": "https://joelmoyal.github.io/ConCoin-Crypto-Prototype/",
       "code": "https://github.com/JoelMoyal/ConCoinCryptoPrototype"
     }
   },
   {
+    "name": "Flappy clone",
+    "desc": "Unity-based game based on Flappy Bird. Available on browser or desktop (Windows, macOS).",
+    "image": "flappy-clone",
+    "category": "Games",
+    "links": {
+      "view": "https://play.unity.com/mg/other/webgl-builds-401239",
+      "code": "https://github.com/JoelMoyal/Flappy-Clone"
+    }
+  },
+  {
+    "name": "Ticket System",
+    "desc": "Ticket reservation service with integrated database, full end-to-end product",
+    "image": "madlibs",
+    "category": "Web",
+    "links": {
+      "view": "#",
+      "code": "https://github.com/JoelMoyal/ticket-system"
+    }
+  },
+  {
+    "name": "Calendar in C",
+    "desc": "A calendar program in C that empowers users to select any year and effortlessly visualizes the corresponding calendar.",
+    "image": "calendar",
+    "category": "Snippets",
+    "links": {
+      "code": "https://github.com/JoelMoyal/calendar-C"
+    }
+  },
+  {
+    "name": "My Portfolio",
+    "desc": "Portfolio Website to showcase my projects, written in javascript, html, css.",
+    "image": "portfolio",
+    "category": "Web",
+    "links": {
+      "view": "#",
+      "code": "#"
+    }
+  },
+  {
     "name": "Food Counter",
-    "desc": "All in one SPPU Engineering resources. Built using Java, XML and Firebase.",
+    "desc": "Persistent data learning project using cloud database.",
     "image": "ticket_system",
-    "category": "Coding",
+    "category": "Web",
     "links": {
       "view": "https://github.com/JoelMoyal/food-counter",
       "code": "https://github.com/JoelMoyal/food-counter"
@@ -23,27 +62,67 @@
     "name": "Bürgerbautrupp",
     "desc": "The NGO Village Project website, managed by me, documents projects, provides event details, fosters community involvement, and ensures legal compliance.",
     "image": "buergerbautrupp",
-    "category": "Coding",
+    "category": "Web",
     "links": {
       "view": "http://www.xn--brgerbautrupp-wob.de/",
       "code": "https://github.com/JoelMoyal/Buergerbautrupp"
     }
   },
   {
-    "name": "My Portfolio",
-    "desc": "Native android app built using Java, XML and Volley dependencies. Provides weather forecast.",
-    "image": "portfolio",
-    "category": "Coding",
+    "name": "Calculator",
+    "desc": "Fully functional 4-function calculator programmed in C",
+    "image": "calculator",
+    "category": "Snippets",
     "links": {
       "view": "#",
-      "code": "#"
+      "code": "https://github.com/JoelMoyal/Calculator-C"
+    }
+  },
+
+  {
+    "name": "Mad Libs Game with C",
+    "desc": "A barebones Mad Libs game in C as a learning project.",
+    "image": "madlibs",
+    "category": "Snippets",
+    "links": {
+      "code": "https://github.com/JoelMoyal/MadLibsGame"
     }
   },
   {
+    "name": "Guessing Game",
+    "desc": "A C-based game where a user guesses the correct number within the range of 0 to 15 in three attempts.",
+    "image": "guessing",
+    "category": "Snippets",
+    "links": {
+      "code": "https://github.com/JoelMoyal/guessing-Game"
+    }
+  },
+
+{
+  "name": "Simple Calculator in C",
+  "desc": "A basic calculator using C that performs addition and subtraction functions.",
+  "image": "calculator2",
+  "category": "Snippets",
+  "links": {
+   "view": "",
+    "code": "https://github.com/JoelMoyal/Simple-Calculator-C"
+  }
+},
+{
+  "name": "Rocketlight",
+  "desc": "Digital corperate 3D designs for imaginary company using Blender and Adobe.",
+  "image": "rocketlight",
+  "category": "designs",
+  "links": {
+    "view": "https://www.behance.net/gallery/195828105/Rocketlight"
+  }
+},
+
+  {
     "name": "Limetless",
-    "desc": "A Futuristic Magazines",
+    "desc": "A Futuristic Magazine created in Adobe InDesign and Adobe Illustrator.",
     "image": "catalog",
-    "category": "design",
+    "category": "designs",
     "links": {
       "view": " https://www.behance.net/gallery/194495239/Future-Magazine "
     }
@@ -52,7 +131,7 @@
     "name": "Flamenco Hotel Design",
     "desc": "The project cleverly integrates a graceful flamingo and prestigious hotel stars on a business card, effectively communicating the luxury brand's elegance and exclusivity.",
     "image": "Card",
-    "category": "design",
+    "category": "designs",
     "links": {
       "view": "https://www.behance.net/gallery/195806893/Flamingo-Hotel"
     }
@@ -61,7 +140,7 @@
     "name": "Advertisment",
     "desc": "Advertising without Image and Colour",
     "image": "Advertisment",
-    "category": "design",
+    "category": "designs",
     "links": {
       "view": "https://www.behance.net/gallery/195535217/Billboard-Advertising"
     }
@@ -70,154 +149,19 @@
     "name": "Photograph",
     "desc": "A Glimpse Through My Lens: A Journey Through the World of Photography",
     "image": "Photograph",
-    "category": "design",
+    "category": "designs",
     "links": {
       "view": "https://www.behance.net/gallery/195795697/A-Glimpse-Through-My-Lens"
     }
   },
   {
     "name": "Trettman Website",
-    "desc": "The website is a project to learn to create websites with guidance from W3Schools.",
+    "desc": "A project to learn to create websites with guidance from W3Schools.",
     "image": "trettman",
-    "category": "code",
+    "category": "Web",
     "links": {
       "code": "https://github.com/JoelMoyal/Trettman-website"
     }
-  },
-  {
-    "name": "Rocketlight",
-    "desc": "#",
-    "image": "rocketlight",
-    "category": "design",
-    "links": {
-      "view": "https://www.behance.net/gallery/195828105/Rocketlight"
-    }
-  },
-  {
-    "name": "Ticket system",
-    "desc": "#",
-    "image": "#",
-    "category": "Coding",
-    "links": {
-      "view": "#",
-      "code": "https://github.com/JoelMoyal/ticket-system"
-    }
-  },
-  {
-    "name": "Calculator",
-    "desc": "Fully functional 4-function calculator programmed in C",
-    "image": "calculator",
-    "category": "coding",
-    "links": {
-      "view": "#",
-      "code": "https://github.com/JoelMoyal/Calculator-C"
-    }
-  },
-  {
-    "name": "Flappy clone",
-    "desc": "#",
-    "image": "flappy-clone",
-    "category": "coding",
-    "links": {
-      "view": "https://play.unity.com/mg/other/webgl-builds-401239",
-      "code": "https://github.com/JoelMoyal/Flappy-Clone"
-    }
-  },
-  {
-    "name": "Mad Libs Game with C",
-    "desc": "I developed a barebones Mad Libs game in C as a learning project.",
-    "image": "madlibs",
-    "category": "coding",
-    "links": {
-      "code": "https://github.com/JoelMoyal/MadLibsGame"
-    }
-  },
-  {
-    "name": "Calendar in C",
-    "desc": "A calendar program in C that empowers users to select any year and effortlessly visualizes the corresponding calendar.",
-    "image": "calendar",
-    "category": "coding",
-    "links": {
-      "code": "https://github.com/JoelMoyal/calendar-C"
-    }
-  },
-  {
-    "name": "Simple Calculator in C",
-    "desc": "About Create a basic calculator using C that performs addition and subtraction functions. This project serves as a learning exercise in programming.",
-    "image": "calculator2",
-    "category": "coding",
-    "links": {
-     "view": "",
-      "code": "https://github.com/JoelMoyal/Simple-Calculator-C"
-    }
-  },
-  {
-    "name": "Guessing Game",
-    "desc": "This C-based game challenges the user to guess the correct number within the range of 0 to 15 in three attempts, employing while loops for implementation.",
-    "image": "guessing",
-    "category": "coding",
-    "links": {
-      "code": "https://github.com/JoelMoyal/guessing-Game"
-    }
-  },
-  {
-    "name": "Ticket System",
-    "desc": "#",
-    "imagge": "flappy",
-    "category": "basicweb",
-    "links": {
-      "view": "",
-      "code": "#"
-    }
-  },
-  {
-    "name": "Ticket system",
-    "desc": "#",
-    "image": "#",
-    "category": "basicweb",
-    "links": {
-      "view": "#",
-      "code": "https://github.com/JoelMoyal/ticket-system"
-    }
-  },
-  {
-    "name": " ",
-    "desc": "#",
-    "image": "#",
-    "category": "basicweb",
-    "links": {
-      "view": "#",
-      "code": "#"
-    }
-  },
-  {
-    "name": "d",
-    "desc": "  ",
-    "image": "#",
-    "category": "basicweb",
-    "links": {
-      "view": "#",
-      "code": "#"
-    }
-  },
-  {
-    "name": "Unity Game",
-    "desc": "In Progress",
-    "image": "#",
-    "category": "basicweb",
-    "links": {
-      "view": "#",
-      "code": "#"
-    }
-  },
-  {
-    "name": "Unity Game ",
-    "desc": "In Progress",
-    "image": "#",
-    "category": "basicweb",
-    "links": {
-      "view": "#",
-      "code": "#"
-    }
   }
+  
 ]
