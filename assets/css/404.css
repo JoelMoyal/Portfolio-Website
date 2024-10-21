@@ -60,7 +60,7 @@ section {
 header .logo {
   font-size: 1.9rem;
   font-weight: 800;
-  text-decoration: none;
+  text-decoration: none; 
   color: #0e2431;
 }
 header .logo i {
