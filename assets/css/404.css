@@ -69,6 +69,7 @@ header .logo i {
 header .logo:hover {
   color: #fc8c05;
 }
+
 header .navbar ul {
   list-style: none;
   display: flex;
