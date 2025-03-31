@@ -30,6 +30,16 @@
     }
   },
   {
+    "name": "Password Generator",
+    "desc": "A modern, multilingual, client-side password generator that creates strong, secure passwords with customizable options.",
+    "image": "pawg",
+    "category": "Snippets",
+    "links": {
+      "view": "https://pwasecurity.org/",
+      "code": "https://github.com/JoelMoyal/Password-generator"
+    }
+  },
+  {
     "name": "Calendar in C",
     "desc": "A calendar program in C that empowers users to select any year and effortlessly visualizes the corresponding calendar.",
     "image": "calendar",
