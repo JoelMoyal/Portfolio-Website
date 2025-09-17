@@ -1,0 +1,195 @@
+{
+  "projects": [
+    {
+      "name": "CONcoin Crypto Prototype",
+      "desc": "A fictitious cryptocurrency with a detailed website advertising physical and digital products.",
+      "image": "concoin.png",
+      "category": "Web",
+      "links": {
+        "view": "https://joelmoyal.github.io/ConCoin-Crypto-Prototype/",
+        "code": "https://github.com/JoelMoyal/ConCoinCryptoPrototype"
+      }
+    },
+    {
+      "name": "AI Chatbot",
+      "desc": "An intelligent AI-powered chatbot built with Streamlit, featuring natural language processing and conversational capabilities.",
+      "image": "portfolio.png",
+      "category": "Web",
+      "links": {
+        "view": "https://ai-chatbbot-joelmoyal.streamlit.app/",
+        "code": "https://github.com/JoelMoyal/Ai-chatbot-workshop"
+      }
+    },
+    {
+      "name": "REWO",
+      "desc": "A platform helping remote workers, students, and digital nomads find the best laptop-friendly spaces with community ratings for Wi-Fi, outlets, noise levels, and seating comfort.",
+      "image": "Catalog.png",
+      "category": "Web",
+      "links": {
+        "view": "#",
+        "code": "#"
+      }
+    },
+    {
+      "name": "Flappy Clone",
+      "desc": "Unity-based game based on Flappy Bird. Available on browser or desktop (Windows, macOS).",
+      "image": "Flappy-clone.png",
+      "category": "Games",
+      "links": {
+        "view": "https://play.unity.com/en/games/98aa4ce9-ef0c-4221-8c98-142e5b3b40da/flappy-clone",
+        "code": "https://github.com/JoelMoyal/Flappy-Clone"
+      }
+    },
+    {
+      "name": "Ticket System",
+      "desc": "Ticket reservation service with integrated database, full end-to-end product",
+      "image": "Ticket_system.png",
+      "category": "Web",
+      "links": {
+        "view": "#",
+        "code": "https://github.com/JoelMoyal/ticket-system"
+      }
+    },
+    {
+      "name": "Password Generator",
+      "desc": "A modern, multilingual, client-side password generator that creates strong, secure passwords with customizable options.",
+      "image": "pawg.png",
+      "category": "Snippets",
+      "links": {
+        "view": "https://pwasecurity.org/",
+        "code": "https://github.com/JoelMoyal/Password-generator"
+      }
+    },
+    {
+      "name": "Calendar in C",
+      "desc": "A calendar program in C that empowers users to select any year and effortlessly visualizes the corresponding calendar.",
+      "image": "calendar.png",
+      "category": "Snippets",
+      "links": {
+        "code": "https://github.com/JoelMoyal/calendar-C"
+      }
+    },
+    {
+      "name": "My Portfolio",
+      "desc": "Portfolio Website to showcase my projects, written in javascript, html, css.",
+      "image": "portfolio.png",
+      "category": "Web",
+      "links": {
+        "view": "https://joelmoyal.com/",
+        "code": "https://github.com/JoelMoyal/Portfolio-Website"
+      }
+    },
+    {
+      "name": "Food Counter",
+      "desc": "Persistent data learning project using cloud database.",
+      "image": "Card.png",
+      "category": "Web",
+      "links": {
+        "view": "https://github.com/JoelMoyal/food-counter",
+        "code": "https://github.com/JoelMoyal/food-counter"
+      }
+    },
+    {
+      "name": "Bürgerbautrupp",
+      "desc": "The NGO Village Project website, managed by me, documents projects, provides event details, fosters community involvement, and ensures legal compliance.",
+      "image": "buergerbautrupp.png",
+      "category": "Web",
+      "links": {
+        "view": "http://www.xn--brgerbautrupp-wob.de/",
+        "code": "https://github.com/JoelMoyal/Buergerbautrupp"
+      }
+    },
+    {
+      "name": "Calculator",
+      "desc": "Fully functional 4-function calculator programmed in C",
+      "image": "calculator.png",
+      "category": "Snippets",
+      "links": {
+        "view": "#",
+        "code": "https://github.com/JoelMoyal/Calculator-C"
+      }
+    },
+    {
+      "name": "Mad Libs Game with C",
+      "desc": "A barebones Mad Libs game in C as a learning project.",
+      "image": "madlibs.png",
+      "category": "Snippets",
+      "links": {
+        "code": "https://github.com/JoelMoyal/MadLibsGame"
+      }
+    },
+    {
+      "name": "Guessing Game",
+      "desc": "A C-based game where a user guesses the correct number within the range of 0 to 15 in three attempts.",
+      "image": "guessing.png",
+      "category": "Snippets",
+      "links": {
+        "code": "https://github.com/JoelMoyal/guessing-Game"
+      }
+    },
+    {
+      "name": "Simple Calculator in C",
+      "desc": "A basic calculator using C that performs addition and subtraction functions.",
+      "image": "calculator2.png",
+      "category": "Snippets",
+      "links": {
+        "view": "#",
+        "code": "https://github.com/JoelMoyal/Simple-Calculator-C"
+      }
+    },
+    {
+      "name": "Rocketlight",
+      "desc": "Digital corporate 3D designs for an imaginary company using Blender and Adobe.",
+      "image": "rocketlight.png",
+      "category": "Designs",
+      "links": {
+        "view": "https://www.behance.net/gallery/195828105/Rocketlight"
+      }
+    },
+    {
+      "name": "Limitless",
+      "desc": "A Futuristic Magazine created in Adobe InDesign and Adobe Illustrator.",
+      "image": "Catalog.png",
+      "category": "Designs",
+      "links": {
+        "view": "https://www.behance.net/gallery/194495239/Future-Magazine"
+      }
+    },
+    {
+      "name": "Flamenco Hotel Design",
+      "desc": "The project cleverly integrates a graceful flamingo and prestigious hotel stars on a business card, effectively communicating the luxury brand's elegance and exclusivity.",
+      "image": "Card.png",
+      "category": "Designs",
+      "links": {
+        "view": "https://www.behance.net/gallery/195806893/Flamingo-Hotel"
+      }
+    },
+    {
+      "name": "Advertisement",
+      "desc": "Advertising without Image and Colour",
+      "image": "Advertisment.png",
+      "category": "Designs",
+      "links": {
+        "view": "https://www.behance.net/gallery/195535217/Billboard-Advertising"
+      }
+    },
+    {
+      "name": "Photograph",
+      "desc": "A Glimpse Through My Lens: A Journey Through the World of Photography",
+      "image": "photograph.png",
+      "category": "Designs",
+      "links": {
+        "view": "https://www.behance.net/gallery/195795697/A-Glimpse-Through-My-Lens"
+      }
+    },
+    {
+      "name": "Trettman Website",
+      "desc": "A project to learn to create websites with guidance from W3Schools.",
+      "image": "trettman.png",
+      "category": "Web",
+      "links": {
+        "code": "https://github.com/JoelMoyal/Trettman-website"
+      }
+    }
+  ]
+}

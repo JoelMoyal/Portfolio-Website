@@ -1,0 +1,123 @@
+[
+    
+    {
+        "name": "HTML5",
+        "icon": "https://img.icons8.com/color/48/000000/html-5--v1.png"
+    },
+    {
+        "name": "CSS3",
+        "icon": "https://img.icons8.com/color/48/000000/css3.png"
+    },
+    {
+        "name": "JavaScript",
+        "icon": "https://img.icons8.com/color/48/000000/javascript--v1.png"
+    },
+    {
+        "name": "C",
+        "icon": "https://img.icons8.com/color/48/c-programming.png"
+    },
+    {
+        "name": "PHP",
+        "icon": "https://img.icons8.com/offices/48/000000/php-logo.png"
+    },
+    {
+        "name": "Java",
+        "icon": "https://img.icons8.com/color/48/000000/java-coffee-cup-logo--v1.png"
+    },
+    {
+        "name": "Git",
+        "icon": "https://img.icons8.com/color/48/000000/git.png"
+    },
+    {
+        "name": "Liquid",
+        "icon": "assets/images/skills/Liquid.png"
+    },
+    {
+        "name": "python",
+        "icon": "https://img.icons8.com/color/48/python--v1.png"
+    },
+    {
+        "name": "Shopify",
+        "icon": "https://img.icons8.com/color/48/shopify.png"
+    },
+    {
+        "name": "Bootstrap",
+        "icon": "https://img.icons8.com/color/48/000000/bootstrap.png"
+    },
+    {
+        "name": "WordPress",
+        "icon": "https://img.icons8.com/color/48/wordpress.png"
+    },
+    {
+        "name": "Azure",
+        "icon": "https://img.icons8.com/doodle/48/adobe-logo.png"
+    },
+    {
+        "name": "Microsoft",
+        "icon": "https://img.icons8.com/color/48/microsoft.png"
+    },
+    {
+        "name": "Figma",
+        "icon": "https://img.icons8.com/color/48/figma--v1.png"
+    },
+    {
+        "name": "Github",
+        "icon": "https://img.icons8.com/glyph-neue/48/ffffff/github.png"
+    },
+    {
+        "name": "Unity 3D",
+        "icon": "https://img.icons8.com/nolan/64/unity.png"
+    },
+    {
+        "name": "Blender",
+        "icon": "https://img.icons8.com/color/48/blender-3d.png"
+    },
+    {
+        "name": "jQuery",
+        "icon": "https://img.icons8.com/ios-filled/48/1169ae/jquery.png"
+    },
+    {
+        "name": "C++",
+        "icon": "https://img.icons8.com/color/48/000000/c-plus-plus-logo.png"
+    },
+    {
+        "name": "SEO/SEA",
+        "icon": "https://img.icons8.com/fluency/48/positive-dynamic.png"
+    },
+    {
+        "name": "MySQL",
+        "icon": "https://img.icons8.com/color/48/000000/mysql-logo.png"
+    },
+    {
+        "name": "Canva",
+        "icon": "https://img.icons8.com/fluency/48/canva.png"
+    },
+    {
+        "name": "Notion",
+        "icon": "https://img.icons8.com/nolan/48/notion.png"
+    },
+    {
+        "name": "Adobe Photoshop",
+        "icon": "https://img.icons8.com/color/48/adobe-photoshop--v1.png"
+    },
+    {
+        "name": "Adobe Lightroom",
+        "icon": "https://img.icons8.com/color/48/adobe-lightroom--v1.png"
+    },
+    {
+        "name": "Adobe Premiere Pro",
+        "icon": "https://img.icons8.com/color/48/adobe-premiere-pro--v1.png"
+    },
+    {
+        "name": "Adobe XD",
+        "icon": "https://img.icons8.com/color/48/adobe-xd--v1.png"
+    },
+    {
+        "name": "Adobe Illustrator",
+        "icon": "https://img.icons8.com/color/48/adobe-illustrator--v1.png"
+    },
+    {
+        "name": "Adobe INDESIGN",
+        "icon": "https://img.icons8.com/color/48/adobe-indesign--v1.png"
+    }    
+]
