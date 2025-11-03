@@ -118,13 +118,11 @@ var typed = new Typed(".typing-text", {
 // <!-- typed js effect ends -->
 
 async function fetchData(type = "skills") {
-    let response
-    type === "skills" ?
-        response = await fetch("skills.json")
-        :
-        response = await fetch("./projects/projects.json")
+    const response = type === "skills"
+        ? await fetch("skills.json")
+        : await fetch("./projects/projects.json");
     const data = await response.json();
-    return data;
+    return type === "skills" ? data : (data.projects || []);
 }
 
 function showSkills(skills) {
@@ -146,9 +144,14 @@ function showProjects(projects) {
     let projectsContainer = document.querySelector("#work .box-container");
     let projectHTML = "";
     projects.slice(0, 10).filter(project => project.category != "android").forEach(project => {
+        const imageFileName = project.image
+            ? (project.image.includes('.') ? project.image : `${project.image}.png`)
+            : "portfolio.png";
+        const imagePath = `/assets/images/projects/${imageFileName}`;
+        const links = project.links || {};
         projectHTML += `
         <div class="box tilt">
-      <img draggable="false" src="/assets/images/projects/${project.image}.png" alt="project" />
+      <img draggable="false" src="${imagePath}" alt="project" />
       <div class="content">
         <div class="tag">
         <h3>${project.name}</h3>
@@ -156,11 +159,11 @@ function showProjects(projects) {
         <div class="desc">
           <p>${project.desc}</p>
           <div class="btns">`;
-          if (project.links.view) {
-            projectHTML += `<a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>`;
+          if (links.view) {
+            projectHTML += `<a href="${links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>`;
         }
-        if (project.links.code) {
-            projectHTML += `<a href="${project.links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>`;
+        if (links.code) {
+            projectHTML += `<a href="${links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>`;
         }
         projectHTML += `
           </div>
@@ -195,6 +198,8 @@ fetchData().then(data => {
 
 fetchData("projects").then(data => {
     showProjects(data);
+}).catch(error => {
+    console.error("Unable to load projects.", error);
 });
 
 // <!-- tilt js effect starts -->
