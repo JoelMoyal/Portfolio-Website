@@ -84,18 +84,6 @@
         "icon": "https://img.icons8.com/color/48/redis.png"
     },
     {
-        "name": "Docker",
-        "icon": "https://img.icons8.com/color/48/docker.png"
-    },
-    {
-        "name": "Vercel",
-        "icon": "https://img.icons8.com/color/48/vercel.png"
-    },
-    {
-        "name": "Railway",
-        "icon": "https://img.icons8.com/color/48/railway.png"
-    },
-    {
         "name": "OpenAI",
         "icon": "https://img.icons8.com/color/48/chatgpt.png"
     },
@@ -106,6 +94,22 @@
     {
         "name": "NVIDIA NIM",
         "icon": "https://img.icons8.com/color/48/nvidia.png"
+    },
+    {
+        "name": "Docker",
+        "icon": "https://img.icons8.com/color/48/docker.png"
+    },
+    {
+        "name": "AWS",
+        "icon": "https://img.icons8.com/color/48/amazon-web-services.png"
+    },
+    {
+        "name": "Vercel",
+        "icon": "https://img.icons8.com/color/48/vercel.png"
+    },
+    {
+        "name": "Railway",
+        "icon": "https://img.icons8.com/color/48/railway.png"
     },
     {
         "name": "Git",
