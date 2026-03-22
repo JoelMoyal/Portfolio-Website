@@ -100,6 +100,10 @@
         "icon": "https://img.icons8.com/color/48/chatgpt.png"
     },
     {
+        "name": "LangChain",
+        "icon": "https://img.icons8.com/color/48/artificial-intelligence.png"
+    },
+    {
         "name": "NVIDIA NIM",
         "icon": "https://img.icons8.com/color/48/nvidia.png"
     },
