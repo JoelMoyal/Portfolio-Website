@@ -11,13 +11,11 @@
   margin-bottom: 1.5rem;
   letter-spacing: 0.05rem;
 }
-
 .internship-badge i {
   font-size: 0.75rem;
   margin-right: 0.5rem;
   animation: pulse-dot 2s ease-in-out infinite;
 }
-
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.3; }
@@ -33,7 +31,6 @@
   overflow: hidden;
   border-top: 2px solid #ffd900;
 }
-
 .building-label {
   font-size: 1.2rem;
   font-weight: 700;
@@ -43,12 +40,10 @@
   letter-spacing: 0.08rem;
   white-space: nowrap;
 }
-
 .ticker-wrapper {
   overflow: hidden;
   flex: 1;
 }
-
 .ticker-inner {
   display: inline-block;
   white-space: nowrap;
@@ -56,24 +51,9 @@
   color: rgba(255, 255, 255, 0.85);
   animation: ticker-scroll 28s linear infinite;
 }
-
 @keyframes ticker-scroll {
-  0% { transform: translateX(100vw); }
+  0%   { transform: translateX(100vw); }
   100% { transform: translateX(-100%); }
-}
-
-/* ===== LANGUAGES ===== */
-.languages-line {
-  font-size: 1.5rem;
-  font-family: "Nunito", sans-serif;
-  font-weight: 600;
-  color: #444;
-  margin-top: 1.5rem;
-  text-transform: none;
-}
-
-.languages-line strong {
-  color: #002057;
 }
 
 /* ===== STATS STRIP ===== */
@@ -86,18 +66,15 @@
   flex-wrap: wrap;
   gap: 6rem;
 }
-
 .stat-item {
   text-align: center;
 }
-
 .stat-item h3 {
   font-size: 4.5rem;
   font-weight: 800;
   color: #ffd900;
   line-height: 1;
 }
-
 .stat-item p {
   font-size: 1.3rem;
   color: rgba(255, 255, 255, 0.75);
@@ -105,9 +82,21 @@
   text-transform: uppercase;
   letter-spacing: 0.12rem;
 }
-
 @media (max-width: 450px) {
   .stats-strip { gap: 3rem; padding: 3rem 5%; }
   .stat-item h3 { font-size: 3.5rem; }
   .building-now { padding: 0.8rem 4%; }
+}
+
+/* ===== LANGUAGES ===== */
+.languages-line {
+  font-size: 1.5rem;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  color: #444;
+  margin-top: 1.5rem;
+  text-transform: none;
+}
+.languages-line strong {
+  color: #002057;
 }
