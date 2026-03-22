@@ -75,3 +75,39 @@
 .languages-line strong {
   color: #002057;
 }
+
+/* ===== STATS STRIP ===== */
+.stats-strip {
+  background: linear-gradient(135deg, #002057 0%, #420177 100%);
+  padding: 5rem 9%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6rem;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item h3 {
+  font-size: 4.5rem;
+  font-weight: 800;
+  color: #ffd900;
+  line-height: 1;
+}
+
+.stat-item p {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12rem;
+}
+
+@media (max-width: 450px) {
+  .stats-strip { gap: 3rem; padding: 3rem 5%; }
+  .stat-item h3 { font-size: 3.5rem; }
+  .building-now { padding: 0.8rem 4%; }
+}
