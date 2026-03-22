@@ -49,6 +49,10 @@
         "icon": "https://img.icons8.com/color/48/nodejs.png"
     },
     {
+        "name": "Express.js",
+        "icon": "https://img.icons8.com/color/48/express-js.png"
+    },
+    {
         "name": "Supabase",
         "icon": "https://img.icons8.com/color/48/supabase.png"
     },
@@ -63,6 +67,22 @@
     {
         "name": "Docker",
         "icon": "https://img.icons8.com/color/48/docker.png"
+    },
+    {
+        "name": "Vercel",
+        "icon": "https://img.icons8.com/color/48/vercel.png"
+    },
+    {
+        "name": "Railway",
+        "icon": "https://img.icons8.com/color/48/railway.png"
+    },
+    {
+        "name": "OpenAI",
+        "icon": "https://img.icons8.com/color/48/chatgpt.png"
+    },
+    {
+        "name": "NVIDIA NIM",
+        "icon": "https://img.icons8.com/color/48/nvidia.png"
     },
     {
         "name": "Git",
