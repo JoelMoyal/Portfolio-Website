@@ -144,10 +144,14 @@
 .social-icons a.scribesnap:hover {
   background-color: #420177;
 }
+.social-icons a.scribesnap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
 .social-icons a.scribesnap img {
   width: 26px;
   height: 26px;
-  vertical-align: middle;
 }
 /* social icons end */
 
