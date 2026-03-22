@@ -1,6 +1,36 @@
 {
   "projects": [
     {
+      "name": "ScribeSnap.ai",
+      "desc": "AI-powered EdTech tool that extracts transcripts from YouTube, Vimeo, and uploaded videos — turns them into summaries, flashcards, chapter breakdowns, and study guides. 6,000+ unique users, 50–80 daily actives.",
+      "image": "portfolio.png",
+      "category": "AI",
+      "links": {
+        "view": "https://scribesnap.ai",
+        "code": "#"
+      }
+    },
+    {
+      "name": "SpotGrove",
+      "desc": "Full-stack web and mobile app for remote workers to discover cafes, libraries, and coworking spaces. AI trust layer powered by Claude moderates every submission and cross-references Google Places before publishing.",
+      "image": "Catalog.png",
+      "category": "AI",
+      "links": {
+        "view": "#",
+        "code": "#"
+      }
+    },
+    {
+      "name": "Genomic Cancer Analysis Agent",
+      "desc": "Built in 2 hours at the NVIDIA GTC Hackathon. AI clinical genomics assistant for oncologists — upload a genomic report, get evidence-based mutation analysis. NVIDIA Nemotron-70B via NIM API, live PubMed and ClinVar retrieval.",
+      "image": "portfolio.png",
+      "category": "AI",
+      "links": {
+        "view": "https://genom-three.vercel.app/",
+        "code": "#"
+      }
+    },
+    {
       "name": "CONcoin Crypto Prototype",
       "desc": "A fictitious cryptocurrency with a detailed website advertising physical and digital products.",
       "image": "concoin.png",
@@ -14,20 +44,10 @@
       "name": "AI Chatbot",
       "desc": "An intelligent AI-powered chatbot built with Streamlit, featuring natural language processing and conversational capabilities.",
       "image": "portfolio.png",
-      "category": "Web",
+      "category": "AI",
       "links": {
         "view": "https://ai-chatbbot-joelmoyal.streamlit.app/",
         "code": "https://github.com/JoelMoyal/Ai-chatbot-workshop"
-      }
-    },
-    {
-      "name": "REWO",
-      "desc": "A platform helping remote workers, students, and digital nomads find the best laptop-friendly spaces with community ratings for Wi-Fi, outlets, noise levels, and seating comfort.",
-      "image": "Catalog.png",
-      "category": "Web",
-      "links": {
-        "view": "#",
-        "code": "#"
       }
     },
     {
@@ -42,7 +62,7 @@
     },
     {
       "name": "Ticket System",
-      "desc": "Ticket reservation service with integrated database, full end-to-end product",
+      "desc": "Ticket reservation service with integrated database, full end-to-end product.",
       "image": "Ticket_system.png",
       "category": "Web",
       "links": {
@@ -71,7 +91,7 @@
     },
     {
       "name": "My Portfolio",
-      "desc": "Portfolio Website to showcase my projects, written in javascript, html, css.",
+      "desc": "Portfolio website to showcase my projects, written in JavaScript, HTML, CSS.",
       "image": "portfolio.png",
       "category": "Web",
       "links": {
@@ -91,7 +111,7 @@
     },
     {
       "name": "Bürgerbautrupp",
-      "desc": "The NGO Village Project website, managed by me, documents projects, provides event details, fosters community involvement, and ensures legal compliance.",
+      "desc": "The NGO Village Project website — documents projects, provides event details, fosters community involvement, and ensures legal compliance.",
       "image": "buergerbautrupp.png",
       "category": "Web",
       "links": {
@@ -101,7 +121,7 @@
     },
     {
       "name": "Calculator",
-      "desc": "Fully functional 4-function calculator programmed in C",
+      "desc": "Fully functional 4-function calculator programmed in C.",
       "image": "calculator.png",
       "category": "Snippets",
       "links": {
@@ -148,7 +168,7 @@
     },
     {
       "name": "Limitless",
-      "desc": "A Futuristic Magazine created in Adobe InDesign and Adobe Illustrator.",
+      "desc": "A futuristic magazine created in Adobe InDesign and Adobe Illustrator.",
       "image": "Catalog.png",
       "category": "Designs",
       "links": {
@@ -157,7 +177,7 @@
     },
     {
       "name": "Flamenco Hotel Design",
-      "desc": "The project cleverly integrates a graceful flamingo and prestigious hotel stars on a business card, effectively communicating the luxury brand's elegance and exclusivity.",
+      "desc": "Business card integrating a graceful flamingo and hotel stars — communicating luxury brand elegance and exclusivity.",
       "image": "Card.png",
       "category": "Designs",
       "links": {
@@ -166,7 +186,7 @@
     },
     {
       "name": "Advertisement",
-      "desc": "Advertising without Image and Colour",
+      "desc": "Advertising without image and colour.",
       "image": "Advertisment.png",
       "category": "Designs",
       "links": {
@@ -175,20 +195,11 @@
     },
     {
       "name": "Photograph",
-      "desc": "A Glimpse Through My Lens: A Journey Through the World of Photography",
+      "desc": "A glimpse through my lens: a journey through the world of photography.",
       "image": "photograph.png",
       "category": "Designs",
       "links": {
         "view": "https://www.behance.net/gallery/195795697/A-Glimpse-Through-My-Lens"
-      }
-    },
-    {
-      "name": "Trettman Website",
-      "desc": "A project to learn to create websites with guidance from W3Schools.",
-      "image": "trettman.png",
-      "category": "Web",
-      "links": {
-        "code": "https://github.com/JoelMoyal/Trettman-website"
       }
     }
   ]
