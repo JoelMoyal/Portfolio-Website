@@ -124,6 +124,22 @@
         "icon": "https://img.icons8.com/color/48/shopify.png"
     },
     {
+        "name": "shadcn/ui",
+        "icon": "https://img.icons8.com/color/48/layout.png"
+    },
+    {
+        "name": "Firebase",
+        "icon": "https://img.icons8.com/color/48/firebase.png"
+    },
+    {
+        "name": "MongoDB",
+        "icon": "https://img.icons8.com/color/48/mongodb.png"
+    },
+    {
+        "name": "Cloudflare",
+        "icon": "https://img.icons8.com/color/48/cloudflare.png"
+    },
+    {
         "name": "Figma",
         "icon": "https://img.icons8.com/color/48/figma--v1.png"
     },
