@@ -1,5 +1,4 @@
 [
-
     {
         "name": "HTML5",
         "icon": "https://img.icons8.com/color/48/000000/html-5--v1.png"
@@ -29,8 +28,8 @@
         "icon": "https://img.icons8.com/color/48/c-programming.png"
     },
     {
-        "name": "PHP",
-        "icon": "https://img.icons8.com/offices/48/000000/php-logo.png"
+        "name": "Swift",
+        "icon": "https://img.icons8.com/color/48/swift.png"
     },
     {
         "name": "React",
