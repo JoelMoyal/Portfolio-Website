@@ -31,7 +31,7 @@ function getProjects() {
   return fetch("projects.json")
     .then((response) => response.json())
     .then((data) => {
-      return data;
+      return data.projects || data;
     });
 }
 

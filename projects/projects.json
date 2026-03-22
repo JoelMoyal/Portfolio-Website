@@ -3,11 +3,11 @@
     {
       "name": "ScribeSnap.ai",
       "desc": "AI-powered EdTech tool that extracts transcripts from YouTube, Vimeo, and uploaded videos — turns them into summaries, flashcards, chapter breakdowns, and study guides. 6,000+ unique users, 50–80 daily actives.",
-      "image": "portfolio.png",
+      "image": "scribesnap.png",
       "category": "AI",
       "links": {
         "view": "https://scribesnap.ai",
-        "code": "#"
+        "video": "https://www.youtube.com/watch?v=0CO9lSEXG3U"
       }
     },
     {
