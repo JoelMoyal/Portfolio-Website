@@ -56,44 +56,6 @@ $(document).ready(function () {
 
 });
 
-// Skills data
-const skillsData = {
-  "Programming Languages": ["C", "JavaScript", "TypeScript", "Python", "Java", "HTML5", "CSS3", "SQL"],
-  "Frameworks & Libraries": ["React", "Node.js", "Express.js", "Bootstrap", "jQuery"],
-  "Tools & Platforms": ["Git", "GitHub", "VS Code", "Postman", "MongoDB", "MySQL"],
-  "Design": ["Adobe Photoshop", "Adobe Illustrator", "Adobe InDesign", "Figma", "Blender"]
-};
-
-// Load skills
-function loadSkills() {
-  const skillsContainer = document.getElementById("skillsContainer");
-  
-  Object.entries(skillsData).forEach(([category, skills]) => {
-    const categoryDiv = document.createElement("div");
-    categoryDiv.className = "skills-category";
-    
-    const categoryTitle = document.createElement("h3");
-    categoryTitle.textContent = category;
-    categoryDiv.appendChild(categoryTitle);
-
-    const skillsList = document.createElement("div");
-    skillsList.className = "skills-list";
-    
-    skills.forEach(skill => {
-      const skillDiv = document.createElement("div");
-      skillDiv.className = "skill-item";
-      skillDiv.textContent = skill;
-      skillsList.appendChild(skillDiv);
-    });
-
-    categoryDiv.appendChild(skillsList);
-    skillsContainer.appendChild(categoryDiv);
-  });
-}
-
-// Call loadSkills when document is ready
-document.addEventListener("DOMContentLoaded", loadSkills);
-
 document.addEventListener('visibilitychange',
     function () {
         if (document.visibilityState === "visible") {
