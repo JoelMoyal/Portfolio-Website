@@ -76,6 +76,14 @@
         "icon": "https://img.icons8.com/color/48/000000/mysql-logo.png"
     },
     {
+        "name": "Prisma",
+        "icon": "https://img.icons8.com/color/48/prisma-orm.png"
+    },
+    {
+        "name": "Redis",
+        "icon": "https://img.icons8.com/color/48/redis.png"
+    },
+    {
         "name": "Docker",
         "icon": "https://img.icons8.com/color/48/docker.png"
     },
