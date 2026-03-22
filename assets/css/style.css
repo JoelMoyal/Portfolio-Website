@@ -12,6 +12,7 @@
 @import url("contact.css");
 @import url("footer.css");
 @import url("chatbot.css");
+@import url("extras.css");
 
 :root {
   --main-color: #420177;

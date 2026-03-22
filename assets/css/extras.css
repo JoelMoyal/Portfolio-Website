@@ -1,0 +1,24 @@
+/* ===== INTERNSHIP BADGE ===== */
+.internship-badge {
+  display: inline-block;
+  background: rgba(0, 200, 80, 0.1);
+  border: 1.5px solid #00c850;
+  color: #00c850;
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05rem;
+}
+
+.internship-badge i {
+  font-size: 0.75rem;
+  margin-right: 0.5rem;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
