@@ -52,6 +52,18 @@
         "icon": "https://img.icons8.com/color/48/express-js.png"
     },
     {
+        "name": "Tailwind CSS",
+        "icon": "https://img.icons8.com/color/48/tailwindcss.png"
+    },
+    {
+        "name": "Framer Motion",
+        "icon": "https://img.icons8.com/color/48/framer.png"
+    },
+    {
+        "name": "GraphQL",
+        "icon": "https://img.icons8.com/color/48/graphql.png"
+    },
+    {
         "name": "Supabase",
         "icon": "https://img.icons8.com/color/48/supabase.png"
     },
