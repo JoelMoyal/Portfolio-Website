@@ -56,7 +56,10 @@ function showProjects(projects) {
     if (project.links.play) {
       projectsHTML += `<a href="${project.links.play}" class="btn" target="_blank"><i class="fas fa-eye"></i> play</a>`;
   }
-    if (project.links.code) {
+    if (project.links.video) {
+      projectsHTML += `<a href="${project.links.video}" class="btn" target="_blank"><i class="fab fa-youtube"></i> Watch</a>`;
+    }
+    if (project.links.code && project.links.code !== '#') {
       projectsHTML += `<a href="${project.links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>`;
     }
 
