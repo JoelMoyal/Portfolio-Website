@@ -110,6 +110,10 @@ function showProjects(projects) {
 
 getProjects().then((data) => {
   showProjects(data);
+}).catch((err) => {
+  console.error("Failed to load projects:", err);
+  const container = document.querySelector(".work .box-container");
+  if (container) container.innerHTML = '<p style="color:#fff;text-align:center;font-size:1.6rem;padding:3rem;">Unable to load projects. Please try again.</p>';
 });
 // fetch projects end
 
