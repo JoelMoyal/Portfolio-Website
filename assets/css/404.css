@@ -162,8 +162,29 @@ header .navbar ul li a:hover {
 .ghost-container {
   text-align: center;
 }
+.numbers-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
+  margin-bottom: 3rem;
+}
+.num {
+  font-size: 12rem;
+  font-weight: 700;
+  color: #222;
+  opacity: 0.7;
+  line-height: 1;
+  user-select: none;
+}
+.ghost-img {
+  width: 10rem;
+  height: 10rem;
+  object-fit: contain;
+  user-select: none;
+}
 .ghost-title {
-  font-size: 8rem;
+  font-size: 4rem;
   font-weight: 700;
   color: #222;
   opacity: 0.7;
