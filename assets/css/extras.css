@@ -22,40 +22,6 @@
 }
 
 /* ===== BUILDING TICKER ===== */
-.building-now {
-  background: #002057;
-  padding: 0.9rem 9%;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  overflow: hidden;
-  border-top: 2px solid #ffd900;
-}
-.building-label {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #ffd900;
-  flex-shrink: 0;
-  text-transform: uppercase;
-  letter-spacing: 0.08rem;
-  white-space: nowrap;
-}
-.ticker-wrapper {
-  overflow: hidden;
-  flex: 1;
-}
-.ticker-inner {
-  display: inline-block;
-  white-space: nowrap;
-  font-size: 1.3rem;
-  color: rgba(255, 255, 255, 0.85);
-  animation: ticker-scroll 28s linear infinite;
-}
-@keyframes ticker-scroll {
-  0%   { transform: translateX(100vw); }
-  100% { transform: translateX(-100%); }
-}
-
 /* ===== STATS STRIP ===== */
 .stats-strip {
   background: linear-gradient(135deg, #002057 0%, #420177 100%);
