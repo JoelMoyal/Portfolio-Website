@@ -208,48 +208,18 @@ header .navbar ul li a:hover{
   width: 340px;
   margin: 1.2rem;
 }
-.work .box-container .box{
-  flex:1 1 30rem;
-  border-radius: .5rem;
-  box-shadow: 0 .7rem 1rem rgba(0,0,0,.3);
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center ;
-  overflow:hidden;
-  height:30rem;
-  background: #fff;
-  border: none;
+.project-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 1.4rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
-.work .box-container .box img{
-  height: 100%;
-  width:100%;
-  object-fit: cover;
-}
-.work .box-container .box .content{
-  height: 100%;
-  width:100%;
-  position: absolute;
-  top:85%;
-  background:rgba(255, 255, 255, 0.9);
-  display: flex;
-  flex-direction: column;
-}
-.work .box-container .box .content .tag{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 4.5rem;
-  width: 100%;
-  padding-left: 1rem;
-  background: #ffd900;
-}
-.work .box-container .box .content .tag h3{
-  font-size: 2rem;
-}
-.work .box-container .box:hover .content{
-  top: 25%;
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 44px rgba(66, 1, 119, 0.35);
+  border-color: rgba(255, 217, 0, 0.3);
 }
 .work .desc {
   margin: 2rem;
