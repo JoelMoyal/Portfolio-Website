@@ -148,6 +148,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  vertical-align: middle;
 }
 .social-icons a.scribesnap img {
   width: 26px;
