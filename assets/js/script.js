@@ -124,7 +124,7 @@ function showProjects(projects) {
         <div class="desc">
           <p>${project.desc}</p>
           <div class="btns">`;
-          if (links.view) {
+          if (links.view && links.view !== '#') {
             projectHTML += `<a href="${links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>`;
         }
         if (links.video) {
