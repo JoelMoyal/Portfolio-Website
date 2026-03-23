@@ -41,16 +41,16 @@ function showProjects(projects) {
   projects.forEach((project) => {
     let buttons = "";
     projectsHTML += `
-        <div class="grid-item ${project.category}">
-        <div class="box tilt" style="width: 380px; margin: 1rem">
-      <img draggable="false" src="/assets/images/projects/${project.image}" alt="project" />
-      <div class="content">
-        <div class="tag">
-        <h3>${project.name}</h3>
+    <div class="grid-item ${project.category}">
+      <div class="project-card">
+        <div class="card-img-wrap">
+          <img draggable="false" src="/assets/images/projects/${project.image}" alt="${project.name}" />
+          <span class="cat-badge">${project.category}</span>
         </div>
-        <div class="desc">
-          <p>${project.desc}</p>
-          <div class="btns">`;
+        <div class="card-info">
+          <h3 class="card-title">${project.name}</h3>
+          <p class="card-desc">${project.desc}</p>
+          <div class="card-btns">`;
     if (project.links.view && project.links.view !== '#') {
         buttons += `<a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>`;
     }
@@ -65,11 +65,10 @@ function showProjects(projects) {
     }
 
     projectsHTML += `
-          ${buttons}
-        </div>
+            ${buttons}
+          </div>
         </div>
       </div>
-    </div>
     </div>`;
   });
 
