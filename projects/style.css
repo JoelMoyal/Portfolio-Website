@@ -250,6 +250,64 @@ header .navbar ul li a:hover{
   letter-spacing: 0.04rem;
   text-transform: uppercase;
 }
+.card-info {
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.card-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  text-transform: none;
+}
+.card-desc {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.58);
+  line-height: 1.65;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-transform: none;
+}
+
+.card-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 0.6rem;
+}
+.card-btns .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 1.4rem;
+  border-radius: 0.6rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-transform: none;
+}
+.card-btns .btn:hover {
+  background: #420177;
+  border-color: #420177;
+}
+.card-btns .btn-watch {
+  background: rgba(200, 0, 0, 0.18);
+  border-color: rgba(220, 0, 0, 0.3);
+}
+.card-btns .btn-watch:hover {
+  background: #cc0000;
+  border-color: #cc0000;
+}
+
 @media screen and (max-width: 450px) {
   .work .button-group{
     width: 100%;
