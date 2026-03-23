@@ -39,6 +39,7 @@ function showProjects(projects) {
   let projectsContainer = document.querySelector(".work .box-container");
   let projectsHTML = "";
   projects.forEach((project) => {
+    let buttons = "";
     projectsHTML += `
         <div class="grid-item ${project.category}">
         <div class="box tilt" style="width: 380px; margin: 1rem">
@@ -51,19 +52,20 @@ function showProjects(projects) {
           <p>${project.desc}</p>
           <div class="btns">`;
     if (project.links.view && project.links.view !== '#') {
-        projectsHTML += `<a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>`;
+        buttons += `<a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>`;
     }
     if (project.links.play) {
-      projectsHTML += `<a href="${project.links.play}" class="btn" target="_blank"><i class="fas fa-gamepad"></i> Play</a>`;
+      buttons += `<a href="${project.links.play}" class="btn" target="_blank"><i class="fas fa-gamepad"></i> Play</a>`;
     }
     if (project.links.video) {
-      projectsHTML += `<a href="${project.links.video}" class="btn btn-watch" target="_blank"><i class="fab fa-youtube"></i> Watch</a>`;
+      buttons += `<a href="${project.links.video}" class="btn btn-watch" target="_blank"><i class="fab fa-youtube"></i> Watch</a>`;
     }
     if (project.links.code && project.links.code !== '#') {
-      projectsHTML += `<a href="${project.links.code}" class="btn btn-code" target="_blank"><i class="fas fa-code"></i> Code</a>`;
+      buttons += `<a href="${project.links.code}" class="btn btn-code" target="_blank"><i class="fas fa-code"></i> Code</a>`;
     }
 
     projectsHTML += `
+          ${buttons}
         </div>
         </div>
       </div>
