@@ -4,7 +4,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
-  min-height: 100vh;
+  min-height: auto;
+  padding-top: 12rem;
+  padding-bottom: 5rem;
   align-items: center;
 }
 .home #particles-js {
