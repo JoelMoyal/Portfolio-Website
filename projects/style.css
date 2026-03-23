@@ -308,15 +308,14 @@ header .navbar ul li a:hover{
   border-color: #cc0000;
 }
 
+@media screen and (max-width: 768px) {
+  .grid-item { width: 300px; }
+}
 @media screen and (max-width: 450px) {
-  .work .button-group{
-    width: 100%;
-  }
-  .work .box-container{
-    margin: 0rem;
-  }
-  .work .box-container .grid-item .box{
-    width: 95% !important;
+  .work .button-group { width: 100%; }
+  .grid-item {
+    width: calc(100vw - 4rem);
+    margin: 1rem auto;
   }
 }
 
