@@ -150,6 +150,14 @@ header .navbar ul li a:hover {
 /* hamburger icon ends */
 
 /* 404 section start */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes floatGhost {
+  0%, 100% { transform: translateY(-6px); }
+  50% { transform: translateY(6px); }
+}
 .page_404 {
   background: #fff;
   margin-top: 6rem;
@@ -161,6 +169,7 @@ header .navbar ul li a:hover {
 }
 .ghost-container {
   text-align: center;
+  animation: fadeSlideUp 0.7s cubic-bezier(0.43, 0.13, 0.23, 0.96) both;
 }
 .numbers-row {
   display: flex;
@@ -176,12 +185,20 @@ header .navbar ul li a:hover {
   opacity: 0.7;
   line-height: 1;
   user-select: none;
+  animation: fadeSlideUp 0.8s cubic-bezier(0.43, 0.13, 0.23, 0.96) both;
 }
+.num-left { animation-delay: 0.1s; }
+.num-right { animation-delay: 0.2s; }
 .ghost-img {
   width: 10rem;
   height: 10rem;
   object-fit: contain;
   user-select: none;
+  animation: fadeSlideUp 0.6s cubic-bezier(0.43, 0.13, 0.23, 0.96) 0.15s both,
+             floatGhost 2s ease-in-out 0.8s infinite;
+}
+.ghost-img:hover {
+  transform: scale(1.1) translateY(-8px);
 }
 .ghost-title {
   font-size: 4rem;
@@ -190,6 +207,7 @@ header .navbar ul li a:hover {
   opacity: 0.7;
   margin-bottom: 1.2rem;
   user-select: none;
+  animation: fadeSlideUp 0.6s cubic-bezier(0.43, 0.13, 0.23, 0.96) 0.25s both;
 }
 .ghost-sub {
   font-size: 1.8rem;
@@ -197,6 +215,7 @@ header .navbar ul li a:hover {
   opacity: 0.5;
   margin-bottom: 3.5rem;
   user-select: none;
+  animation: fadeSlideUp 0.6s cubic-bezier(0.43, 0.13, 0.23, 0.96) 0.35s both;
 }
 
 /* back button */
