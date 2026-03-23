@@ -48,6 +48,11 @@
 .skills .container .bar .info i {
   font-size: 4rem;
 }
+.skills .container .bar .info img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
 .skills .container .bar .info span {
   font-size: 2rem;
   font-weight: 500;
