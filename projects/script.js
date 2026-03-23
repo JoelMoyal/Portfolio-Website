@@ -72,6 +72,7 @@ function showProjects(projects) {
 
   projectsContainer.innerHTML = projectsHTML;
 
+  // isotope filter
   var $grid = $(".box-container").isotope({
     itemSelector: ".grid-item",
     layoutMode: "fitRows",
