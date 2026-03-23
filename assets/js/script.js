@@ -29,12 +29,15 @@ $(document).ready(function () {
         });
     });
 
-    // smooth scrolling
-    $('a[href*="#"]').on('click', function (e) {
-        e.preventDefault();
-        $('html, body').animate({
-            scrollTop: $($(this).attr('href')).offset().top,
-        }, 500, 'linear')
+    // smooth scrolling — only handle same-page hash links (#section)
+    $('a[href^="#"]').on('click', function (e) {
+        const href = $(this).attr('href');
+        if (href === '#') return;
+        const target = $(href);
+        if (target.length) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: target.offset().top }, 500, 'linear');
+        }
     });
 
     // <!-- emailjs to mail contact form data -->
