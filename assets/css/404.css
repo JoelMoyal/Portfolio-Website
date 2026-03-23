@@ -156,8 +156,9 @@ header .navbar ul li a:hover {
 }
 @keyframes floatGhost {
   0%, 100% { transform: translateY(-6px); }
-  50% { transform: translateY(6px); }
+  50%       { transform: translateY(6px); }
 }
+
 .page_404 {
   background: #fff;
   margin-top: 6rem;
@@ -167,10 +168,13 @@ header .navbar ul li a:hover {
   justify-content: center;
   padding: 4rem 2rem;
 }
+
 .ghost-container {
   text-align: center;
   animation: fadeSlideUp 0.7s cubic-bezier(0.43, 0.13, 0.23, 0.96) both;
 }
+
+/* numbers + ghost row */
 .numbers-row {
   display: flex;
   align-items: center;
@@ -187,8 +191,9 @@ header .navbar ul li a:hover {
   user-select: none;
   animation: fadeSlideUp 0.8s cubic-bezier(0.43, 0.13, 0.23, 0.96) both;
 }
-.num-left { animation-delay: 0.1s; }
+.num-left  { animation-delay: 0.1s; }
 .num-right { animation-delay: 0.2s; }
+
 .ghost-img {
   width: 10rem;
   height: 10rem;
@@ -200,6 +205,8 @@ header .navbar ul li a:hover {
 .ghost-img:hover {
   transform: scale(1.1) translateY(-8px);
 }
+
+/* headings */
 .ghost-title {
   font-size: 4rem;
   font-weight: 700;
