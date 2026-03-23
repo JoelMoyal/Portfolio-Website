@@ -38,21 +38,11 @@ function getProjects() {
 function showProjects(projects) {
   let projectsContainer = document.querySelector(".work .box-container");
   let projectsHTML = "";
+
   projects.forEach((project) => {
     let buttons = "";
-    projectsHTML += `
-    <div class="grid-item ${project.category}">
-      <div class="project-card">
-        <div class="card-img-wrap">
-          <img draggable="false" src="/assets/images/projects/${project.image}" alt="${project.name}" />
-          <span class="cat-badge">${project.category}</span>
-        </div>
-        <div class="card-info">
-          <h3 class="card-title">${project.name}</h3>
-          <p class="card-desc">${project.desc}</p>
-          <div class="card-btns">`;
     if (project.links.view && project.links.view !== '#') {
-        buttons += `<a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>`;
+      buttons += `<a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>`;
     }
     if (project.links.play) {
       buttons += `<a href="${project.links.play}" class="btn" target="_blank"><i class="fas fa-gamepad"></i> Play</a>`;
@@ -65,8 +55,16 @@ function showProjects(projects) {
     }
 
     projectsHTML += `
-            ${buttons}
-          </div>
+    <div class="grid-item ${project.category}">
+      <div class="project-card">
+        <div class="card-img-wrap">
+          <img draggable="false" src="/assets/images/projects/${project.image}" alt="${project.name}" />
+          <span class="cat-badge">${project.category}</span>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">${project.name}</h3>
+          <p class="card-desc">${project.desc}</p>
+          <div class="card-btns">${buttons}</div>
         </div>
       </div>
     </div>`;
