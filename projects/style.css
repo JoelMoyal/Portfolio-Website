@@ -156,17 +156,18 @@ header .navbar ul li a:hover{
 /* hamburger icon ends */
 
 /* work section starts */
-.work{
-  /* background: #010124; */
-  background: linear-gradient(to bottom, #010136, #00003a);
+.work {
+  background: linear-gradient(160deg, #020218 0%, #0a0030 60%, #020218 100%);
   margin-top: 5rem;
+  min-height: 100vh;
 }
-.work h2{
+.work h2 {
   color: #fff;
   padding: 1rem;
+  padding-top: 3rem;
 }
-.work .heading span{
-  color: rgb(255, 230, 0);
+.work .heading span {
+  color: #ffd900;
 }
 .work .button-group{
   display: flex;
