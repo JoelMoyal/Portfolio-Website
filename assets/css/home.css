@@ -4,7 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
-  min-height: auto;
+  min-height: 100vh;
   padding-top: 12rem;
   padding-bottom: 5rem;
   align-items: center;
