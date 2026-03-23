@@ -151,34 +151,31 @@ header .navbar ul li a:hover {
 
 /* 404 section start */
 .page_404 {
-  padding: 40px 0;
-  background: rgb(255, 255, 255);
+  background: #fff;
   margin-top: 6rem;
-  min-height: 60vh;
-}
-.wrapper {
-  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
-  height: 400px;
-  background-position: center;
-}
-.msg {
+  min-height: calc(100vh - 6rem);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  justify-content: center;
+  padding: 4rem 2rem;
 }
-.msg h3 {
-  font-size: 4rem;
-  font-weight: 700;
-}
-.msg p {
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-.wrapper h1 {
-  font-size: 80px;
+.ghost-container {
   text-align: center;
+}
+.ghost-title {
+  font-size: 8rem;
+  font-weight: 700;
+  color: #222;
+  opacity: 0.7;
+  margin-bottom: 1.2rem;
+  user-select: none;
+}
+.ghost-sub {
+  font-size: 1.8rem;
+  color: #222;
+  opacity: 0.5;
+  margin-bottom: 3.5rem;
+  user-select: none;
 }
 
 /* back button */
