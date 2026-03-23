@@ -51,7 +51,6 @@
 @media (max-width: 450px) {
   .stats-strip { gap: 3rem; padding: 3rem 5%; }
   .stat-item h3 { font-size: 3.5rem; }
-  .building-now { padding: 0.8rem 4%; }
 }
 
 /* ===== LANGUAGES ===== */
