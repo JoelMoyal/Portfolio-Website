@@ -1,29 +1,33 @@
 /* ===== INTERNSHIP BADGE ===== */
 .internship-badge {
-  display: inline-block;
-  background: rgba(0, 200, 80, 0.1);
-  border: 1.5px solid #00c850;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(0, 200, 80, 0.08);
+  border: 1px solid rgba(0, 200, 80, 0.45);
   color: #00c850;
-  padding: 0.7rem 2rem;
+  padding: 0.55rem 1.4rem;
   border-radius: 2rem;
-  font-size: 1.6rem;
+  font-size: 1.35rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
-  letter-spacing: 0.05rem;
+  letter-spacing: 0.04rem;
+  box-shadow: 0 0 14px rgba(0, 200, 80, 0.12), inset 0 1px 0 rgba(255,255,255,0.06);
+  white-space: nowrap;
 }
 .internship-badge i {
-  font-size: 0.75rem;
-  margin-right: 0.5rem;
+  font-size: 0.6rem;
+  flex-shrink: 0;
   animation: pulse-dot 2s ease-in-out infinite;
 }
 @keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.85); }
 }
 @media (max-width: 450px) {
   .internship-badge {
-    display: block;
-    width: fit-content;
+    font-size: 1.25rem;
+    padding: 0.5rem 1.2rem;
   }
 }
 
