@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1f3d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a3a5c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a5f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#162d4a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00c9a7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00a67e;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bgGrad)"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.06" stroke="#00c9a7" stroke-width="1">
+    <line x1="0" y1="62.5" x2="800" y2="62.5"/>
+    <line x1="0" y1="125" x2="800" y2="125"/>
+    <line x1="0" y1="187.5" x2="800" y2="187.5"/>
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="312.5" x2="800" y2="312.5"/>
+    <line x1="0" y1="375" x2="800" y2="375"/>
+    <line x1="0" y1="437.5" x2="800" y2="437.5"/>
+    <line x1="100" y1="0" x2="100" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="500"/>
+    <line x1="300" y1="0" x2="300" y2="500"/>
+    <line x1="400" y1="0" x2="400" y2="500"/>
+    <line x1="500" y1="0" x2="500" y2="500"/>
+    <line x1="600" y1="0" x2="600" y2="500"/>
+    <line x1="700" y1="0" x2="700" y2="500"/>
+  </g>
+
+  <!-- ── Map panel (left) ── -->
+  <rect x="40" y="60" width="420" height="380" rx="16" fill="#162d4a" filter="url(#shadow)"/>
+
+  <!-- Map blocks (city grid feel) -->
+  <rect x="60" y="80" width="60" height="35" rx="4" fill="#1e3a5f" opacity="0.8"/>
+  <rect x="130" y="80" width="90" height="35" rx="4" fill="#1e3a5f" opacity="0.8"/>
+  <rect x="230" y="80" width="50" height="35" rx="4" fill="#1e3a5f" opacity="0.8"/>
+  <rect x="290" y="80" width="80" height="35" rx="4" fill="#1e3a5f" opacity="0.8"/>
+  <rect x="380" y="80" width="60" height="35" rx="4" fill="#1e3a5f" opacity="0.8"/>
+
+  <rect x="60" y="125" width="80" height="60" rx="4" fill="#243f60" opacity="0.7"/>
+  <rect x="150" y="125" width="50" height="60" rx="4" fill="#1e3a5f" opacity="0.8"/>
+  <rect x="210" y="125" width="70" height="60" rx="4" fill="#243f60" opacity="0.7"/>
+  <rect x="290" y="125" width="55" height="60" rx="4" fill="#1e3a5f" opacity="0.8"/>
+  <rect x="355" y="125" width="80" height="60" rx="4" fill="#243f60" opacity="0.7"/>
+
+  <rect x="60" y="200" width="50" height="70" rx="4" fill="#1e3a5f" opacity="0.8"/>
+  <rect x="120" y="200" width="90" height="70" rx="4" fill="#243f60" opacity="0.7"/>
+  <rect x="220" y="200" width="65" height="70" rx="4" fill="#1e3a5f" opacity="0.8"/>
+  <rect x="295" y="200" width="80" height="70" rx="4" fill="#243f60" opacity="0.7"/>
+  <rect x="385" y="200" width="55" height="70" rx="4" fill="#1e3a5f" opacity="0.8"/>
+
+  <rect x="60" y="285" width="110" height="55" rx="4" fill="#243f60" opacity="0.7"/>
+  <rect x="180" y="285" width="70" height="55" rx="4" fill="#1e3a5f" opacity="0.8"/>
+  <rect x="260" y="285" width="90" height="55" rx="4" fill="#243f60" opacity="0.7"/>
+  <rect x="360" y="285" width="75" height="55" rx="4" fill="#1e3a5f" opacity="0.8"/>
+
+  <rect x="60" y="355" width="75" height="65" rx="4" fill="#1e3a5f" opacity="0.8"/>
+  <rect x="145" y="355" width="100" height="65" rx="4" fill="#243f60" opacity="0.7"/>
+  <rect x="255" y="355" width="60" height="65" rx="4" fill="#1e3a5f" opacity="0.8"/>
+  <rect x="325" y="355" width="110" height="65" rx="4" fill="#243f60" opacity="0.7"/>
+
+  <!-- Road lines -->
+  <line x1="60" y1="120" x2="440" y2="120" stroke="#0f1f3d" stroke-width="8" opacity="0.9"/>
+  <line x1="60" y1="195" x2="440" y2="195" stroke="#0f1f3d" stroke-width="8" opacity="0.9"/>
+  <line x1="60" y1="280" x2="440" y2="280" stroke="#0f1f3d" stroke-width="8" opacity="0.9"/>
+  <line x1="60" y1="350" x2="440" y2="350" stroke="#0f1f3d" stroke-width="8" opacity="0.9"/>
+  <line x1="108" y1="80" x2="108" y2="420" stroke="#0f1f3d" stroke-width="6" opacity="0.9"/>
+  <line x1="218" y1="80" x2="218" y2="420" stroke="#0f1f3d" stroke-width="6" opacity="0.9"/>
+  <line x1="338" y1="80" x2="338" y2="420" stroke="#0f1f3d" stroke-width="6" opacity="0.9"/>
+
+  <!-- Location pins -->
+  <!-- Pin 1 (cafe) -->
+  <g filter="url(#glow)">
+    <circle cx="175" cy="165" r="14" fill="#00c9a7"/>
+    <path d="M175 155 C170 155 166 159 166 164 C166 170 175 178 175 178 C175 178 184 170 184 164 C184 159 180 155 175 155Z" fill="#00c9a7"/>
+    <circle cx="175" cy="164" r="5" fill="#0f1f3d"/>
+  </g>
+  <!-- Pin 2 (library) -->
+  <g filter="url(#glow)">
+    <path d="M290 237 C285 237 281 241 281 246 C281 252 290 260 290 260 C290 260 299 252 299 246 C299 241 295 237 290 237Z" fill="#4a9eff"/>
+    <circle cx="290" cy="246" r="5" fill="#0f1f3d"/>
+  </g>
+  <!-- Pin 3 (coworking) -->
+  <g filter="url(#glow)">
+    <path d="M380 305 C375 305 371 309 371 314 C371 320 380 328 380 328 C380 328 389 320 389 314 C389 309 385 305 380 305Z" fill="#ff7b47"/>
+    <circle cx="380" cy="314" r="5" fill="#0f1f3d"/>
+  </g>
+  <!-- Pin 4 (active/selected) -->
+  <g filter="url(#glow)">
+    <circle cx="155" cy="315" r="18" fill="#00c9a7" opacity="0.2"/>
+    <path d="M155 302 C149 302 144 307 144 313 C144 321 155 332 155 332 C155 332 166 321 166 313 C166 307 161 302 155 302Z" fill="#00c9a7"/>
+    <circle cx="155" cy="313" r="6" fill="#0f1f3d"/>
+  </g>
+
+  <!-- Search bar overlay on map -->
+  <rect x="65" y="68" width="250" height="34" rx="17" fill="#0f1f3d" opacity="0.9" filter="url(#shadow)"/>
+  <circle cx="86" cy="85" r="7" fill="none" stroke="#00c9a7" stroke-width="2"/>
+  <line x1="91" y1="90" x2="95" y2="94" stroke="#00c9a7" stroke-width="2"/>
+  <text x="105" y="90" font-family="Arial, sans-serif" font-size="13" fill="#8ab4d4">Find your space...</text>
+
+  <!-- ── Right panel ── -->
+  <!-- Header -->
+  <text x="476" y="95" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">SpotGrove</text>
+  <rect x="476" y="100" width="44" height="3" rx="1.5" fill="url(#accentGrad)"/>
+  <text x="476" y="122" font-family="Arial, sans-serif" font-size="12" fill="#8ab4d4">3 spots near you</text>
+
+  <!-- Space card 1 (selected) -->
+  <rect x="476" y="135" width="284" height="95" rx="12" fill="url(#accentGrad)" filter="url(#shadow)"/>
+  <rect x="476" y="135" width="284" height="95" rx="12" fill="none" stroke="#00e8bf" stroke-width="1.5" opacity="0.6"/>
+  <!-- Icon -->
+  <rect x="492" y="150" width="42" height="42" rx="8" fill="rgba(0,0,0,0.25)"/>
+  <text x="505" y="178" font-family="Arial, sans-serif" font-size="20">☕</text>
+  <!-- Info -->
+  <text x="546" y="163" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0f1f3d">The Grove Café</text>
+  <text x="546" y="180" font-family="Arial, sans-serif" font-size="11" fill="rgba(15,31,61,0.75)">Café · 0.2 mi · Open now</text>
+  <!-- Stars -->
+  <text x="546" y="197" font-family="Arial, sans-serif" font-size="12" fill="#0f1f3d">★★★★★</text>
+  <text x="596" y="197" font-family="Arial, sans-serif" font-size="11" fill="rgba(15,31,61,0.7)"> 4.9</text>
+  <!-- Tag -->
+  <rect x="680" y="150" width="64" height="22" rx="11" fill="rgba(0,0,0,0.2)"/>
+  <text x="700" y="165" font-family="Arial, sans-serif" font-size="10" fill="#0f1f3d" text-anchor="middle">Fast WiFi</text>
+  <!-- Trust badge -->
+  <rect x="680" y="178" width="64" height="22" rx="11" fill="rgba(0,0,0,0.2)"/>
+  <text x="700" y="193" font-family="Arial, sans-serif" font-size="9" fill="#0f1f3d" text-anchor="middle">AI Verified</text>
+
+  <!-- Space card 2 -->
+  <rect x="476" y="242" width="284" height="85" rx="12" fill="url(#cardGrad)" filter="url(#shadow)"/>
+  <rect x="492" y="256" width="38" height="38" rx="8" fill="rgba(74,158,255,0.15)"/>
+  <text x="503" y="280" font-family="Arial, sans-serif" font-size="20">📚</text>
+  <text x="542" y="271" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">City Public Library</text>
+  <text x="542" y="287" font-family="Arial, sans-serif" font-size="11" fill="#8ab4d4">Library · 0.5 mi · Open now</text>
+  <text x="542" y="304" font-family="Arial, sans-serif" font-size="12" fill="#4a9eff">★★★★☆</text>
+  <text x="592" y="304" font-family="Arial, sans-serif" font-size="11" fill="#8ab4d4"> 4.5</text>
+  <rect x="680" y="256" width="64" height="22" rx="11" fill="rgba(74,158,255,0.15)"/>
+  <text x="712" y="271" font-family="Arial, sans-serif" font-size="10" fill="#4a9eff" text-anchor="middle">Quiet Zone</text>
+
+  <!-- Space card 3 -->
+  <rect x="476" y="340" width="284" height="85" rx="12" fill="url(#cardGrad)" filter="url(#shadow)"/>
+  <rect x="492" y="354" width="38" height="38" rx="8" fill="rgba(255,123,71,0.15)"/>
+  <text x="503" y="378" font-family="Arial, sans-serif" font-size="20">🏢</text>
+  <text x="542" y="369" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">NexHub Coworking</text>
+  <text x="542" y="385" font-family="Arial, sans-serif" font-size="11" fill="#8ab4d4">Cowork · 0.8 mi · Members</text>
+  <text x="542" y="402" font-family="Arial, sans-serif" font-size="12" fill="#ff7b47">★★★★★</text>
+  <text x="592" y="402" font-family="Arial, sans-serif" font-size="11" fill="#8ab4d4"> 4.8</text>
+  <rect x="680" y="354" width="64" height="22" rx="11" fill="rgba(255,123,71,0.15)"/>
+  <text x="712" y="369" font-family="Arial, sans-serif" font-size="10" fill="#ff7b47" text-anchor="middle">Hot Desks</text>
+
+  <!-- Bottom bar -->
+  <rect x="476" y="440" width="284" height="38" rx="10" fill="#00c9a7" filter="url(#shadow)"/>
+  <text x="618" y="464" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#0f1f3d" text-anchor="middle">+ Submit a Space</text>
+
+  <!-- AI badge top right -->
+  <rect x="662" y="63" width="98" height="26" rx="13" fill="rgba(0,201,167,0.12)" stroke="#00c9a7" stroke-width="1"/>
+  <circle cx="677" cy="76" r="4" fill="#00c9a7" opacity="0.9"/>
+  <text x="686" y="80" font-family="Arial, sans-serif" font-size="10" fill="#00c9a7">Claude Powered</text>
+</svg>

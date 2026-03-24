@@ -13,7 +13,7 @@
     {
       "name": "SpotGrove",
       "desc": "Full-stack web and mobile app for remote workers to discover cafes, libraries, and coworking spaces. AI trust layer powered by Claude moderates every submission and cross-references Google Places before publishing.",
-      "image": "Catalog.png",
+      "image": "spotgrove.svg",
       "category": "AI",
       "links": {
         "view": "#",

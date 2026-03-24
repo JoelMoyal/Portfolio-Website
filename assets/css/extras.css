@@ -3,30 +3,45 @@
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  background: rgba(0, 200, 80, 0.08);
-  border: 1px solid rgba(0, 200, 80, 0.45);
-  color: #00c850;
+  background: rgba(66, 1, 119, 0.1);
+  border: 1px solid rgba(180, 100, 255, 0.65);
+  color: #c87fff;
   padding: 0.55rem 1.4rem;
-  border-radius: 2rem;
-  font-size: 1.35rem;
-  font-weight: 600;
+  border-radius: 0.4rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-family: 'Courier New', Courier, monospace;
   margin-bottom: 1.5rem;
-  letter-spacing: 0.04rem;
-  box-shadow: 0 0 14px rgba(0, 200, 80, 0.12), inset 0 1px 0 rgba(255,255,255,0.06);
+  letter-spacing: 0.1rem;
+  text-transform: lowercase;
+  box-shadow: 0 0 12px rgba(180, 100, 255, 0.28), 0 0 35px rgba(180, 100, 255, 0.07), inset 0 0 12px rgba(180, 100, 255, 0.04);
+  animation: vibe-glow 2.5s ease-in-out infinite;
   white-space: nowrap;
 }
 .internship-badge i {
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   flex-shrink: 0;
-  animation: pulse-dot 2s ease-in-out infinite;
+  color: #00ffaa;
+  text-shadow: 0 0 8px #00ffaa, 0 0 16px #00ffaa;
+  animation: blink-dot 1s step-end infinite;
 }
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.35; transform: scale(0.85); }
+@keyframes vibe-glow {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(180, 100, 255, 0.28), 0 0 35px rgba(180, 100, 255, 0.07);
+    border-color: rgba(180, 100, 255, 0.65);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(180, 100, 255, 0.55), 0 0 55px rgba(180, 100, 255, 0.15);
+    border-color: rgba(200, 130, 255, 1);
+  }
+}
+@keyframes blink-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 @media (max-width: 450px) {
   .internship-badge {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     padding: 0.5rem 1.2rem;
   }
 }
