@@ -41,8 +41,12 @@ function showProjects(projects) {
 
   projects.forEach((project) => {
     let buttons = "";
-    if (project.links.view && project.links.view !== '#') {
-      buttons += `<a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>`;
+    if (project.links.view) {
+      if (project.links.view === '#') {
+        buttons += `<span class="btn btn-disabled"><i class="fas fa-eye"></i> Coming Soon</span>`;
+      } else {
+        buttons += `<a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>`;
+      }
     }
     if (project.links.play) {
       buttons += `<a href="${project.links.play}" class="btn" target="_blank"><i class="fas fa-gamepad"></i> Play</a>`;
@@ -50,8 +54,12 @@ function showProjects(projects) {
     if (project.links.video) {
       buttons += `<a href="${project.links.video}" class="btn btn-watch" target="_blank"><i class="fab fa-youtube"></i> Watch</a>`;
     }
-    if (project.links.code && project.links.code !== '#') {
-      buttons += `<a href="${project.links.code}" class="btn btn-code" target="_blank"><i class="fas fa-code"></i> Code</a>`;
+    if (project.links.code) {
+      if (project.links.code === '#') {
+        buttons += `<span class="btn btn-disabled"><i class="fas fa-code"></i> Private</span>`;
+      } else {
+        buttons += `<a href="${project.links.code}" class="btn btn-code" target="_blank"><i class="fas fa-code"></i> Code</a>`;
+      }
     }
 
     projectsHTML += `

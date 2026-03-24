@@ -178,6 +178,17 @@
   .home .image {
     flex: unset;
   }
+  .home .content {
+    width: 100%;
+    position: relative;
+  }
+  .home .content h2 {
+    font-size: 4rem;
+    word-break: break-word;
+  }
+  .home .content h2 span {
+    font-size: 4rem;
+  }
   .home .content p {
     font-size: 2.2rem;
   }

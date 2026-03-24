@@ -28,18 +28,18 @@
 }
 .work .box-container .box img {
   width: 100%;
-  height: auto; /* Maintain aspect ratio */
+  height: 18rem;
   object-fit: cover;
 }
 .work .box-container .box .content {
-  height: 100%;
   width: 100%;
   position: absolute;
-  top: 85%;
+  top: 86%;
   left: 0;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   display: flex;
   flex-direction: column;
+  padding-bottom: 1rem;
 }
 .work .box-container .box .content .tag {
   display: flex;
@@ -55,7 +55,7 @@
   font-size: 2rem;
 }
 .work .box-container .box:hover .content {
-  top: 25%;
+  top: 0;
 }
 .work .desc {
   margin: 2rem;

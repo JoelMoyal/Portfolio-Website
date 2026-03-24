@@ -279,10 +279,6 @@ header .navbar ul li a:hover{
   font-size: 1.3rem;
   color: rgba(255, 255, 255, 0.58);
   line-height: 1.65;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
   text-transform: none;
 }
 
@@ -319,6 +315,11 @@ header .navbar ul li a:hover{
 .card-btns .btn-watch:hover {
   background: #cc0000;
   border-color: #cc0000;
+}
+.card-btns .btn-disabled {
+  opacity: 0.45;
+  cursor: default;
+  pointer-events: none;
 }
 
 @media screen and (max-width: 768px) {

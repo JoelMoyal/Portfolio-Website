@@ -124,14 +124,22 @@ function showProjects(projects) {
         <div class="desc">
           <p>${project.desc}</p>
           <div class="btns">`;
-          if (links.view && links.view !== '#') {
-            projectHTML += `<a href="${links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>`;
+          if (links.view) {
+            if (links.view === '#') {
+                projectHTML += `<span class="btn" style="opacity:0.5;cursor:default;pointer-events:none;"><i class="fas fa-eye"></i> Coming Soon</span>`;
+            } else {
+                projectHTML += `<a href="${links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>`;
+            }
         }
         if (links.video) {
             projectHTML += `<a href="${links.video}" class="btn" target="_blank"><i class="fab fa-youtube"></i> Watch</a>`;
         }
-        if (links.code && links.code !== '#') {
-            projectHTML += `<a href="${links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>`;
+        if (links.code) {
+            if (links.code === '#') {
+                projectHTML += `<span class="btn" style="opacity:0.5;cursor:default;pointer-events:none;">Code <i class="fas fa-code"></i></span>`;
+            } else {
+                projectHTML += `<a href="${links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>`;
+            }
         }
         projectHTML += `
           </div>

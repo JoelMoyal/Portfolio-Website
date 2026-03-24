@@ -20,6 +20,12 @@
   0%, 100% { opacity: 1; }
   50% { opacity: 0.3; }
 }
+@media (max-width: 450px) {
+  .internship-badge {
+    display: block;
+    width: fit-content;
+  }
+}
 
 /* ===== BUILDING TICKER ===== */
 /* ===== STATS STRIP ===== */
