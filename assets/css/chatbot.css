@@ -119,12 +119,25 @@
 .chatbot-avatar {
     width: 36px;
     height: 36px;
-    background: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.chatbot-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bot-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    align-self: flex-end;
+    margin-bottom: 2px;
 }
 
 .chatbot-header h4 {

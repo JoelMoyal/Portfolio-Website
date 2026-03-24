@@ -379,8 +379,13 @@ srtop.reveal('.contact .container .form-group', { delay: 400 });
     function createBotBubble() {
         var wrapper = document.createElement('div');
         wrapper.className = 'chat-message bot-message';
+        var avatar = document.createElement('img');
+        avatar.className = 'bot-avatar';
+        avatar.src = './assets/images/Logo-me-round.png';
+        avatar.alt = 'Joel';
         var bubble = document.createElement('div');
         bubble.className = 'message-bubble';
+        wrapper.appendChild(avatar);
         wrapper.appendChild(bubble);
         return { wrapper: wrapper, bubble: bubble };
     }
