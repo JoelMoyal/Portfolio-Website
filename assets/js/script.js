@@ -253,6 +253,13 @@ srtop.reveal('.contact .container .form-group', { delay: 400 });
 
     const WORKER_URL = 'https://joel-chatbot-worker.joelmoyal123.workers.dev';
 
+    // Configure marked to open links in new tab
+    const renderer = new marked.Renderer();
+    renderer.link = function(href, title, text) {
+        return '<a href="' + href + '" target="_blank" rel="noopener noreferrer"' + (title ? ' title="' + title + '"' : '') + '>' + text + '</a>';
+    };
+    marked.setOptions({ renderer: renderer });
+
     const toggle   = document.getElementById('chatbot-toggle');
     const win      = document.getElementById('chatbot-window');
     const closeBtn = document.getElementById('chatbot-close');

@@ -280,6 +280,12 @@
     color: #420177;
     text-decoration: underline;
     word-break: break-all;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.bot-message .message-bubble a:hover {
+    opacity: 0.75;
 }
 
 .bot-message .message-bubble hr {
