@@ -262,40 +262,162 @@ srtop.reveal('.contact .container', { delay: 400 });
 srtop.reveal('.contact .container .form-group', { delay: 400 });
 
 /* ===== CHATBOT FUNCTIONALITY ===== */
-$(document).ready(function() {
-    const chatbotToggle = $('#chatbot-toggle');
-    const chatbotWrapper = $('#chatbot-iframe-wrapper');
-    const chatbotClose = $('#chatbot-close');
+(function () {
+    'use strict';
 
-    // Toggle chatbot visibility
-    chatbotToggle.click(function() {
-        chatbotWrapper.toggleClass('active');
+    const WORKER_URL = 'https://joel-chatbot-worker.joelmoyal123.workers.dev';
 
-        // Change icon when chatbot is open
-        const icon = chatbotToggle.find('i');
-        if (chatbotWrapper.hasClass('active')) {
-            icon.removeClass('fa-comment-dots').addClass('fa-comment');
-        } else {
-            icon.removeClass('fa-comment').addClass('fa-comment-dots');
+    const toggle   = document.getElementById('chatbot-toggle');
+    const win      = document.getElementById('chatbot-window');
+    const closeBtn = document.getElementById('chatbot-close');
+    const messages = document.getElementById('chatbot-messages');
+    const input    = document.getElementById('chatbot-input');
+    const sendBtn  = document.getElementById('chatbot-send');
+    const typing   = document.getElementById('chatbot-typing');
+    const chips    = document.querySelectorAll('.chip');
+
+    const history = [];
+
+    // --- Toggle open/close ---
+    toggle.addEventListener('click', function () {
+        var isOpen = win.classList.toggle('active');
+        toggle.classList.toggle('open', isOpen);
+        var icon = toggle.querySelector('i');
+        icon.classList.toggle('fa-comment-dots', !isOpen);
+        icon.classList.toggle('fa-comment', isOpen);
+        if (isOpen) { input.focus(); scrollToBottom(); }
+    });
+
+    closeBtn.addEventListener('click', closeChat);
+
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('#chatbot-container') && win.classList.contains('active')) {
+            closeChat();
         }
     });
 
-    // Close chatbot
-    chatbotClose.click(function() {
-        chatbotWrapper.removeClass('active');
-        chatbotToggle.find('i').removeClass('fa-comment').addClass('fa-comment-dots');
+    win.addEventListener('click', function (e) { e.stopPropagation(); });
+
+    // --- Chips ---
+    chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+            if (chip.dataset.msg) sendMessage(chip.dataset.msg);
+        });
     });
 
-    // Close chatbot when clicking outside
-    $(document).click(function(event) {
-        if (!$(event.target).closest('.chatbot-container').length) {
-            chatbotWrapper.removeClass('active');
-            chatbotToggle.find('i').removeClass('fa-comment').addClass('fa-comment-dots');
+    // --- Keyboard ---
+    input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(input.value); }
+    });
+
+    sendBtn.addEventListener('click', function () { sendMessage(input.value); });
+
+    // --- Send + stream ---
+    async function sendMessage(text) {
+        text = text.trim();
+        if (!text || sendBtn.disabled) return;
+
+        appendBubble('user', text);
+        history.push({ role: 'user', content: text });
+        input.value = '';
+        setLoading(true);
+        showTyping(true);
+
+        var botBubble = createBotBubble();
+        var fullText = '';
+
+        try {
+            var res = await fetch(WORKER_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ messages: history }),
+            });
+
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+
+            showTyping(false);
+            messages.appendChild(botBubble.wrapper);
+            botBubble.bubble.classList.add('streaming');
+            scrollToBottom();
+
+            var reader = res.body.getReader();
+            var decoder = new TextDecoder();
+            var buffer = '';
+
+            while (true) {
+                var chunk = await reader.read();
+                if (chunk.done) break;
+                buffer += decoder.decode(chunk.value, { stream: true });
+                var lines = buffer.split('\n');
+                buffer = lines.pop();
+
+                for (var i = 0; i < lines.length; i++) {
+                    var line = lines[i];
+                    if (!line.startsWith('data:')) continue;
+                    var data = line.slice(5).trim();
+                    if (data === '[DONE]') break;
+                    try {
+                        var json = JSON.parse(data);
+                        if (json.type === 'content_block_delta' && json.delta && json.delta.type === 'text_delta') {
+                            fullText += json.delta.text;
+                            botBubble.bubble.textContent = fullText;
+                            scrollToBottom();
+                        }
+                    } catch (e) { /* ignore malformed lines */ }
+                }
+            }
+        } catch (err) {
+            showTyping(false);
+            if (!botBubble.wrapper.parentNode) messages.appendChild(botBubble.wrapper);
+            botBubble.bubble.textContent = 'Sorry, something went wrong. Please try again or use the contact form.';
+            console.error('[Chatbot]', err);
+        } finally {
+            botBubble.bubble.classList.remove('streaming');
+            if (fullText) history.push({ role: 'assistant', content: fullText });
+            setLoading(false);
+            scrollToBottom();
         }
-    });
+    }
 
-    // Prevent chatbot from closing when clicking inside it
-    chatbotWrapper.click(function(event) {
-        event.stopPropagation();
-    });
-});
+    function appendBubble(role, text) {
+        var wrapper = document.createElement('div');
+        wrapper.className = 'chat-message ' + role + '-message';
+        var bubble = document.createElement('div');
+        bubble.className = 'message-bubble';
+        bubble.textContent = text;
+        wrapper.appendChild(bubble);
+        messages.appendChild(wrapper);
+        scrollToBottom();
+    }
+
+    function createBotBubble() {
+        var wrapper = document.createElement('div');
+        wrapper.className = 'chat-message bot-message';
+        var bubble = document.createElement('div');
+        bubble.className = 'message-bubble';
+        wrapper.appendChild(bubble);
+        return { wrapper: wrapper, bubble: bubble };
+    }
+
+    function showTyping(visible) {
+        typing.classList.toggle('hidden', !visible);
+        if (visible) scrollToBottom();
+    }
+
+    function setLoading(loading) {
+        sendBtn.disabled = loading;
+        input.disabled = loading;
+    }
+
+    function scrollToBottom() {
+        messages.scrollTop = messages.scrollHeight;
+    }
+
+    function closeChat() {
+        win.classList.remove('active');
+        toggle.classList.remove('open');
+        var icon = toggle.querySelector('i');
+        icon.classList.remove('fa-comment');
+        icon.classList.add('fa-comment-dots');
+    }
+})();

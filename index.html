@@ -8,6 +8,7 @@
     <meta name="description" content="Joel Moyal — AI Founder & Full-Stack Developer. Founder of ScribeSnap.ai (6,000+ users). SJSU Software Engineering." />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/chatbot.css">
     <!-- Font -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Favicon -->
@@ -525,20 +526,48 @@
         <i class="fas fa-comment-dots"></i>
         <span class="chatbot-tooltip">Ask me anything!</span>
     </div>
-    <div id="chatbot-iframe-wrapper" class="chatbot-iframe-wrapper">
+
+    <div id="chatbot-window" class="chatbot-window">
         <div class="chatbot-header">
-            <h4>Chat with Joel's AI Assistant</h4>
-            <button id="chatbot-close" class="chatbot-close">
+            <div class="chatbot-header-info">
+                <div class="chatbot-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div>
+                    <h4>Joel's AI Assistant</h4>
+                    <span class="chatbot-status"><i class="fas fa-circle"></i> Online</span>
+                </div>
+            </div>
+            <button id="chatbot-close" class="chatbot-close" aria-label="Close chat">
                 <i class="fas fa-times"></i>
             </button>
         </div>
-        <iframe
-            id="chatbot-iframe"
-            src="https://ai-chatbbot-joelmoyal.streamlit.app/?embed=true"
-            frameborder="0"
-            width="100%"
-            height="400">
-        </iframe>
+
+        <div id="chatbot-messages" class="chatbot-messages">
+            <div class="chat-message bot-message">
+                <div class="message-bubble">
+                    Hi! I'm Joel's AI assistant. Ask me anything about his skills, projects, or experience.
+                </div>
+            </div>
+        </div>
+
+        <div id="chatbot-typing" class="chatbot-typing hidden">
+            <span></span><span></span><span></span>
+        </div>
+
+        <div id="chatbot-suggestions" class="chatbot-suggestions">
+            <button class="chip" data-msg="What projects has Joel built?">Projects</button>
+            <button class="chip" data-msg="What are Joel's technical skills?">Skills</button>
+            <button class="chip" data-msg="Tell me about ScribeSnap.ai">ScribeSnap</button>
+            <button class="chip" data-msg="Is Joel open to internships?">Open to work?</button>
+        </div>
+
+        <div class="chatbot-input-area">
+            <input id="chatbot-input" type="text" placeholder="Ask about Joel..." maxlength="500" autocomplete="off" />
+            <button id="chatbot-send" class="chatbot-send" aria-label="Send message">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
     </div>
 </div>
 <!-- AI Chatbot Widget End -->
@@ -561,6 +590,8 @@
 <!-- scroll reveal anim -->
 <script src="https://unpkg.com/scrollreveal"></script>
 
+
+<!-- emailjs cdn -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->

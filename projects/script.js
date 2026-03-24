@@ -66,7 +66,7 @@ function showProjects(projects) {
     <div class="grid-item ${project.category}">
       <div class="project-card">
         <div class="card-img-wrap">
-          <img draggable="false" src="/assets/images/projects/${project.image}" alt="${project.name}" />
+          <img draggable="false" loading="lazy" src="/assets/images/projects/${project.image}" alt="${project.name}" />
           <span class="cat-badge">${project.category}</span>
         </div>
         <div class="card-info">

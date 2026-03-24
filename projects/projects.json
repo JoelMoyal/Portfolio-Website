@@ -23,7 +23,7 @@
     {
       "name": "Genomic Cancer Analysis Agent",
       "desc": "Built in 2 hours at the NVIDIA GTC Hackathon. AI clinical genomics assistant for oncologists — upload a genomic report, get evidence-based mutation analysis. NVIDIA Nemotron-70B via NIM API, live PubMed and ClinVar retrieval.",
-      "image": "portfolio.png",
+      "image": "genomic.png",
       "category": "AI",
       "links": {
         "view": "https://genom-three.vercel.app/",

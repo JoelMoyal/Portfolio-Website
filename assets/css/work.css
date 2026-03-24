@@ -34,7 +34,7 @@
 .work .box-container .box .content {
   width: 100%;
   position: absolute;
-  top: 86%;
+  top: calc(100% - 4.5rem);
   left: 0;
   background: rgba(255, 255, 255, 0.95);
   display: flex;
