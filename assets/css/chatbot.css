@@ -244,6 +244,58 @@
     color: rgba(255, 255, 255, 0.7);
 }
 
+/* --- Markdown inside bot bubbles --- */
+.bot-message .message-bubble h1,
+.bot-message .message-bubble h2,
+.bot-message .message-bubble h3 {
+    font-size: 13px;
+    font-weight: 700;
+    margin: 8px 0 4px;
+    color: #1a1a2e;
+    text-transform: none;
+}
+
+.bot-message .message-bubble p {
+    margin: 4px 0;
+    text-transform: none;
+}
+
+.bot-message .message-bubble ul,
+.bot-message .message-bubble ol {
+    padding-left: 16px;
+    margin: 4px 0;
+}
+
+.bot-message .message-bubble li {
+    margin: 2px 0;
+    text-transform: none;
+}
+
+.bot-message .message-bubble strong {
+    font-weight: 600;
+    color: #420177;
+}
+
+.bot-message .message-bubble a {
+    color: #420177;
+    text-decoration: underline;
+    word-break: break-all;
+}
+
+.bot-message .message-bubble hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 8px 0;
+}
+
+.bot-message .message-bubble code {
+    background: #e8e4f0;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-size: 11px;
+    font-family: monospace;
+}
+
 /* --- Typing indicator --- */
 .chatbot-typing {
     display: flex;

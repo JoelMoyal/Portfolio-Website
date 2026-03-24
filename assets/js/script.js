@@ -346,7 +346,7 @@ srtop.reveal('.contact .container .form-group', { delay: 400 });
                         var json = JSON.parse(data);
                         if (json.type === 'content_block_delta' && json.delta && json.delta.type === 'text_delta') {
                             fullText += json.delta.text;
-                            botBubble.bubble.textContent = fullText;
+                            botBubble.bubble.innerHTML = marked.parse(fullText);
                             scrollToBottom();
                         }
                     } catch (e) { /* ignore malformed lines */ }
