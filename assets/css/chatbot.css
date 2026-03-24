@@ -484,17 +484,16 @@
 @media (max-width: 480px) {
     .chatbot-container { bottom: 16px; right: 16px; }
 
-    /* On mobile, window becomes a fixed full-screen overlay — only opens on press */
     .chatbot-window {
-        position: fixed;
-        bottom: 80px;
-        right: 16px;
-        left: 16px;
-        width: auto;
-        height: calc(100dvh - 110px);
-        max-height: 580px;
+        position: absolute;
+        bottom: 70px;
+        right: 0;
+        left: auto;
+        width: calc(100vw - 32px);
+        height: 420px;
+        max-height: 65vh;
         border-radius: 16px;
-        transform: scale(0.9) translateY(20px);
+        transform: scale(0.9) translateY(16px);
         transform-origin: bottom right;
     }
 
