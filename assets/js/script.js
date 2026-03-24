@@ -51,7 +51,7 @@ $(document).ready(function () {
                 alert("Email send Successfully");
             }, function (error) {
                 console.log('FAILED...', error);
-                alert("Unable to send email, try again!");
+                alert("Error: " + JSON.stringify(error));
             });
         event.preventDefault();
     });
