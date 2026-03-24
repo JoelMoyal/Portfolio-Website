@@ -148,7 +148,7 @@ function showProjects(projects) {
     });
 
     /* SCROLL PROJECTS */
-    srtop.reveal('.work .box', { interval: 200 });
+    srtop.reveal('.work .box', { interval: 400 });
 
 }
 
@@ -237,7 +237,7 @@ srtop.reveal('.skills .container .bar', { delay: 400 });
 srtop.reveal('.education .box', { interval: 200 });
 
 /* SCROLL PROJECTS */
-srtop.reveal('.work .box', { interval: 200 });
+srtop.reveal('.work .box', { interval: 400 });
 
 /* SCROLL EXPERIENCE */
 srtop.reveal('.experience .timeline', { delay: 400 });
@@ -305,6 +305,50 @@ srtop.reveal('.contact .container .form-group', { delay: 400 });
 
     sendBtn.addEventListener('click', function () { sendMessage(input.value); });
 
+    // --- Dynamic follow-up chips container ---
+    var suggestionsEl = document.getElementById('chatbot-suggestions');
+
+    function renderFollowUpChips(questions) {
+        suggestionsEl.innerHTML = '';
+        questions.forEach(function (q) {
+            var btn = document.createElement('button');
+            btn.className = 'chip';
+            btn.textContent = q;
+            btn.addEventListener('click', function () { sendMessage(q); });
+            suggestionsEl.appendChild(btn);
+        });
+        scrollToBottom();
+    }
+
+    function parseAndCleanResponse(raw) {
+        var followUps = [];
+        var showCTA = false;
+
+        // Extract follow-up questions
+        var fuMatch = raw.match(/\[FOLLOW_UPS\]([\s\S]*?)\[\/FOLLOW_UPS\]/);
+        if (fuMatch) {
+            followUps = fuMatch[1].split('|').map(function (q) { return q.trim(); }).filter(Boolean);
+            raw = raw.replace(/\[FOLLOW_UPS\][\s\S]*?\[\/FOLLOW_UPS\]/, '').trim();
+        }
+
+        // Extract contact CTA
+        if (raw.includes('[CONTACT_CTA]')) {
+            showCTA = true;
+            raw = raw.replace('[CONTACT_CTA]', '').trim();
+        }
+
+        return { text: raw, followUps: followUps, showCTA: showCTA };
+    }
+
+    function appendContactCTA(wrapper) {
+        var cta = document.createElement('a');
+        cta.href = '#contact';
+        cta.className = 'chatbot-contact-cta';
+        cta.textContent = '✉ Contact Joel';
+        cta.addEventListener('click', function () { closeChat(); });
+        wrapper.appendChild(cta);
+    }
+
     // --- Send + stream ---
     async function sendMessage(text) {
         text = text.trim();
@@ -325,6 +369,16 @@ srtop.reveal('.contact .container .form-group', { delay: 400 });
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ messages: history }),
             });
+
+            // Handle rate limit
+            if (res.status === 429) {
+                var errData = await res.json();
+                showTyping(false);
+                messages.appendChild(botBubble.wrapper);
+                botBubble.bubble.textContent = 'You\'ve sent a lot of messages! Please wait ' + (errData.minutesLeft || 60) + ' minutes before trying again.';
+                setLoading(false);
+                return;
+            }
 
             if (!res.ok) throw new Error('HTTP ' + res.status);
 
@@ -353,7 +407,12 @@ srtop.reveal('.contact .container .form-group', { delay: 400 });
                         var json = JSON.parse(data);
                         if (json.type === 'content_block_delta' && json.delta && json.delta.type === 'text_delta') {
                             fullText += json.delta.text;
-                            botBubble.bubble.innerHTML = marked.parse(fullText);
+                            // Stream the visible portion (hide tags while streaming)
+                            var visibleText = fullText
+                                .replace(/\[FOLLOW_UPS\][\s\S]*?\[\/FOLLOW_UPS\]/, '')
+                                .replace('[CONTACT_CTA]', '')
+                                .trim();
+                            botBubble.bubble.innerHTML = marked.parse(visibleText);
                             scrollToBottom();
                         }
                     } catch (e) { /* ignore malformed lines */ }
@@ -366,7 +425,19 @@ srtop.reveal('.contact .container .form-group', { delay: 400 });
             console.error('[Chatbot]', err);
         } finally {
             botBubble.bubble.classList.remove('streaming');
-            if (fullText) history.push({ role: 'assistant', content: fullText });
+
+            if (fullText) {
+                var parsed = parseAndCleanResponse(fullText);
+                // Store clean text in history (no tags)
+                history.push({ role: 'assistant', content: parsed.text });
+                // Final render of clean text
+                botBubble.bubble.innerHTML = marked.parse(parsed.text);
+                // Render contact CTA if needed
+                if (parsed.showCTA) appendContactCTA(botBubble.wrapper);
+                // Render dynamic follow-up chips
+                if (parsed.followUps.length > 0) renderFollowUpChips(parsed.followUps);
+            }
+
             setLoading(false);
             scrollToBottom();
         }
