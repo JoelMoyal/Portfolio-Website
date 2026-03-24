@@ -26,9 +26,33 @@
   height: 40rem;
   position: relative;
 }
-.contact .content form {
+.contact .content .contact-links {
   width: 45%;
   margin-right: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.contact-link-btn {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.6rem 2.2rem;
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  background: #2506ad;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0px 5px 10px rgba(48, 68, 247, 0.3);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.contact-link-btn:hover {
+  background: #421cec;
+  transform: translateY(-2px);
+}
+.contact-link-btn i {
+  font-size: 2rem;
 }
 form .form-group {
   display: flex;
@@ -144,7 +168,7 @@ form .button-area {
   .contact .content .image-box {
     display: none;
   }
-  .contact .content form {
+  .contact .content .contact-links {
     width: 100%;
     margin-right: 2rem;
   }

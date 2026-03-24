@@ -40,22 +40,6 @@ $(document).ready(function () {
         }
     });
 
-    // <!-- emailjs to mail contact form data -->
-    $("#contact-form").submit(function (event) {
-        emailjs.init({publicKey: 'CAZNSBt4UvP9y7ej-'});
-
-        emailjs.sendForm('service_0as4wrm', 'template_0i8oxpw', '#contact-form')
-            .then(function (response) {
-                console.log('SUCCESS!', response.status, response.text);
-                document.getElementById("contact-form").reset();
-                alert("Email send Successfully");
-            }, function (error) {
-                console.log('FAILED...', error);
-                alert("Unable to send email, try again!");
-            });
-        event.preventDefault();
-    });
-    // <!-- emailjs to mail contact form data -->
 
 });
 
