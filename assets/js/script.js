@@ -340,13 +340,13 @@ srtop.reveal('.contact .container .form-group', { delay: 400 });
         return { text: raw, followUps: followUps, showCTA: showCTA };
     }
 
-    function appendContactCTA(wrapper) {
+    function appendContactCTA(contentCol) {
         var cta = document.createElement('a');
         cta.href = '#contact';
         cta.className = 'chatbot-contact-cta';
         cta.textContent = '✉ Contact Joel';
         cta.addEventListener('click', function () { closeChat(); });
-        wrapper.appendChild(cta);
+        contentCol.appendChild(cta);
     }
 
     // --- Send + stream ---
@@ -433,7 +433,7 @@ srtop.reveal('.contact .container .form-group', { delay: 400 });
                 // Final render of clean text
                 botBubble.bubble.innerHTML = marked.parse(parsed.text);
                 // Render contact CTA if needed
-                if (parsed.showCTA) appendContactCTA(botBubble.wrapper);
+                if (parsed.showCTA) appendContactCTA(botBubble.content);
                 // Render dynamic follow-up chips
                 if (parsed.followUps.length > 0) renderFollowUpChips(parsed.followUps);
             }
@@ -461,11 +461,15 @@ srtop.reveal('.contact .container .form-group', { delay: 400 });
         avatar.className = 'bot-avatar';
         avatar.src = './assets/images/Logo-me-round.png';
         avatar.alt = 'Joel';
+        // Column wrapper so CTA sits below bubble, not beside it
+        var content = document.createElement('div');
+        content.className = 'bot-content-col';
         var bubble = document.createElement('div');
         bubble.className = 'message-bubble';
+        content.appendChild(bubble);
         wrapper.appendChild(avatar);
-        wrapper.appendChild(bubble);
-        return { wrapper: wrapper, bubble: bubble };
+        wrapper.appendChild(content);
+        return { wrapper: wrapper, content: content, bubble: bubble };
     }
 
     function showTyping(visible) {

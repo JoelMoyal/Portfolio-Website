@@ -130,6 +130,18 @@
     object-fit: cover;
 }
 
+.bot-content-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    max-width: 78%;
+}
+
+.bot-content-col .message-bubble {
+    max-width: 100%;
+}
+
 .bot-avatar {
     width: 28px;
     height: 28px;
