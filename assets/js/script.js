@@ -221,9 +221,6 @@ srtop.reveal('.skills .container .bar', { delay: 200 });
 /* SCROLL EDUCATION */
 srtop.reveal('.education .box', { interval: 100 });
 
-/* SCROLL PROJECTS */
-srtop.reveal('.work .box', { interval: 150 });
-
 /* SCROLL EXPERIENCE */
 srtop.reveal('.experience .timeline', { delay: 150 });
 srtop.reveal('.experience .timeline .container', { interval: 150 });
