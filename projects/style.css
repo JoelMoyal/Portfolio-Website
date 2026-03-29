@@ -325,12 +325,19 @@ header .navbar ul li a:hover{
 @media screen and (max-width: 768px) {
   .grid-item { width: 300px; }
 }
+@media screen and (max-width: 600px) {
+  .work .box-container {
+    max-width: 340px;
+    padding: 0;
+  }
+
+  .grid-item {
+    width: 100%;
+    margin: 1rem 0;
+  }
+}
 @media screen and (max-width: 450px) {
   .work .button-group { width: 100%; }
-  .grid-item {
-    width: calc(100vw - 4rem);
-    margin: 1rem auto;
-  }
 }
 
 /* back to home button */
