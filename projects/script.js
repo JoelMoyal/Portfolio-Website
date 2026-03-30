@@ -19,10 +19,10 @@ $(document).ready(function () {
 document.addEventListener("visibilitychange", function () {
   if (document.visibilityState === "visible") {
     document.title = "Projects | Portfolio Joël Moyal";
-    $("#favicon").attr("href", "assets/images/JM_Logo_blue.png");
+    $("#favicon").attr("href", "/assets/images/JM_Logo_blue.png");
   } else {
     document.title = "Come Back To My Portfolio";
-    $("#favicon").attr("href", "assets/images/JM_Logo_blue.png");
+    $("#favicon").attr("href", "/assets/images/JM_Logo_blue.png");
   }
 });
 
