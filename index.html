@@ -1,575 +1,1108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Joël's portfolio, Full-Stack Developer, Front-end, Back-end" />
-    <meta name="description" content="Joël Moyal — AI Founder & Full-Stack Developer. Founder of ScribeSnap.ai (6,000+ users). SJSU Software Engineering." />
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/chatbot.css">
-    <!-- Font -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Favicon -->
-    <link id='favicon' rel="shortcut icon" href="./assets/images/JM_Logo_blue.png" type="image/x-png">
-    <title>Portfolio | Joël Moyal</title>
-    
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joël Moyal | AI/ML engineer</title>
+<meta name="description" content="Joël Moyal is an AI/ML engineer in the Bay Area and the founder of SpotGrove.app and ScribeSnap.ai.">
+<link rel="canonical" href="https://joelmoyal.com/">
+<link rel="icon" type="image/png" href="assets/jm-logo.png">
+<meta name="theme-color" content="#F4F1EA">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Joël Moyal">
+<meta property="og:title" content="Joël Moyal | AI/ML engineer">
+<meta property="og:description" content="Joël Moyal is an AI/ML engineer in the Bay Area and the founder of SpotGrove.app and ScribeSnap.ai.">
+<meta property="og:url" content="https://joelmoyal.com/">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Layout idea: a paper ground, a giant wordmark you can push around, one pinned photo scene, an ink footer with a sticker pile. */
+  --paper: #F4F1EA; --paper-2: #E9E4D8; --ink: #16181C; --soft: #4B4F58; --rule: #D6D1C5; --blue: #006699; --green: #10231F;
+  --display: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+  --body: 'Barlow', 'Helvetica Neue', Arial, sans-serif;
+  --pad: clamp(20px, 4vw, 56px);
+  color-scheme: light;
+}
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); }
+#jm-page { overflow-x: clip; }
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; text-decoration-thickness: 0.08em; text-underline-offset: 0.18em; }
+a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+::selection { background: var(--blue); color: var(--paper); }
+
+/* Hero */
+.hero { max-width: 1360px; margin: 0 auto; padding: clamp(4px, 1.4vw, 20px) var(--pad) clamp(56px, 8vw, 112px); container-type: inline-size; }
+.name { position: relative; margin: 0; display: flex; flex-wrap: wrap; column-gap: 0.19em; font-family: var(--display); font-weight: 700; line-height: 0.8; letter-spacing: -0.012em; font-size: calc(100cqi / 4.29); padding-top: 0.22em; user-select: none; -webkit-user-select: none; }
+.name .word { display: flex; }
+.name .L { display: block; position: relative; transform-origin: 50% 86%; will-change: transform; touch-action: pan-y; }
+.name .pip { position: absolute; left: -2%; bottom: 83.5%; width: 0.35em; max-width: none; height: auto; pointer-events: none; }
+.hero-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: clamp(36px, 5cqi, 72px); margin-top: clamp(22px, 3.2cqi, 46px); }
+.hero-text { flex: 1 1 520px; min-width: 0; max-width: 700px; display: flex; flex-direction: column; gap: clamp(20px, 2.4cqi, 30px); }
+.lede { margin: 0; font-family: var(--display); font-weight: 600; font-size: clamp(30px, 4.6cqi, 58px); line-height: 1; letter-spacing: -0.006em; }
+.hero-objs { flex: 0 1 420px; width: 100%; max-width: 420px; margin: 0 auto; }
+@container (max-width: 700px) {
+  .name { font-size: calc(100cqi / 2.36); }
+}
+@container (min-width: 1040px) {
+  .hero-objs { margin-top: -5.2cqi; margin-right: 1cqi; }
+}
+
+/* Cursor label */
+.chip { position: fixed; left: 0; top: 0; z-index: 50; pointer-events: none; opacity: 0; transition: opacity 160ms ease; background: var(--ink); color: var(--paper); border: 1px solid rgba(244, 241, 234, 0.5); font: 600 13px/1 var(--body); letter-spacing: 0.02em; padding: 7px 9px; }
+
+/* SpotGrove scene */
+.sg { background: var(--green); color: var(--paper); }
+.sg-track { position: relative; }
+.sg-stage { position: relative; height: min(100vh, 920px); min-height: 540px; overflow: hidden; }
+.sg-track.pin { height: calc(min(100vh, 920px) * 2.4); }
+.sg-track.pin .sg-stage { position: sticky; top: 0; }
+.sg-photo { position: absolute; inset: 0; will-change: clip-path; }
+.sg-photo img { display: block; width: 100%; height: 100%; max-width: none; object-fit: cover; will-change: transform; }
+.sg-scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(16, 35, 31, 0.95) 0%, rgba(16, 35, 31, 0.74) 36%, rgba(16, 35, 31, 0) 70%); }
+.sg-grid { position: relative; height: 100%; box-sizing: border-box; max-width: calc(1360px + 2 * var(--pad)); margin: 0 auto; padding: clamp(28px, 6vh, 72px) var(--pad) clamp(24px, 5vh, 56px); display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); grid-template-rows: auto minmax(0, 1fr); column-gap: clamp(24px, 4vw, 64px); row-gap: 18px; }
+.sg-head { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 10px; }
+.sg-line { grid-column: 1; grid-row: 2; align-self: end; margin: 0; font-family: var(--display); font-weight: 500; font-size: clamp(30px, 3.9vw, 58px); line-height: 1.03; }
+.sg-dev { grid-column: 2; grid-row: 2; min-height: 0; display: flex; align-items: flex-end; justify-content: flex-end; transform: rotate(-2deg); transform-origin: 60% 100%; will-change: transform; }
+.sg-dev img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 28px 34px rgba(0, 0, 0, 0.5)); }
+.sg-rest { max-width: 1360px; margin: 0 auto; padding: clamp(48px, 7vw, 104px) var(--pad) clamp(64px, 9vw, 128px); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 36px 72px; }
+@media (max-width: 860px) {
+  .sg-scrim { background: linear-gradient(180deg, rgba(16, 35, 31, 0.96) 0%, rgba(16, 35, 31, 0.8) 44%, rgba(16, 35, 31, 0) 80%); }
+  .sg-grid { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto minmax(0, 1fr); }
+  .sg-line { grid-row: 2; align-self: start; }
+  .sg-dev { grid-column: 1; grid-row: 3; justify-content: center; }
+}
+
+/* NextGen German Connect: a hanging German exit sign on an ink ground */
+.ng { background: var(--ink); color: var(--paper); overflow: hidden; }
+.ng-wrap { --strap: clamp(58px, 6vw, 88px); max-width: 1360px; margin: 0 auto; padding: var(--strap) var(--pad) clamp(48px, 6vw, 88px); display: flex; flex-wrap: wrap; align-items: center; gap: clamp(26px, 4vw, 40px) clamp(36px, 5vw, 72px); }
+.ng-hang { flex: 1.35 1 480px; align-self: flex-start; min-width: 0; display: flex; justify-content: center; }
+.ng-text { flex: 1 1 340px; min-width: 0; max-width: 520px; display: flex; flex-direction: column; gap: 14px; }
+.hang { position: relative; width: min(100%, clamp(300px, 33vw, 480px)); cursor: grab; user-select: none; -webkit-user-select: none; touch-action: pan-y; }
+.ng-a .hang { width: clamp(180px, 17vw, 236px); }
+.hang .straps { position: absolute; z-index: 1; left: 0; right: 0; bottom: calc(100% - 15px); height: calc(var(--strap) + 15px); display: flex; justify-content: space-between; padding: 0 15%; pointer-events: none; }
+.ng-a .hang .straps { padding: 0 22%; }
+.hang .straps i { position: relative; display: block; width: 6px; background: #8D929B; border-radius: 0 0 3px 3px; transform-origin: 50% 0; will-change: transform; }
+.hang .straps i::before { content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 14px; background: inherit; }
+.hang .straps i::after { content: ""; position: absolute; left: 1.5px; bottom: 4px; width: 3px; height: 3px; border-radius: 50%; background: #16181C; opacity: 0.7; }
+.board { background: #F7F3EA; border-radius: 10px; padding: 11.5% 8.5% 9.5%; box-shadow: 0 30px 50px -22px rgba(0, 0, 0, 0.8); will-change: transform; }
+.ng-a .board { padding: 21% 15% 16%; }
+.board img { display: block; width: 100%; height: auto; }
+.nb { white-space: nowrap; }
+
+/* Chessboard portrait */
+.bd { position: relative; aspect-ratio: 1; }
+.bd img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.bd.live img { opacity: 0; }
+.bd-grid { position: absolute; left: 0; top: 0; aspect-ratio: 1; width: 100%; display: grid; grid-template-columns: repeat(8, 1fr); perspective: 1500px; }
+.bd-tile { position: relative; transform-style: preserve-3d; transition: transform 760ms cubic-bezier(0.3, 0.7, 0.2, 1); }
+.bd-tile.on { transform: rotateY(180deg); }
+.bd-sq, .bd-ph { position: absolute; inset: -0.4px; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.bd-sq.dk { background: var(--ink); }
+.bd-sq.lt { background: #F8F5EE; }
+.bd-ph { transform: rotateY(180deg); background-size: 800% 800%; background-repeat: no-repeat; }
+
+.txtbtn { appearance: none; background: none; border: 0; padding: 12px 0; min-height: 44px; color: var(--paper); font: 500 16px/1.2 var(--body); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; cursor: pointer; }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
 </head>
-<body oncontextmenu="return false">
+<body>
+<div id="jm-page" style="font-family: 'Barlow', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(17px, 1.32vw, 19px); line-height: 1.5; color: #16181C; background: #16181C">
 
-<!-- pre loader -->
-<!-- <div class="loader-container">
-  <img draggable="false" src="./assets/images/preloader.gif" alt="">
-</div> -->
-
-<!-- navbar starts -->
-<header>
-        <a href="/" class="logo">Joël Moyal</a>
-
-        <div id="menu" class="fas fa-bars"></div>
-        <nav class="navbar">
-            <ul>
-            <li><a class="active" href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+<div style="background: #F4F1EA">
+<header style="max-width: 1360px; margin: 0 auto; padding-left: clamp(20px, 4vw, 56px); padding-right: clamp(20px, 4vw, 56px); padding-top: 16px; padding-bottom: 16px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0 28px">
+  <a href="#top" style="display: flex; align-items: center; gap: 12px; padding: 8px 0; font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 25px; letter-spacing: 0.01em"><img src="assets/jm-logo.png" alt="" style="height: 28px; width: auto; flex: none"><span>Joël Moyal</span></a>
+  <nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 0 26px; font-weight: 500; font-size: 17px">
+    <a href="#spotgrove" style="padding: 10px 0">Work</a>
+    <a href="#about" style="padding: 10px 0">About</a>
+    <a href="#contact" style="padding: 10px 0">Contact</a>
+    <a href="https://drive.google.com/file/d/1eH_XQTPsbUXxha1wCAjxoAYIXSahyYlZ/view?usp=sharing" style="padding: 10px 0; display: inline-flex; align-items: center; gap: 6px">Résumé <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" style="width: 0.72em; height: 0.72em; flex: none; display: inline-block; vertical-align: -0.02em"><path d="M7 17 17 7M8.5 7H17v8.5"></path></svg></a>
+  </nav>
 </header>
-<!-- navbar ends -->
 
-
-<!-- hero section starts -->
-<section class="home" id="home">
-    <div id="particles-js"></div>
-
-    <div class="content">
-    <span class="internship-badge"><i class="fas fa-circle"></i> Open to Internships</span>
-    <h2>Hi World,<br/> I'm Joël <span>Moyal</span></h2>
-    <p>I am a <span class="typing-text"></span></p>
-    <a href="#work" class="btn"><span>See My Work</span>
-      <i class="fas fa-arrow-circle-right"></i>
-    </a>
-    <div class="socials">
-        <ul class="social-icons">
-          <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/joel-moyal" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-          <li><a class="github" aria-label="GitHub" href="https://github.com/JoelMoyal" target="_blank"><i class="fab fa-github"></i></a></li>
-          <li><a class="behance" aria-label="Behance" href="https://www.behance.net/joelmoyal" target="_blank"><i class="fab fa-behance"></i></a></li>
-          <li><a class="scribesnap" aria-label="ScribeSnap.ai" href="https://scribesnap.ai" target="_blank"><img src="./assets/images/scribesnap-icon.svg" alt="ScribeSnap" /></a></li>
-
-        </ul>
+<section id="top" class="hero">
+  <h1 class="name" data-name="1" aria-label="Joël Moyal"><span class="word" aria-hidden="true"><span class="L" data-letter="1" data-grab="Drag">J</span><span class="L" data-letter="1" data-grab="Drag">O</span><span class="L" data-letter="1" data-grab="Drag">Ë</span><span class="L" data-letter="1" data-grab="Drag">L</span></span><span class="word" aria-hidden="true"><span class="L" data-letter="1" data-grab="Drag">M</span><span class="L" data-letter="1" data-grab="Drag">O</span><span class="L" data-letter="1" data-grab="Drag">Y</span><span class="L" data-letter="1" data-grab="Drag">A</span><span class="L" data-letter="1" data-grab="Drag">L<img class="pip" src="assets/pip-point.png" alt="" draggable="false"></span></span></h1>
+  <div class="hero-row">
+    <div class="hero-text">
+      <p class="lede"><span style="display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em"><span data-rise="1" style="display: inline-block">AI/ML</span></span> <span style="display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em"><span data-rise="1" style="display: inline-block">engineer.</span></span> <span style="display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em"><span data-rise="1" style="display: inline-block">Founder</span></span> <span style="display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em"><span data-rise="1" style="display: inline-block">of</span></span> <span style="display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em"><span data-rise="1" style="display: inline-block"><a href="#spotgrove" style="text-decoration: underline; text-decoration-color: #006699; text-decoration-thickness: 0.055em; text-underline-offset: 0.1em; text-decoration-skip-ink: none">SpotGrove.app</a></span></span> <span style="display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em"><span data-rise="1" style="display: inline-block">and</span></span> <span style="display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em"><span data-rise="1" style="display: inline-block"><a href="#scribesnap" style="text-decoration: underline; text-decoration-color: #006699; text-decoration-thickness: 0.055em; text-underline-offset: 0.1em; text-decoration-skip-ink: none">ScribeSnap.ai</a>.</span></span></p>
+      <div data-fade="1" style="display: flex; flex-direction: column; gap: 22px; max-width: 34em">
+        <p style="margin: 0">I'm Joël. I grew up in Germany, live in the Bay Area, and build apps that strangers end up using every day. SpotGrove has 180,000 downloads. ScribeSnap gets about 5,000 people a day. I trained as a media designer first, so I design the screen before I build it.</p>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px">
+          <a href="#contact" style="display: inline-flex; align-items: center; min-height: 48px; box-sizing: border-box; padding: 0 22px; background: #16181C; color: #F4F1EA; font-weight: 600">Open to work. Say hi</a>
+          <a href="#spotgrove" style="display: inline-flex; align-items: center; gap: 7px; padding: 10px 0; font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px">See the work <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" style="width: 0.72em; height: 0.72em; flex: none; display: inline-block; vertical-align: -0.02em"><path d="M12 4v15M5 12l7 7 7-7"></path></svg></a>
+        </div>
       </div>
     </div>
-<div class="image">
-    <img draggable="false" class="tilt" src="./assets/images/profile.jpg" alt="Joël Moyal">
-</div>
-</section>
-<!-- hero section ends -->
-
-<!-- about section starts -->
-<section class="about" id="about">
-  <h2 class="heading"><i class="fas fa-user-alt"></i> About <span>Me</span></h2>
-  
-  <div class="row">
-    <div class="content">
-      <h3>Welcome to My Portfolio</h3>
-    
-      <p>
-        I’m Joël Moyal — Founder of ScribeSnap.ai, an AI EdTech platform used by 6,000+ students worldwide.
-        I’m studying Software Engineering at San Jose State University (GPA 3.8) in the heart of Silicon Valley,
-        building at the intersection of AI and product. I have a background in media design and have shipped
-        full-stack products across React, Node.js, Python, and LLM integrations.
-      </p>
-      <p>
-        Outside of code I represented Germany on the U18 national chess team, train boxing, and have travelled to 64 countries.
-      </p>
-      <p class="languages-line"><i class="fas fa-language"></i> <strong>Languages:</strong> German (Native) · English (Fluent)</p>
-
-      <div class="resumebtn">
-        <a href="https://drive.google.com/file/d/1eH_XQTPsbUXxha1wCAjxoAYIXSahyYlZ/view?usp=sharing" target="_blank" class="btn">
-          <span>Resume</span>
-          <i class="fas fa-chevron-right"></i>
-        </a>
+    <div class="hero-objs">
+      <div style="position: relative; width: 100%; aspect-ratio: 43 / 46">
+        <div data-spring="1" data-enter="1" data-grab="Drag" data-rot="-5" data-depth="0.25" style="position: absolute; left: 0; top: 4%; width: 66%; z-index: 1; transform: rotate(-5deg); user-select: none">
+          <img src="assets/scribe-crop.webp" alt="ScribeSnap.ai: paste a video link, get the transcript" draggable="false" style="display: block; width: 100%; height: auto; border: 1px solid rgba(22, 24, 28, 0.22); border-radius: 8px; box-shadow: 0 20px 36px -18px rgba(22, 24, 28, 0.5)">
+        </div>
+        <div data-spring="1" data-enter="1" data-grab="Drag" data-rot="4" data-depth="0.6" style="position: absolute; left: 46%; top: 0; width: 49%; z-index: 2; transform: rotate(4deg); user-select: none">
+          <img src="assets/iphone-discover.webp" alt="SpotGrove on iPhone: places to work near you" draggable="false" style="display: block; width: 100%; height: auto; filter: drop-shadow(0 22px 26px rgba(22, 24, 28, 0.3))">
+        </div>
+        <div data-spring="1" data-enter="1" data-grab="Drag" data-rot="-3" data-depth="0.95" style="position: absolute; left: 2%; top: 58%; width: 60%; z-index: 3; transform: rotate(-3deg); user-select: none">
+          <img src="assets/card-devocion.webp" alt="A SpotGrove place card for Devoción, a café in New York, with WiFi, noise and power scores" draggable="false" style="display: block; width: 100%; height: auto; filter: drop-shadow(0 14px 18px rgba(22, 24, 28, 0.28))">
+        </div>
       </div>
     </div>
   </div>
 </section>
-<!-- about section ends -->
-
-<!-- stats strip -->
-<div class="stats-strip">
-  <div class="stat-item">
-    <h3>6,000+</h3>
-    <p>Active Users</p>
-  </div>
-  <div class="stat-item">
-    <h3>20+</h3>
-    <p>Projects Built</p>
-  </div>
-  <div class="stat-item">
-    <h3>3+</h3>
-    <p>Years Experience</p>
-  </div>
 </div>
 
-<!-- skills section starts -->
-<section class="skills" id="skills">
-  <h2 class="heading"><i class="fas fa-laptop-code"></i> Skills & <span>Abilities</span></h2>
-  <div class="container">
-    <div class="row" id="skillsContainer">
-      <!-- Skills will be dynamically loaded here -->
+<section id="spotgrove" class="sg">
+  <div class="sg-track" data-scene="1">
+    <div class="sg-stage">
+      <div class="sg-photo"><img src="assets/window-seat.webp" alt="Working on a laptop at a window seat in a café"></div>
+      <div class="sg-scrim"></div>
+      <div class="sg-grid">
+        <div class="sg-head">
+          <p style="margin: 0; font-weight: 500; font-size: 17px; color: #A9D8CC">iOS app. Founder.</p>
+          <h2 style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; line-height: 0.92; letter-spacing: -0.012em; font-size: clamp(54px, 9.4vw, 148px)">SpotGrove.app</h2>
+        </div>
+        <p class="sg-line"><span data-w="1">I</span> <span data-w="1">kept</span> <span data-w="1">picking</span> <span data-w="1">cafés</span> <span data-w="1">with</span> <span data-w="1">bad</span> <span data-w="1">WiFi,</span> <span data-w="1">so</span> <span data-w="1">I</span> <span data-w="1">built</span> <span data-w="1">an</span> <span data-w="1">app</span> <span data-w="1">that</span> <span data-w="1">knows.</span></p>
+        <div class="sg-dev"><img src="assets/duo-open.webp" alt="SpotGrove on an open iPhone Duo: nearby places on the left, the map on the right"></div>
+      </div>
+    </div>
+  </div>
+  <div class="sg-rest">
+    <p data-reveal="up" style="flex: 1 1 380px; max-width: 620px; margin: 0; font-size: clamp(20px, 1.9vw, 27px); line-height: 1.38; color: #E6EDE8">SpotGrove shows the WiFi, outlets and noise level of cafés, libraries and coworking spaces before you walk in. I launched it at WWDC26, where I sat down 1:1 with Apple engineers. Version 2.0 shipped in November 2026 with a 15-second WiFi speed test in every spot.</p>
+    <div data-reveal="up" data-delay="120" style="flex: 1 1 360px; max-width: 520px; display: flex; flex-direction: column; gap: 24px">
+      <dl style="margin: 0; display: flex; flex-direction: column">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 24px; padding: 12px 0; border-top: 1px solid rgba(244, 241, 234, 0.26)"><dt style="color: #A9D8CC; font-size: 0.9em">Downloads</dt><dd style="margin: 0; font-weight: 500; text-align: right">180,000</dd></div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 24px; padding: 12px 0; border-top: 1px solid rgba(244, 241, 234, 0.26)"><dt style="color: #A9D8CC; font-size: 0.9em">Places listed</dt><dd style="margin: 0; font-weight: 500; text-align: right">150,000+</dd></div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 24px; padding: 12px 0; border-top: 1px solid rgba(244, 241, 234, 0.26)"><dt style="color: #A9D8CC; font-size: 0.9em">Interactions</dt><dd style="margin: 0; font-weight: 500; text-align: right">8 million+</dd></div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 24px; padding: 12px 0; border-top: 1px solid rgba(244, 241, 234, 0.26); border-bottom: 1px solid rgba(244, 241, 234, 0.26)"><dt style="color: #A9D8CC; font-size: 0.9em">Launched</dt><dd style="margin: 0; font-weight: 500; text-align: right">At WWDC26</dd></div>
+</dl>
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px">
+        <div style="display: flex; flex-wrap: wrap; gap: 0 28px">
+          <a href="https://spotgrove.app" style="display: inline-flex; align-items: center; gap: 7px; padding: 10px 0; font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px">spotgrove.app <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" style="width: 0.72em; height: 0.72em; flex: none; display: inline-block; vertical-align: -0.02em"><path d="M7 17 17 7M8.5 7H17v8.5"></path></svg></a>
+          <a href="https://apps.apple.com/us/app/spotgrove-work-from-anywhere/id6761308547" style="display: inline-flex; align-items: center; gap: 7px; padding: 10px 0; font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px">App Store <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" style="width: 0.72em; height: 0.72em; flex: none; display: inline-block; vertical-align: -0.02em"><path d="M7 17 17 7M8.5 7H17v8.5"></path></svg></a>
+        </div>
+        <img src="assets/pip-coffee.png" alt="Pip holding a coffee" style="width: 62px; height: auto; flex: none">
+      </div>
     </div>
   </div>
 </section>
-<!-- skills section ends -->
 
-
-<!-- education section starts -->
-<section class="education" id="education">
-
-  <h1 class="heading"><i class="fas fa-graduation-cap"></i> My <span>Education</span></h1>
-
-  <hr> 
-  
-   <p class="qoute">An innovative software engineer with a passion for problem-solving and a relentless drive for excellence.</p> 
-
-    <div class="box-container">
-
-      <div class="box">
-        <div class="image">
-        <img draggable="false" loading="lazy" src="./assets/images/SJSU.jpg" alt="">
-        </div>
-        <div class="content">
-        <h3>Software Engineering</h3>
-        <p>San Jose State University</p>
-        <h4>2025–2028 | GPA 3.8</h4>
-        </div>
+<section id="scribesnap" style="background: #F4F1EA; overflow: hidden">
+<div style="max-width: 1360px; margin: 0 auto; padding-left: clamp(20px, 4vw, 56px); padding-right: clamp(20px, 4vw, 56px); padding-top: clamp(64px, 9vw, 136px); padding-bottom: clamp(64px, 9vw, 136px); display: flex; flex-wrap: wrap; align-items: center; gap: clamp(40px, 5vw, 72px)">
+  <div data-reveal="up" style="flex: 1 1 400px; min-width: 0; max-width: 560px; display: flex; flex-direction: column; gap: 22px">
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <p style="margin: 0; font-weight: 500; font-size: 17px; color: #006699">Web app. Solo build. Live since January 2026.</p>
+      <h2 style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; line-height: 0.92; letter-spacing: -0.012em; font-size: clamp(48px, 6vw, 88px)">ScribeSnap.ai</h2>
     </div>
-
-      <div class="box">
-        <div class="image">
-        <img draggable="false" loading="lazy" src="./assets/images/Self_taught.png" alt="">
-        </div>
-        <div class="content">
-        <h3>Self-Taught</h3>
-        <p>Adaptable software engineer adept at mastering new technologies and implementing efficient solutions with precision</p>
-        <h4>2020–Present</h4>
-        </div>
-    </div>
-
-    <div class="box">
-        <div class="image">
-        <img draggable="false" loading="lazy" src="./assets/images/Fontys_university.jpeg" alt="">
-        </div>
-        <div class="content">
-        <h3>International Software Engineering</h3>
-        <p>Fontys University of Applied Sciences | Netherlands</p>
-        <h4>2022–2023 | Completed</h4>
-        </div>
-    </div>
-
-    <div class="box">
-      <div class="image">
-      <img draggable="false" loading="lazy" src="./assets/images/My_school.webp" alt="">
-      </div>
-      <div class="content">
-      <h3>Media Design Certification</h3>
-      <p>BBS GUT School | Germany</p>
-      <h4>2020–2022 | Completed</h4>
-      </div>
-    </div>
-
-    <div class="box">
-      <div class="image">
-      <img draggable="false" loading="lazy" src="./assets/images/My_high_school.jpeg" alt="">
-      </div>
-      <div class="content">
-      <h3>High School Degree </h3>
-      <p>BBS School | Germany</p>
-      <h4>2008-2019 | Completed</h4>
-      </div>
-    </div>
-
-</div>
-
-<br>
-  <br>
-      <br>
-
-<!-- Certification section starts -->
-<h1 class="heading"><i class="fa fa-certificate"></i> My <span>Certifications</span></h1>
-
-<hr>
-  <div class="box-container">
-  <div class="box">
-    <div class="image">
-    <a href="https://verify.skilljar.com/c/96uifv2q7my6" target="_blank"><img draggable="false" loading="lazy" src="./assets/images/skills/certificate-96uifv2q7my6-1774137737.jpg" alt="Anthropic Certification"></a>
-    </div>
-    <div class="content">
-    <h3>Anthropic AI</h3>
-    <p>Certification | Online</p>
-    <h4>2025</h4>
+    <p style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 500; font-size: clamp(28px, 2.9vw, 42px); line-height: 1.05; text-wrap: balance">I built it alone, for my own classes. Then other students found it.</p>
+    <p style="margin: 0; color: #4B4F58">Paste a YouTube or Vimeo link, or upload a recording, and get the transcript, a summary, flashcards and a study guide back.</p>
+    <dl style="margin: 0; display: flex; flex-direction: column">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 24px; padding: 12px 0; border-top: 1px solid #D6D1C5"><dt style="color: #4B4F58; font-size: 0.9em">Registered accounts</dt><dd style="margin: 0; font-weight: 500; text-align: right">16,000</dd></div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 24px; padding: 12px 0; border-top: 1px solid #D6D1C5"><dt style="color: #4B4F58; font-size: 0.9em">People using it daily</dt><dd style="margin: 0; font-weight: 500; text-align: right">About 5,000</dd></div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 24px; padding: 12px 0; border-top: 1px solid #D6D1C5; border-bottom: 1px solid #D6D1C5"><dt style="color: #4B4F58; font-size: 0.9em">Stack</dt><dd style="margin: 0; font-weight: 500; text-align: right">React, Node.js, Supabase, Groq</dd></div>
+</dl>
+    <div style="display: flex; flex-wrap: wrap; gap: 0 28px">
+      <a href="https://scribesnap.ai" style="display: inline-flex; align-items: center; gap: 7px; padding: 10px 0; font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px">scribesnap.ai <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" style="width: 0.72em; height: 0.72em; flex: none; display: inline-block; vertical-align: -0.02em"><path d="M7 17 17 7M8.5 7H17v8.5"></path></svg></a>
+      <a href="https://www.youtube.com/watch?v=0CO9lSEXG3U" style="display: inline-flex; align-items: center; gap: 7px; padding: 10px 0; font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px">Watch the demo <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" style="width: 0.72em; height: 0.72em; flex: none; display: inline-block; vertical-align: -0.02em"><path d="M7 17 17 7M8.5 7H17v8.5"></path></svg></a>
     </div>
   </div>
-
-  <div class="box">
-    <div class="image">
-    <img draggable="false" loading="lazy" src="./assets/images/certificate_of_completion_html.jpg" alt="HTML Certificate">
+  <figure style="flex: 1.5 1 520px; min-width: 0; margin: 0 calc(-1 * clamp(20px, 12vw, 200px)) 0 0">
+    <div data-tilt="1" style="transform-origin: 50% 100%; will-change: transform; border: 1px solid rgba(22, 24, 28, 0.2); border-right: 0; border-radius: 10px 0 0 10px; overflow: hidden; box-shadow: 0 30px 50px -30px rgba(22, 24, 28, 0.45)">
+      <img src="assets/scribe-shot.webp" alt="The ScribeSnap.ai home screen: Watch less. Know more. A box to paste a video link and an Extract button." style="display: block; width: 100%; height: auto">
     </div>
-    <div class="content">
-    <h3>HTML - W3School</h3>
-    <p>Certification | Online</p>
-    <h4>2024</h4>
-    </div>
-  </div>
-
-  <div class="box">
-    <div class="image">
-    <img draggable="false" loading="lazy" src="./assets/images/certificate_of_completion_html.jpg" alt="Cyber Security Certificate">
-    </div>
-    <div class="content">
-    <h3>Cyber Security - W3School</h3>
-    <p>Certification | Online</p>
-    <h4>2024</h4>
-    </div>
-  </div>
-
-  <div class="box">
-    <div class="image">
-    <img draggable="false" loading="lazy" src="./assets/images/certificate_of_completion_html.jpg" alt="C Certificate">
-    </div>
-    <div class="content">
-    <h3>C - W3School</h3>
-    <p>Certification | Online</p>
-    <h4>2024</h4>
-    </div>
-  </div>
-
-  <div class="box">
-    <div class="image">
-    <img draggable="false" loading="lazy" src="./assets/images/university_trier.png" alt="">
-    </div>
-    <div class="content">
-    <h3>Game Programming with Unity 3D</h3>
-    <p>University of Science Trier | Germany</p>
-    <h4>2019</h4>
-    </div>
-  </div>
-
+  </figure>
 </div>
 </section>
-<!-- education section ends -->
 
-
-<!-- work project section starts -->
-<section class="work" id="work">
-
-  <h2 class="heading"><i class="fas fa-laptop-code"></i> Projects <span>Made</span></h2>
-
-  <div class="box-container">
-
-    <!-- <div class="box tilt">
-      <img draggable="false" src="./assets/images/projects/portfolio1.PNG" alt="" />
-      <div class="content">
-        <div class="tag">
-        <h3>Portfolio Website</h3>
-        </div>
-        <div class="desc">
-          <p>Personal portfolio website. Don't need much info about it, just scroll down. You're here only!</p>
-          <div class="btns">
-            <a href="#" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-            <a href="https://github.com/jigar-sable/Portfolio-Website" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
+<section id="noah" style="background: #006699; color: #F4F1EA">
+<div style="max-width: 1360px; margin: 0 auto; padding-left: clamp(20px, 4vw, 56px); padding-right: clamp(20px, 4vw, 56px); padding-top: clamp(64px, 9vw, 128px); padding-bottom: clamp(64px, 9vw, 128px); display: flex; flex-wrap: wrap; align-items: flex-end; gap: clamp(36px, 5vw, 72px)">
+  <div data-reveal="up" style="flex: 1.35 1 480px; min-width: 0; container-type: inline-size">
+    <p style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: clamp(44px, 17cqi, 150px); line-height: 0.94; letter-spacing: -0.012em; white-space: nowrap" data-decode="1" aria-label="COBOL to Java. C to Rust.">COBOL <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" style="width: 0.62em; height: 0.62em; flex: none; display: inline-block; vertical-align: 0.02em"><path d="M3 12h17M13 5l7 7-7 7"></path></svg> <span data-scramble="Java." aria-hidden="true">Java.</span><br>C <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" style="width: 0.62em; height: 0.62em; flex: none; display: inline-block; vertical-align: 0.02em"><path d="M3 12h17M13 5l7 7-7 7"></path></svg> <span data-scramble="Rust." aria-hidden="true">Rust.</span></p>
+  </div>
+  <div data-reveal="up" data-delay="120" style="flex: 1 1 340px; max-width: 520px; display: flex; flex-direction: column; gap: 14px">
+    <p style="margin: 0; font-weight: 500; font-size: 17px; color: #CFE6F2">Former founding engineer and project manager. Palo Alto, 2026.</p>
+    <h2 style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; line-height: 0.92; letter-spacing: -0.012em; font-size: clamp(40px, 4.6vw, 64px)">Noah Labs</h2>
+    <p style="margin: 0">I built Sentinel, an air-gapped AI IDE that moves legacy code like COBOL, Ada, Fortran and C to modern languages, using small models that run offline. Then I led a team of nine on Data Forge, a synthetic data and privacy validation pipeline.</p>
+  </div>
 </div>
+</section>
 
-<div class="viewall">
-  <a href="/projects" class="btn"><span>View All</span>
-    <i class="fas fa-arrow-right"></i>
-</a>
+<section id="nextgen" class="ng ng-b">
+<div class="ng-wrap">
+  <div class="ng-hang">
+    <div class="hang" data-hang="1" data-grab="Push">
+      <div class="straps" aria-hidden="true"><i></i><i></i></div>
+      <div class="board"><img src="assets/nextgen-logo.webp" width="1040" height="276" alt="The club logo: the letters N and G joined by a red and gold arc, next to the words NextGen German Connect, San José State University" draggable="false"></div>
+    </div>
+  </div>
+  <div class="ng-text" data-reveal="up">
+    <h2 style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; line-height: 0.92; letter-spacing: -0.012em; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.04"><span class="nb">A bridge between SJSU</span> <span class="nb">and Germany, Austria</span> <span class="nb">and Switzerland.</span></h2>
+    <p style="margin: 0; color: #D9D6CE; max-width: 27em">I'm the founder and president of NextGen German Connect, an officially recognized club at San José State.</p>
+  </div>
 </div>
-
 </section>
-<!-- work project section ends -->
 
-<!-- experience section starts -->
-<section class="experience" id="experience">
-
-  <h2 class="heading"><i class="fas fa-briefcase"></i> Experience </h2>
-
-  <div class="timeline">
-
-    <div class="container right">
-      <div class="content">
-        <div class="tag">
-          <h2>Founder & Full-Stack Developer</h2>
-        </div>
-        <div class="desc">
-            <h3>ScribeSnap.ai</h3>
-            <p>Jan 2026 – Present | AI EdTech, 6,000+ users | React · Node.js · Supabase · Groq</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container left">
-      <div class="content">
-        <div class="tag">
-          <h2>Hackathon Competitor & Volunteer</h2>
-        </div>
-        <div class="desc">
-            <h3>NVIDIA GTC — AI Conference</h3>
-            <p>Mar 2026 | Built genomic cancer analysis agent in 2 hrs · NVIDIA Nemotron-70B · Strong judge feedback</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container right">
-      <div class="content">
-        <div class="tag">
-          <h2>Global Leader</h2>
-        </div>
-        <div class="desc">
-            <h3>ISSS — San Jose State University</h3>
-            <p>Nov 2025 – Present | One of 6 global leaders | Campus events, peer mentorship</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container left">
-      <div class="content">
-        <div class="tag">
-          <h2>Software Engineer</h2>
-        </div>
-        <div class="desc">
-            <h3>Software Engineer — Village Project</h3>
-            <p>2023 – Present</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container left">
-      <div class="content">
-        <div class="tag">
-          <h2>Full Stack Engineer</h2>
-        </div>
-        <div class="desc">
-            <h3>Rocketz Verleih</h3>
-            <p>2019 – Aug 2022 | Shopify · JS · HTML | Reduced admin time 20%</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container right">
-      <div class="content">
-        <div class="tag">
-          <h2>Board Member of a Party</h2>
-        </div>
-        <div class="desc">
-            <h3>Management of Social Media Channel, Professionalization of Content | Board Member</h3>
-            <p>September 2021 - September 2022</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container left">
-      <div class="content">
-        <div class="tag">
-          <h2>Game Development Camp</h2>
-        </div>
-        <div class="desc">
-            <h3>Create Computer Games with C# | Summer camp</h3>
-            <p>April 2019 - April 2019</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container right">
-      <div class="content">
-        <div class="tag">
-          <h2>Tech Support</h2>
-        </div>
-        <div class="desc">
-            <h3>Repairing and Selling Tech Devices | Internship</h3>
-            <p>September 2015 - May 2016</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container left">
-      <div class="content">
-        <div class="tag">
-          <h2>Multigaming Network</h2>
-        </div>
-        <div class="desc">
-            <h3>CEO of Organization | Hosted Game Server</h3>
-            <p>October 2014 - 2023</p>
-        </div>
-      </div>
+<section id="more" style="background: #F4F1EA">
+<div style="max-width: 1360px; margin: 0 auto; padding-left: clamp(20px, 4vw, 56px); padding-right: clamp(20px, 4vw, 56px); padding-top: clamp(64px, 8vw, 112px); padding-bottom: clamp(64px, 8vw, 112px); display: flex; flex-wrap: wrap; align-items: flex-start; gap: 28px 72px">
+  <h2 style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; line-height: 0.92; letter-spacing: -0.012em; flex: 1 1 240px; font-size: clamp(38px, 4.2vw, 60px)">Smaller things</h2>
+  <div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 36px">
+    <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; border-bottom: 1px solid #D6D1C5">
+      <li style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 32px; padding: 16px 0; border-top: 1px solid #D6D1C5"><span style="flex: 0 0 min(100%, 300px); font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 28px; line-height: 1.05; padding: 6px 0">ISSS Global Leader</span><span style="flex: 1 1 320px; color: #4B4F58">One of six people running a peer mentorship program for 60+ international students at San José State.</span></li><li style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 32px; padding: 16px 0; border-top: 1px solid #D6D1C5"><a href="https://genom-three.vercel.app/" style="flex: 0 0 min(100%, 300px); font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 28px; line-height: 1.05; padding: 6px 0"><span style="display: inline-flex; align-items: center; gap: 8px">Genomics agent <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" style="width: 0.72em; height: 0.72em; flex: none; display: inline-block; vertical-align: -0.02em"><path d="M7 17 17 7M8.5 7H17v8.5"></path></svg></span></a><span style="flex: 1 1 320px; color: #4B4F58">Built in two hours at the NVIDIA GTC hackathon. Upload a genomic report, get evidence-backed treatment options. The judges named it a top contender.</span></li><li style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 32px; padding: 16px 0; border-top: 1px solid #D6D1C5"><a href="https://pwasecurity.org/" style="flex: 0 0 min(100%, 300px); font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 28px; line-height: 1.05; padding: 6px 0"><span style="display: inline-flex; align-items: center; gap: 8px">Password generator <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" style="width: 0.72em; height: 0.72em; flex: none; display: inline-block; vertical-align: -0.02em"><path d="M7 17 17 7M8.5 7H17v8.5"></path></svg></span></a><span style="flex: 1 1 320px; color: #4B4F58">Client-side, multilingual, no tracking. 600 unique users a day.</span></li><li style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 32px; padding: 16px 0; border-top: 1px solid #D6D1C5"><span style="flex: 0 0 min(100%, 300px); font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 28px; line-height: 1.05; padding: 6px 0">Rocketz Verleih</span><span style="flex: 1 1 320px; color: #4B4F58">Three years as full-stack developer for a German sound system rental company that serves 2,000+ events a year. Cut manual admin time by 20%.</span></li><li style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 32px; padding: 16px 0; border-top: 1px solid #D6D1C5"><a href="http://www.xn--brgerbautrupp-wob.de/" style="flex: 0 0 min(100%, 300px); font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 28px; line-height: 1.05; padding: 6px 0"><span style="display: inline-flex; align-items: center; gap: 8px">Bürgerbautrupp <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" style="width: 0.72em; height: 0.72em; flex: none; display: inline-block; vertical-align: -0.02em"><path d="M7 17 17 7M8.5 7H17v8.5"></path></svg></span></a><span style="flex: 1 1 320px; color: #4B4F58">The website for a volunteer building crew in my home village in Germany.</span></li>
+    </ul>
+    <div data-reveal="up" style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px 24px">
+      <img src="assets/limitless.webp" alt="Limitless, a magazine I designed: three dark covers with pink lettering" style="flex: 1 1 200px; min-width: 0; width: 200px; height: auto; display: block">
+      <img src="assets/rocketlight.webp" alt="Rocketlight, 3D brand work: a product box and business cards" style="flex: 1.4 1 260px; min-width: 0; width: 260px; height: auto; display: block">
+      <p style="flex: 1 1 220px; margin: 0; color: #4B4F58">Before code I spent two years in media design in Trier: a magazine, 3D brand work, print, photography. <a href="https://www.behance.net/joelmoyal" style="display: inline-flex; align-items: center; gap: 7px; padding: 10px 0; font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px">Behance <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" style="width: 0.72em; height: 0.72em; flex: none; display: inline-block; vertical-align: -0.02em"><path d="M7 17 17 7M8.5 7H17v8.5"></path></svg></a></p>
     </div>
   </div>
-
-  <div class="morebtn">
-    <a href="/experience" class="btn"><span>View All</span>
-      <i class="fas fa-arrow-right"></i>
-  </a>
-  </div>
-
 </div>
-
 </section>
-<!-- experience section ends -->
 
-<!-- contact section starts -->
-<section class="contact" id="contact">
-  
-  <h2 class="heading"><i class="fas fa-headset"></i> Get in <span>Touch</span></h2>
-
-  <div class="container">
-    <div class="content">
-      <div class="image-box">
-        <img draggable="false" loading="lazy" src="./assets/images/contact1.png" alt="">
-      </div>
-    <div class="contact-links">
-      <a href="mailto:joelmoyal123@gmail.com" class="contact-link-btn" target="_blank">
-        <i class="fas fa-envelope"></i> joelmoyal123@gmail.com
-      </a>
-      <a href="https://www.linkedin.com/in/joel-moyal" class="contact-link-btn" target="_blank">
-        <i class="fab fa-linkedin"></i> linkedin.com/in/joel-moyal
-      </a>
-    </div>
+<section id="about" style="background: #E9E4D8">
+<div style="max-width: 1360px; margin: 0 auto; padding-left: clamp(20px, 4vw, 56px); padding-right: clamp(20px, 4vw, 56px); padding-top: clamp(64px, 9vw, 128px); padding-bottom: clamp(64px, 9vw, 128px); display: flex; flex-wrap: wrap; align-items: center; gap: clamp(36px, 6vw, 96px)">
+  <figure style="flex: 1 1 380px; min-width: 0; max-width: 560px; margin: 0; display: flex; flex-direction: column; gap: 12px">
+    <div class="bd" data-board="assets/profile.jpg" data-grab="Flip"><img src="assets/profile.jpg" alt="Joël Moyal standing on stone steps in front of a white building"></div>
+    <figcaption style="font-size: 15px; color: #4B4F58">64 squares. I played chess for Germany's U18 national team.</figcaption>
+  </figure>
+  <div data-reveal="up" style="flex: 1 1 380px; min-width: 0; max-width: 540px; display: flex; flex-direction: column; gap: 20px">
+    <h2 style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; line-height: 0.92; letter-spacing: -0.012em; font-size: clamp(44px, 5.4vw, 80px); text-wrap: balance">64 countries, one laptop.</h2>
+    <p style="margin: 0">I grew up in Trier, the oldest city in Germany, studied in Venlo, and moved to the Bay Area for software engineering at San José State. Somewhere in between I worked from 64 countries, which is how SpotGrove started.</p>
+    <p style="margin: 0">At 15 I ran a gaming network with 2,000 players online at once. I've been building for strangers ever since.</p>
+    <dl style="margin: 0; display: flex; flex-direction: column">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 24px; padding: 12px 0; border-top: 1px solid #CFC9BB"><dt style="color: #4B4F58; font-size: 0.9em">Studying</dt><dd style="margin: 0; font-weight: 500; text-align: right">B.S. Software Engineering, AI/ML minor</dd></div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 24px; padding: 12px 0; border-top: 1px solid #CFC9BB"><dt style="color: #4B4F58; font-size: 0.9em">Honors</dt><dd style="margin: 0; font-weight: 500; text-align: right">Dean's Scholar, Spring 2026</dd></div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 24px; padding: 12px 0; border-top: 1px solid #CFC9BB"><dt style="color: #4B4F58; font-size: 0.9em">Certified</dt><dd style="margin: 0; font-weight: 500; text-align: right">Building with the Claude API, Anthropic</dd></div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 24px; padding: 12px 0; border-top: 1px solid #CFC9BB"><dt style="color: #4B4F58; font-size: 0.9em">Languages</dt><dd style="margin: 0; font-weight: 500; text-align: right">German and English, both native</dd></div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 24px; padding: 12px 0; border-top: 1px solid #CFC9BB; border-bottom: 1px solid #CFC9BB"><dt style="color: #4B4F58; font-size: 0.9em">Based</dt><dd style="margin: 0; font-weight: 500; text-align: right">Bay Area, California</dd></div>
+</dl>
   </div>
-  </div>
-</section>
-<!-- contact section ends -->
-
-
-<!-- footer section starts -->
-<section class="footer">
-
-  <div class="box-container">
-
-      <div class="box">
-          <h3>Joël's Portfolio</h3>
-          <p>Thank you for visiting my portfolio website. <br/> <br/> Connect with me for more Information!</p>
-      </div>
-
-      <div class="box">
-          <h3>quick links</h3>
-          <a href="#home"><i class="fas fa-chevron-circle-right"></i> home</a>
-          <a href="#about"><i class="fas fa-chevron-circle-right"></i> about</a>
-          <a href="#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
-          <a href="#education"><i class="fas fa-chevron-circle-right"></i> education</a>
-          <a href="#work"><i class="fas fa-chevron-circle-right"></i> work</a>
-          <a href="#experience"><i class="fas fa-chevron-circle-right"></i> experience</a>
-      </div>
-
-      <div class="box">
-          <h3>contact info</h3>
-          <!-- <p> <i class="fas fa-phone"></i>+91 XXX-XXX-XXXX</p> -->
-          <p> <i class="fas fa-envelope"></i>joelmoyal123@gmail.com</p>
-          <div class="share">
-              <a href="https://www.linkedin.com/in/joel-moyal" class="fab fa-linkedin" aria-label="LinkedIn" target="_blank"></a>
-              <a href="https://github.com/JoelMoyal" class="fab fa-github" aria-label="GitHub" target="_blank"></a>
-              <a href="https://www.behance.net/joelmoyal" class="fab fa-behance" aria-label="behance" target="_blank"></a>
-              <a href="mailto:joelmoyal123@gmail.com" class="fas fa-envelope" aria-label="Mail" target="_blank"></a>
-              
-          </div>
-      </div>
-  </div>
-
-  <h1 class="credit"> © 2026 <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com/in/joel-moyal"> Joël Moyal</a></h1>
-
-</section>
-<!-- footer section ends -->
-
-
-<!-- scroll top btn -->
-<a href="#home" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
-<!-- scroll back to top -->
-
-<!-- AI Chatbot Widget -->
-<div id="chatbot-container" class="chatbot-container">
-    <div id="chatbot-toggle" class="chatbot-toggle">
-        <i class="fas fa-comment-dots"></i>
-        <span class="chatbot-tooltip">Ask me anything!</span>
-    </div>
-
-    <div id="chatbot-window" class="chatbot-window">
-        <div class="chatbot-header">
-            <div class="chatbot-header-info">
-                <div class="chatbot-avatar">
-                    <img src="./assets/images/Logo-me-round.png" alt="Joël" />
-                </div>
-                <div>
-                    <h4>Joël's AI Assistant</h4>
-                    <span class="chatbot-status"><i class="fas fa-circle"></i> Online</span>
-                </div>
-            </div>
-            <button id="chatbot-close" class="chatbot-close" aria-label="Close chat">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-
-        <div id="chatbot-messages" class="chatbot-messages">
-            <div class="chat-message bot-message">
-                <img class="bot-avatar" src="./assets/images/Logo-me-round.png" alt="Joël" />
-                <div class="message-bubble">
-                    Hi! I'm Joël's AI assistant. Ask me anything about his skills, projects, or experience.
-                </div>
-            </div>
-        </div>
-
-        <div id="chatbot-typing" class="chatbot-typing hidden">
-            <span></span><span></span><span></span>
-        </div>
-
-        <div id="chatbot-suggestions" class="chatbot-suggestions">
-            <button class="chip" data-msg="What has Joël built and what is he most proud of?">His best work</button>
-            <button class="chip" data-msg="Is Joël available for internships or full-time roles?">Hire Joël</button>
-            <button class="chip" data-msg="What makes Joël stand out as a developer?">Why Joël?</button>
-        </div>
-
-        <div class="chatbot-input-area">
-            <input id="chatbot-input" type="text" placeholder="Ask about Joël..." maxlength="500" autocomplete="off" />
-            <button id="chatbot-send" class="chatbot-send" aria-label="Send message">
-                <i class="fas fa-paper-plane"></i>
-            </button>
-        </div>
-    </div>
 </div>
-<!-- AI Chatbot Widget End -->
+</section>
 
+<section id="contact" style="background: #16181C; color: #F4F1EA; overflow: hidden">
+<div style="max-width: 1360px; margin: 0 auto; padding-left: clamp(20px, 4vw, 56px); padding-right: clamp(20px, 4vw, 56px); padding-top: clamp(64px, 9vw, 128px); padding-bottom: 28px; display: flex; flex-direction: column; gap: clamp(40px, 6vw, 72px)">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px 64px">
+    <div data-reveal="up" style="min-width: 0; display: flex; flex-direction: column; gap: 22px">
+      <h2 style="margin: 0; font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; line-height: 0.92; letter-spacing: -0.012em; font-size: clamp(52px, 10vw, 150px); line-height: 0.9">Open to work.<br>Say hi.</h2>
+      <a href="mailto:joelmoyal123@gmail.com" style="font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 500; font-size: clamp(25px, 3.6vw, 48px); line-height: 1.1; text-decoration: underline; text-decoration-color: #5DC2AA; text-decoration-thickness: 2px; text-underline-offset: 0.16em; overflow-wrap: anywhere">joelmoyal123@gmail.com</a>
+    </div>
+    <nav aria-label="Elsewhere" style="display: flex; flex-direction: column; font-size: 19px">
+      <a href="https://www.linkedin.com/in/joel-moyal" style="display: inline-flex; align-items: center; gap: 7px; padding: 10px 0; font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px">LinkedIn <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" style="width: 0.72em; height: 0.72em; flex: none; display: inline-block; vertical-align: -0.02em"><path d="M7 17 17 7M8.5 7H17v8.5"></path></svg></a>
+      <a href="https://github.com/JoelMoyal" style="display: inline-flex; align-items: center; gap: 7px; padding: 10px 0; font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px">GitHub <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" style="width: 0.72em; height: 0.72em; flex: none; display: inline-block; vertical-align: -0.02em"><path d="M7 17 17 7M8.5 7H17v8.5"></path></svg></a>
+      <a href="https://www.behance.net/joelmoyal" style="display: inline-flex; align-items: center; gap: 7px; padding: 10px 0; font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px">Behance <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" style="width: 0.72em; height: 0.72em; flex: none; display: inline-block; vertical-align: -0.02em"><path d="M7 17 17 7M8.5 7H17v8.5"></path></svg></a>
+      <a href="https://drive.google.com/file/d/1eH_XQTPsbUXxha1wCAjxoAYIXSahyYlZ/view?usp=sharing" style="display: inline-flex; align-items: center; gap: 7px; padding: 10px 0; font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px">Résumé <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" style="width: 0.72em; height: 0.72em; flex: none; display: inline-block; vertical-align: -0.02em"><path d="M7 17 17 7M8.5 7H17v8.5"></path></svg></a>
+    </nav>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 14px">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 24px"><p style="margin: 0; font-size: 16px; color: #B9B7B0">The rest of me, in stickers. Pick one up and throw it.</p><button type="button" id="redrop" data-redrop="1" class="txtbtn">Drop them again</button></div>
+    <div data-tray="1" style="min-height: clamp(300px, 28vw, 390px); display: flex; flex-wrap: wrap; align-content: flex-end; align-items: flex-end; justify-content: center; gap: 12px; padding-bottom: 10px; border-bottom: 1px solid rgba(244, 241, 234, 0.3)">
+<div data-sticker="1" data-grab="Throw" style="flex: none; box-sizing: border-box; border-radius: 50%; border: 0.42em solid #FFFFFF; box-shadow: 0 0.25em 0.7em rgba(0, 0, 0, 0.42); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; overflow: hidden; font-size: clamp(9.5px, 0.98vw, 14px); font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; text-transform: uppercase; line-height: 1; width: 11em; height: 11em; background: #DDF3EC; color: #16181C"><img src="assets/pip-point.png" alt="Pip, the SpotGrove mascot" draggable="false" style="width: 56%; height: auto; margin-top: 0.4em"></div>
+<div data-sticker="1" data-grab="Throw" style="flex: none; box-sizing: border-box; border-radius: 50%; border: 0.42em solid #FFFFFF; box-shadow: 0 0.25em 0.7em rgba(0, 0, 0, 0.42); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; overflow: hidden; font-size: clamp(9.5px, 0.98vw, 14px); font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; text-transform: uppercase; line-height: 1; width: 11em; height: 11em; background: #006699; color: #F4F1EA"><span style="font-size: 5.2em; letter-spacing: -0.02em">64</span><span style="font-size: 1.2em; letter-spacing: 0.1em">countries</span></div>
+<div data-sticker="1" data-grab="Throw" role="img" aria-label="U18 national chess team, Germany" style="flex: none; box-sizing: border-box; border-radius: 50%; border: 0.42em solid #FFFFFF; box-shadow: 0 0.25em 0.7em rgba(0, 0, 0, 0.42); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; overflow: hidden; font-size: clamp(9.5px, 0.98vw, 14px); font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; text-transform: uppercase; line-height: 1; width: 11em; height: 11em; background: repeating-conic-gradient(#16181C 0% 25%, #F4F1EA 0% 50%) 50% 50% / 25% 25%; color: #F4F1EA"><span style="width: 64%; height: 64%; border-radius: 50%; background: #16181C; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.2em"><span style="font-size: 2.5em">U18</span><span style="font-size: 0.95em; letter-spacing: 0.06em">chess team</span><span style="font-size: 0.95em; letter-spacing: 0.06em">Germany</span></span></div>
+<div data-sticker="1" data-grab="Throw" role="img" aria-label="D, the oval car sticker for Germany" style="flex: none; box-sizing: border-box; border-radius: 50%; border: 0.42em solid #FFFFFF; box-shadow: 0 0.25em 0.7em rgba(0, 0, 0, 0.42); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; overflow: hidden; font-size: clamp(9.5px, 0.98vw, 14px); font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; text-transform: uppercase; line-height: 1; width: 9em; height: 9em; background: #FFFFFF; color: #16181C"><span style="width: 82%; height: 60%; box-sizing: border-box; border: 0.34em solid #16181C; border-radius: 50%; display: flex; align-items: center; justify-content: center"><span style="font-size: 3.5em">D</span></span></div>
+<div data-sticker="1" data-grab="Throw" style="flex: none; box-sizing: border-box; border-radius: 50%; border: 0.42em solid #FFFFFF; box-shadow: 0 0.25em 0.7em rgba(0, 0, 0, 0.42); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; overflow: hidden; font-size: clamp(9.5px, 0.98vw, 14px); font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; text-transform: uppercase; line-height: 1; width: 9em; height: 9em; background: #FFFFFF; color: #16181C"><img src="assets/scribe-logo.png" alt="ScribeSnap logo" draggable="false" style="width: 66%; height: auto"></div>
+<div data-sticker="1" data-grab="Throw" style="flex: none; box-sizing: border-box; border-radius: 50%; border: 0.42em solid #FFFFFF; box-shadow: 0 0.25em 0.7em rgba(0, 0, 0, 0.42); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; overflow: hidden; font-size: clamp(9.5px, 0.98vw, 14px); font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; text-transform: uppercase; line-height: 1; width: 9em; height: 9em; background: #C0392B; color: #FFF7F0"><span style="display: flex; flex-direction: column; gap: 0.3em"><span style="font-size: 2.3em">Boxing</span><span style="font-size: 0.95em; letter-spacing: 0.07em">still training</span></span></div>
+<div data-sticker="1" data-grab="Throw" role="img" aria-label="Trier, then Venlo, then the Bay Area" style="flex: none; box-sizing: border-box; border-radius: 50%; border: 0.42em solid #FFFFFF; box-shadow: 0 0.25em 0.7em rgba(0, 0, 0, 0.42); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; overflow: hidden; font-size: clamp(9.5px, 0.98vw, 14px); font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; text-transform: uppercase; line-height: 1; width: 9em; height: 9em; background: #F4F1EA; color: #16181C"><span style="display: flex; flex-direction: column; align-items: center; gap: 0.12em"><span style="font-size: 1.5em">Trier</span><span style="font-size: 0.9em"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" style="width: 0.72em; height: 0.72em; flex: none; display: inline-block; vertical-align: -0.02em"><path d="M12 4v15M5 12l7 7 7-7"></path></svg></span><span style="font-size: 1.5em">Venlo</span><span style="font-size: 0.9em"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" style="width: 0.72em; height: 0.72em; flex: none; display: inline-block; vertical-align: -0.02em"><path d="M12 4v15M5 12l7 7 7-7"></path></svg></span><span style="font-size: 1.5em">Bay Area</span></span></div>
+<div data-sticker="1" data-grab="Throw" style="flex: none; box-sizing: border-box; border-radius: 50%; border: 0.42em solid #FFFFFF; box-shadow: 0 0.25em 0.7em rgba(0, 0, 0, 0.42); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; overflow: hidden; font-size: clamp(9.5px, 0.98vw, 14px); font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; text-transform: uppercase; line-height: 1; width: 9em; height: 9em; background: #F2C230; color: #16181C"><span style="display: flex; flex-direction: column; gap: 0.16em"><span style="font-size: 1.75em">Deutsch</span><span style="font-size: 1.75em">+ English</span><span style="font-size: 0.92em; letter-spacing: 0.07em; margin-top: 0.2em">both native</span></span></div>
+<div data-sticker="1" data-grab="Throw" style="flex: none; box-sizing: border-box; border-radius: 50%; border: 0.42em solid #FFFFFF; box-shadow: 0 0.25em 0.7em rgba(0, 0, 0, 0.42); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; overflow: hidden; font-size: clamp(9.5px, 0.98vw, 14px); font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; text-transform: uppercase; line-height: 1; width: 7.6em; height: 7.6em; background: #16181C; color: #F4F1EA"><span style="display: flex; flex-direction: column; gap: 0.05em"><span style="font-size: 1.6em; letter-spacing: 0.05em">WWDC</span><span style="font-size: 3.3em">26</span></span></div>
+<div data-sticker="1" data-grab="Throw" style="flex: none; box-sizing: border-box; border-radius: 50%; border: 0.42em solid #FFFFFF; box-shadow: 0 0.25em 0.7em rgba(0, 0, 0, 0.42); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; overflow: hidden; font-size: clamp(9.5px, 0.98vw, 14px); font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; text-transform: uppercase; line-height: 1; width: 7.6em; height: 7.6em; background: #FFFFFF; color: #16181C"><img src="assets/jm-logo.png" alt="JM monogram" draggable="false" style="width: 46%; height: auto"></div>
+<div data-sticker="1" data-grab="Throw" style="flex: none; box-sizing: border-box; border-radius: 50%; border: 0.42em solid #FFFFFF; box-shadow: 0 0.25em 0.7em rgba(0, 0, 0, 0.42); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; overflow: hidden; font-size: clamp(9.5px, 0.98vw, 14px); font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; text-transform: uppercase; line-height: 1; width: 7.6em; height: 7.6em; background: #0B6B63; color: #F1FBF8"><span style="display: flex; flex-direction: column; gap: 0.1em"><span style="font-size: 1.45em">Media</span><span style="font-size: 1.45em">designer</span><span style="font-size: 1.45em">first</span></span></div>
+<div data-sticker="1" data-grab="Throw" style="flex: none; box-sizing: border-box; border-radius: 50%; border: 0.42em solid #FFFFFF; box-shadow: 0 0.25em 0.7em rgba(0, 0, 0, 0.42); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; overflow: hidden; font-size: clamp(9.5px, 0.98vw, 14px); font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; text-transform: uppercase; line-height: 1; width: 7.6em; height: 7.6em; background: #5DC2AA; color: #10231F"><span style="display: flex; flex-direction: column; gap: 0.1em"><span style="font-size: 1.75em">Open</span><span style="font-size: 1.75em">to work</span></span></div>
+    </div>
+  </div>
+  <footer style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 32px; font-size: 15px; color: #B9B7B0">
+    <span>© 2026 Joël Moyal. Bay Area, California.</span>
+    <span>Set in Barlow, a typeface drawn from California road signs and license plates.</span>
+  </footer>
+</div>
+</section>
 
-<!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
-<!-- marked.js for chatbot markdown rendering -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<!-- jquery cdn -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<div class="chip" data-chip="1" aria-hidden="true">Drag</div>
+</div>
+<script>
+class DCLogic {}
+class Component extends DCLogic {
+  componentDidMount() { this._boot(0); }
+  componentWillUnmount() { this._gone = true; if (this._stop) { this._stop(); this._stop = null; } }
+  _boot(n) {
+    if (this._gone || this._stop) return;
+    var self = this;
+    var root = this._root || document.getElementById('jm-page');
+    if (!root) { if (n < 20) setTimeout(function () { self._boot(n + 1); }, 150); return; }
+    try { this._stop = this.startMotion(root); } catch (err) { if (window.console) console.warn('motion disabled', err); }
+  }
+  renderVals() {
+    var self = this;
+    if (!this._setRoot) this._setRoot = function (el) { if (el) self._root = el; };
+    return { setRoot: this._setRoot };
+  }
 
-<!-- typed.js cdn -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js" integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  // All motion on the page: hero entrance, scroll reveals, photo parallax,
+  // springy draggable objects, and the sticker pile. Without it the page is
+  // fully visible and static.
+  startMotion(root) {
+    var W = window, D = root.ownerDocument || document;
+    var mq = W.matchMedia ? W.matchMedia('(prefers-reduced-motion: reduce)') : null;
+    var reduce = !!(mq && mq.matches);
+    var EASE = 'cubic-bezier(0.16, 1, 0.3, 1)';
+    var alive = true, offs = [], timers = [];
+    var running = false, last = 0, rafId = 0;
+    var hooks = [], measures = [];
+    function all(sel, el) { return Array.prototype.slice.call((el || root).querySelectorAll(sel)); }
+    function on(t, ev, fn, opt) { t.addEventListener(ev, fn, opt); offs.push(function () { t.removeEventListener(ev, fn, opt); }); }
+    function later(fn, ms) { var id = setTimeout(fn, ms); timers.push(id); return id; }
+    function clamp(v, a, b) { return v < a ? a : (v > b ? b : v); }
+    function viewH() { return W.innerHeight || D.documentElement.clientHeight || 800; }
+    function pageScrolls() { return D.documentElement.scrollHeight > viewH() + 80; }
 
-<!-- particle.js links -->
-<script src="./assets/js/particles.min.js"></script>
-<script src="./assets/js/app.js"></script>
+    // ---- 1. Hero entrance: words rise out of a mask, then the intro fades up.
+    var rises = all('[data-rise]'), fades = all('[data-fade]');
+    if (!reduce && rises.length) {
+      rises.forEach(function (el) { el.style.transform = 'translateY(108%)'; });
+      fades.forEach(function (el) { el.style.opacity = '0'; el.style.transform = 'translateY(16px)'; });
+      var played = false;
+      var play = function () {
+        if (played || !alive) return; played = true;
+        rises.forEach(function (el, i) {
+          el.style.transition = 'transform 950ms ' + EASE + ' ' + (80 + i * 60) + 'ms';
+          el.style.transform = 'translateY(0)';
+        });
+        fades.forEach(function (el, i) {
+          var d = 560 + i * 110;
+          el.style.transition = 'opacity 700ms ease ' + d + 'ms, transform 950ms ' + EASE + ' ' + d + 'ms';
+          el.style.opacity = '1'; el.style.transform = 'translateY(0)';
+        });
+      };
+      W.requestAnimationFrame(function () { W.requestAnimationFrame(play); });
+      later(play, 500);
+    }
 
-<!-- vanilla tilt.js links -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    // ---- 2. Scroll reveals, only for things still below the fold.
+    if (!reduce && 'IntersectionObserver' in W && pageScrolls()) {
+      var h0 = viewH();
+      var pending = all('[data-reveal]').filter(function (el) { return el.getBoundingClientRect().top > h0 * 0.9; });
+      var paint = function (el) { return el.querySelector('[data-clip]') || el; };
+      pending.forEach(function (el) {
+        var p = paint(el);
+        p.style.transform = 'translateY(56px)';
+      });
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          var el = en.target, p = paint(el), d = parseFloat(el.getAttribute('data-delay')) || 0;
+          p.style.transition = 'transform 1100ms ' + EASE + ' ' + d + 'ms';
+          p.style.transform = 'translateY(0)';
+          io.unobserve(el);
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -4% 0px' });
+      pending.forEach(function (el) { io.observe(el); });
+      offs.push(function () { io.disconnect(); });
+    }
 
-<!-- scroll reveal anim -->
-<script src="https://unpkg.com/scrollreveal"></script>
+    // ---- 3. Parallax inside photo frames (the image is taller than its frame).
+    var pars = reduce ? [] : all('[data-parallax]').map(function (el) {
+      return { el: el, k: parseFloat(el.getAttribute('data-parallax')) || 0.06, y: 0, t: 0 };
+    });
 
+    // ---- 4. Spring objects: drag with a mouse, let go, they swing back.
+    var springs = reduce ? [] : all('[data-spring]').map(function (el, i) {
+      var s = { el: el, x: 0, y: 0, vx: 0, vy: 0, tx: 0, ty: 0, py: 0, rot: 0, vr: 0, sc: 1, vs: 0, ts: 1,
+        base: parseFloat(el.getAttribute('data-rot')) || 0, depth: parseFloat(el.getAttribute('data-depth')) || 0,
+        drag: false, z: el.style.zIndex || '' };
+      if (el.hasAttribute('data-enter')) {
+        s.y = 90; s.sc = 0.9; s.hold = true; el.style.opacity = '0';
+        later(function () { s.hold = false; el.style.transition = 'opacity 500ms ease'; el.style.opacity = '1'; kick(); }, 420 + i * 130);
+      }
+      el.style.cursor = 'grab'; el.style.touchAction = 'pan-y';
+      on(el, 'pointerdown', function (e) {
+        if (e.pointerType === 'touch' || e.button > 0) return;
+        s.drag = true; s.sx = e.clientX; s.sy = e.clientY; s.ox = s.x; s.oy = s.y; s.ts = 1.05;
+        try { el.setPointerCapture(e.pointerId); } catch (err) {}
+        el.style.cursor = 'grabbing'; el.style.zIndex = '30'; e.preventDefault(); kick();
+      });
+      on(el, 'pointermove', function (e) {
+        if (!s.drag) return;
+        s.tx = s.ox + e.clientX - s.sx; s.ty = s.oy + e.clientY - s.sy; kick();
+      });
+      var drop = function () {
+        if (!s.drag) return;
+        s.drag = false; s.tx = 0; s.ty = 0; s.ts = 1; el.style.cursor = 'grab';
+        later(function () { if (!s.drag) el.style.zIndex = s.z; }, 700); kick();
+      };
+      on(el, 'pointerup', drop); on(el, 'pointercancel', drop);
+      return s;
+    });
+    function stepSpring(s, dt) {
+      if (s.hold) return true;
+      var k = s.drag ? 420 : 140, c = s.drag ? 34 : 12.5;
+      var gx = s.tx, gy = s.ty + (s.drag ? 0 : s.py);
+      s.vx += (k * (gx - s.x) - c * s.vx) * dt; s.x += s.vx * dt;
+      s.vy += (k * (gy - s.y) - c * s.vy) * dt; s.y += s.vy * dt;
+      var rt = clamp(s.vx * 0.016, -13, 13);
+      s.vr += (150 * (rt - s.rot) - 15 * s.vr) * dt; s.rot += s.vr * dt;
+      s.vs += (260 * (s.ts - s.sc) - 22 * s.vs) * dt; s.sc += s.vs * dt;
+      s.el.style.transform = 'translate3d(' + s.x.toFixed(2) + 'px,' + s.y.toFixed(2) + 'px,0) rotate(' + (s.base + s.rot).toFixed(3) + 'deg) scale(' + s.sc.toFixed(4) + ')';
+      return s.drag || Math.abs(s.vx) + Math.abs(s.vy) > 0.6 || Math.abs(gx - s.x) + Math.abs(gy - s.y) > 0.25 ||
+        Math.abs(s.vr) > 0.4 || Math.abs(s.sc - s.ts) > 0.002;
+    }
 
-<!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
+    function measure() {
+      var h = viewH();
+      pars.forEach(function (p) {
+        var r = p.el.parentElement.getBoundingClientRect();
+        p.t = -clamp((r.top + r.height / 2 - h / 2) / (h / 2 + r.height / 2), -1, 1) * p.k * r.height;
+      });
+      springs.forEach(function (s) {
+        if (!s.depth) return;
+        var r = s.el.parentElement.getBoundingClientRect();
+        s.py = clamp((r.top + r.height / 2 - h / 2) / h, -1, 1) * s.depth * 90;
+      });
+    }
 
-<script src="./assets/js/script.js"></script>
+    // ---- 5. The sticker pile: discs with gravity, collisions, spin and throwing.
+    var pile = null;
+    var tray = root.querySelector('[data-tray]');
+    if (tray && !reduce) pile = makePile(tray);
 
+    function makePile(tray) {
+      var els = all('[data-sticker]', tray);
+      if (!els.length) return null;
+      var G = 2600, DT = 1 / 120, MU = 0.5;
+      var Wd = 0, Ht = 0, acc = 0, started = false, asleep = false, spawned = 0, clock = 0, seed = 7;
+      function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+      var bodies = els.map(function (el) {
+        return { el: el, r: el.offsetWidth / 2, m: 1, x: 0, y: 0, vx: 0, vy: 0, a: 0, w: 0,
+          live: false, held: false, hit: false, calm: 0, inside: false, gx: 0, gy: 0, tilt: 0 };
+      });
+      function size() {
+        Wd = tray.clientWidth;
+        var area = 0, big = 0;
+        bodies.forEach(function (b) { b.r = b.el.offsetWidth / 2; b.m = b.r * b.r; area += Math.PI * b.r * b.r; if (b.r > big) big = b.r; });
+        var need = Math.ceil(area / (0.66 * Wd) + big * 2.6);
+        var cur = tray.clientHeight;
+        if (need > cur) { tray.style.height = need + 'px'; cur = need; }
+        Ht = cur - 2;
+      }
+      // Freeze the tray's current box, then lift the stickers out of the flow.
+      tray.style.height = tray.clientHeight + 'px';
+      tray.style.minHeight = '0';
+      tray.style.display = 'block'; tray.style.position = 'relative'; tray.style.overflow = 'hidden';
+      tray.style.touchAction = 'pan-y';
+      bodies.forEach(function (b) {
+        var st = b.el.style;
+        st.position = 'absolute'; st.left = '0'; st.top = '0'; st.margin = '0'; st.opacity = '0';
+        st.willChange = 'transform'; st.touchAction = 'none'; st.cursor = 'grab'; st.userSelect = 'none';
+      });
+      size();
+      var order = bodies.slice().sort(function (p, q) { return q.r - p.r; });
+
+      function spawn(b, i) {
+        var lanes = Math.max(2, Math.floor(Wd / (b.r * 2.3)));
+        var lane = (i * 5 + 2) % lanes;
+        b.x = clamp((lane + 0.5 + (rnd() - 0.5) * 0.4) * (Wd / lanes), b.r + 2, Wd - b.r - 2);
+        b.y = -b.r - 6; b.vx = (rnd() - 0.5) * 260; b.vy = 240 + rnd() * 200;
+        b.a = (rnd() - 0.5) * 1.2; b.w = (rnd() - 0.5) * 5;
+        b.tilt = (rnd() - 0.5) * 0.3; b.live = true; b.inside = false; b.calm = 0; b.el.style.opacity = '1';
+      }
+      function upright(b) { return b.tilt + 6.283185307 * Math.round((b.a - b.tilt) / 6.283185307); }
+      function wall(b, nx, ny, pen) {
+        b.x -= nx * pen; b.y -= ny * pen; b.hit = true;
+        var vn = b.vx * nx + b.vy * ny;
+        if (vn <= 0) return;
+        var e = vn > 240 ? 0.3 : 0, jn = (1 + e) * vn;
+        b.vx -= jn * nx; b.vy -= jn * ny;
+        var tx = -ny, ty = nx, s = b.vx * tx + b.vy * ty + b.w * b.r;
+        var j = clamp(s / 3, -MU * jn, MU * jn);
+        b.vx -= j * tx; b.vy -= j * ty; b.w -= 2 * j / b.r;
+      }
+      function pair(b, c) {
+        var dx = c.x - b.x, dy = c.y - b.y, R = b.r + c.r, d2 = dx * dx + dy * dy;
+        if (d2 >= (R + 0.6) * (R + 0.6) || d2 === 0) return;
+        var d = Math.sqrt(d2), nx = dx / d, ny = dy / d, pen = R - d;
+        b.hit = true; c.hit = true;
+        var ib = b.held ? 0 : 1 / b.m, ic = c.held ? 0 : 1 / c.m, tot = ib + ic;
+        if (!tot || pen <= 0) return;
+        var corr = Math.max(pen - 0.2, 0) * 0.8 / tot;
+        b.x -= nx * corr * ib; b.y -= ny * corr * ib; c.x += nx * corr * ic; c.y += ny * corr * ic;
+        var vn = (c.vx - b.vx) * nx + (c.vy - b.vy) * ny;
+        if (vn >= 0) return;
+        var e = vn < -240 ? 0.25 : 0, jn = -(1 + e) * vn / tot;
+        b.vx -= jn * ib * nx; b.vy -= jn * ib * ny; c.vx += jn * ic * nx; c.vy += jn * ic * ny;
+        var tx = -ny, ty = nx;
+        var s = (b.vx - c.vx) * tx + (b.vy - c.vy) * ty + b.w * b.r + c.w * c.r;
+        var j = clamp(s / (3 * tot), -MU * jn, MU * jn);
+        b.vx -= j * ib * tx; b.vy -= j * ib * ty; c.vx += j * ic * tx; c.vy += j * ic * ty;
+        b.w -= 2 * j * ib / b.r; c.w -= 2 * j * ic / c.r;
+      }
+      function step() {
+        var i, j, it, b, n = bodies.length;
+        for (i = 0; i < n; i++) {
+          b = bodies[i]; if (!b.live) continue;
+          if (b.held) {
+            b.vx = (b.gx - b.x) * 24; b.vy = (b.gy - b.y) * 24; b.w *= 0.92; b.calm = 0;
+          } else {
+            if (!b.hit) b.calm = 0;
+            if (b.calm > 0.45) { b.vx = 0; b.vy = 0; b.w = 0; b.a += (upright(b) - b.a) * Math.min(1, DT * 3.4); }
+            b.vy += G * DT;
+          }
+          b.vx *= 0.9994; b.vy *= 0.9994; b.w *= 0.994;
+          b.x += b.vx * DT; b.y += b.vy * DT; b.a += b.w * DT;
+          b.hit = false;
+          if (!b.inside && b.y - b.r > 4) b.inside = true;
+        }
+        for (it = 0; it < 6; it++) {
+          for (i = 0; i < n; i++) {
+            b = bodies[i]; if (!b.live) continue;
+            for (j = i + 1; j < n; j++) { if (bodies[j].live) pair(b, bodies[j]); }
+            if (b.held) continue;
+            if (b.y + b.r > Ht - 0.6) wall(b, 0, 1, Math.max(b.y + b.r - Ht, 0));
+            if (b.x - b.r < 0.6) wall(b, -1, 0, Math.max(b.r - b.x, 0));
+            if (b.x + b.r > Wd - 0.6) wall(b, 1, 0, Math.max(b.x + b.r - Wd, 0));
+            if (b.inside && b.y - b.r < 0) wall(b, 0, -1, b.r - b.y);
+          }
+        }
+        var quiet = spawned >= n;
+        for (i = 0; i < n; i++) {
+          b = bodies[i]; if (!b.live) { quiet = false; continue; }
+          if (b.held) { quiet = false; continue; }
+          var sp = Math.abs(b.vx) + Math.abs(b.vy);
+          if (b.calm > 0.45) { if (sp > 60) b.calm = 0; }
+          else if (b.hit && sp < 46 && Math.abs(b.w) < 1.2) b.calm += DT;
+          else b.calm = 0;
+          if (b.calm <= 0.45 || Math.abs(upright(b) - b.a) > 0.004) quiet = false;
+        }
+        return quiet;
+      }
+      function draw() {
+        for (var i = 0; i < bodies.length; i++) {
+          var b = bodies[i]; if (!b.live) continue;
+          b.el.style.transform = 'translate3d(' + (b.x - b.r).toFixed(2) + 'px,' + (b.y - b.r).toFixed(2) + 'px,0) rotate(' + b.a.toFixed(4) + 'rad)';
+        }
+      }
+      function advance(dt) {
+        if (!started || asleep) return false;
+        clock += dt;
+        while (spawned < order.length && clock > spawned * 0.11) { spawn(order[spawned], spawned); spawned++; }
+        acc += dt; var quiet = false, guard = 0;
+        while (acc >= DT && guard < 6) { quiet = step(); acc -= DT; guard++; }
+        if (guard === 6) acc = 0;
+        draw();
+        if (quiet) asleep = true;
+        return !asleep;
+      }
+      function wake() { asleep = false; bodies.forEach(function (b) { b.calm = 0; }); kick(); }
+      function start() { if (started) return; started = true; wake(); }
+      function local(e) { var r = tray.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; }
+
+      bodies.forEach(function (b) {
+        var el = b.el;
+        on(el, 'pointerdown', function (e) {
+          if (e.button > 0 || !b.live) return;
+          var p = local(e);
+          b.held = true; b.ox = b.x - p.x; b.oy = b.y - p.y; b.gx = b.x; b.gy = b.y;
+          b.t0 = Date.now(); b.dx = e.clientX; b.dy = e.clientY; b.moved = false;
+          try { el.setPointerCapture(e.pointerId); } catch (err) {}
+          el.style.cursor = 'grabbing'; el.style.zIndex = '5'; e.preventDefault(); wake();
+        });
+        on(el, 'pointermove', function (e) {
+          if (!b.held) return;
+          var p = local(e);
+          b.gx = clamp(p.x + b.ox, b.r, Wd - b.r); b.gy = clamp(p.y + b.oy, b.r, Ht - b.r);
+          if (Math.abs(e.clientX - b.dx) + Math.abs(e.clientY - b.dy) > 7) b.moved = true;
+          if (asleep) wake();
+        });
+        var release = function () {
+          if (!b.held) return;
+          b.held = false; el.style.cursor = 'grab'; el.style.zIndex = '';
+          var sp = Math.sqrt(b.vx * b.vx + b.vy * b.vy), cap = 3200;
+          if (sp > cap) { b.vx *= cap / sp; b.vy *= cap / sp; }
+          if (!b.moved && Date.now() - b.t0 < 300) {
+            b.vy = -(700 + rnd() * 260); b.vx = (rnd() - 0.5) * 420; b.w = (rnd() - 0.5) * 16;
+          } else { b.w += b.vx / b.r * 0.35; }
+          wake();
+        };
+        on(el, 'pointerup', release); on(el, 'pointercancel', release);
+      });
+
+      if ('IntersectionObserver' in W) {
+        var seen = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) { if (en.isIntersecting) { start(); seen.disconnect(); } });
+        }, { threshold: 0.3 });
+        seen.observe(tray);
+        offs.push(function () { seen.disconnect(); });
+      } else { start(); }
+
+      var again = root.querySelector('[data-redrop]');
+      if (again) on(again, 'click', function () {
+        bodies.forEach(function (b) { b.live = false; b.held = false; b.el.style.opacity = '0'; });
+        spawned = 0; clock = 0; acc = 0; started = true; wake();
+      });
+
+      return {
+        advance: advance,
+        resize: function () {
+          var before = Wd; size();
+          if (Math.abs(before - Wd) < 1) return;
+          bodies.forEach(function (b) { if (b.live) { b.x = clamp(b.x, b.r, Math.max(b.r, Wd - b.r)); b.y = Math.min(b.y, Ht - b.r); } });
+          if (started) wake();
+        }
+      };
+    }
+
+    // ---- One animation loop that sleeps whenever nothing is moving.
+    function kick() { if (running || !alive) return; running = true; last = 0; rafId = W.requestAnimationFrame(tick); }
+    function tick(t) {
+      if (!alive) return;
+      var dt = last ? Math.min((t - last) / 1000, 0.05) : 1 / 60; last = t;
+      var busy = false, i;
+      for (i = 0; i < pars.length; i++) {
+        var p = pars[i];
+        p.y += (p.t - p.y) * Math.min(1, dt * 8);
+        if (Math.abs(p.t - p.y) > 0.08) busy = true;
+        p.el.style.transform = 'translate3d(0,' + p.y.toFixed(2) + 'px,0)';
+      }
+      var sub = Math.max(1, Math.round(dt * 120));
+      for (i = 0; i < springs.length; i++) {
+        var moving = false;
+        for (var q = 0; q < sub; q++) moving = stepSpring(springs[i], dt / sub);
+        if (moving) busy = true;
+      }
+      if (pile && pile.advance(dt)) busy = true;
+      for (i = 0; i < hooks.length; i++) { if (hooks[i](dt)) busy = true; }
+      if (busy) rafId = W.requestAnimationFrame(tick); else running = false;
+    }
+    function measureAll() { measure(); for (var m = 0; m < measures.length; m++) measures[m](); }
+    if (this.extras) {
+      try {
+        this.extras({ root: root, W: W, D: D, reduce: reduce, all: all, on: on, later: later, clamp: clamp, viewH: viewH,
+          pageScrolls: pageScrolls, kick: kick, hooks: hooks, measures: measures, EASE: EASE });
+      } catch (err) { if (W.console) console.warn('extras disabled', err); }
+    }
+    on(W, 'scroll', function () { measureAll(); kick(); }, { passive: true });
+    on(W, 'resize', function () { measureAll(); if (pile) pile.resize(); kick(); });
+    measureAll(); kick();
+
+    return function stop() {
+      alive = false;
+      if (rafId) W.cancelAnimationFrame(rafId);
+      timers.forEach(function (id) { clearTimeout(id); });
+      offs.forEach(function (fn) { fn(); });
+    };
+  }
+}
+
+// The signature moments: the physical wordmark, the pinned SpotGrove scene,
+// the chessboard portrait, the code-translation scramble and the cursor label.
+Component.prototype.extras = function (ctx) {
+  var root = ctx.root, W = ctx.W, D = ctx.D, clamp = ctx.clamp, on = ctx.on, all = ctx.all, later = ctx.later;
+  var reduce = ctx.reduce, hooks = ctx.hooks, measures = ctx.measures, kick = ctx.kick;
+  var fine = !!(W.matchMedia && W.matchMedia('(hover: hover) and (pointer: fine)').matches);
+  function ease(t) { t = clamp(t, 0, 1); return t * t * (3 - 2 * t); }
+
+  // Shared pointer state (mouse and pen only).
+  var P = { x: -9999, y: -9999, vx: 0, vy: 0, t: 0 };
+  on(W, 'pointermove', function (e) {
+    if (e.pointerType === 'touch') return;
+    var now = W.performance.now(), gap = Math.max(8, now - P.t);
+    if (P.t && gap < 120) { P.vx = (e.clientX - P.x) / gap * 1000; P.vy = (e.clientY - P.y) / gap * 1000; }
+    P.x = e.clientX; P.y = e.clientY; P.t = now; kick();
+  }, { passive: true });
+  on(D.documentElement, 'pointerleave', function () { P.x = -9999; P.y = -9999; kick(); });
+  hooks.push(function (dt) { var f = Math.max(0, 1 - dt * 7); P.vx *= f; P.vy *= f; return false; });
+
+  // ---- 1. The wordmark: every letter is a body on a spring. They drop in,
+  // lean away from the cursor, can be dragged, and tumble as the hero scrolls off.
+  (function letters() {
+    var name = root.querySelector('[data-name]');
+    if (!name || reduce) return;
+    var hero = name.closest('section') || name;
+    var els = all('[data-letter]', name), nr = name.getBoundingClientRect(), prog = 0, held = null;
+    var B = els.map(function (el, i) {
+      return { el: el, i: i, x: 0, y: 0, vx: 0, vy: 0, r: 0, vr: 0, q: 1, vq: 0, hx: 0, hy: 0, w: 0, h: 0,
+        drop: nr.bottom > 0, wait: 0.05 + i * 0.07, held: false, px: 0, py: 0, k1: (i * 53) % 150, k2: (i * 37) % 20 };
+    });
+    function layout() {
+      nr = name.getBoundingClientRect();
+      for (var i = 0; i < B.length; i++) {
+        var b = B[i]; b.w = b.el.offsetWidth; b.h = b.el.offsetHeight;
+        b.hx = b.el.offsetLeft + b.w / 2; b.hy = b.el.offsetTop + b.h / 2;
+      }
+      var hr = hero.getBoundingClientRect();
+      prog = clamp(-hr.top / Math.max(1, hr.height * 0.85), 0, 1);
+    }
+    layout();
+    B.forEach(function (b) {
+      if (b.drop) { b.y = -(nr.top + b.hy + b.h) - 60; b.r = (b.i % 2 ? 1 : -1) * (4 + b.k2 * 0.4); }
+      if (b.drop) b.el.style.transform = 'translate3d(0,' + b.y.toFixed(1) + 'px,0) rotate(' + b.r.toFixed(2) + 'deg)';
+      b.el.style.cursor = 'grab';
+      on(b.el, 'pointerdown', function (e) {
+        if (e.pointerType === 'touch' || e.button > 0 || b.drop) return;
+        b.held = true; held = b; b.sx = e.clientX; b.sy = e.clientY; b.ox = b.x; b.oy = b.y; b.px = b.x; b.py = b.y; b.moved = false;
+        try { b.el.setPointerCapture(e.pointerId); } catch (err) {}
+        b.el.style.cursor = 'grabbing'; b.el.style.zIndex = '5'; e.preventDefault(); kick();
+      });
+      on(b.el, 'pointermove', function (e) {
+        if (!b.held) return;
+        b.px = b.ox + e.clientX - b.sx; b.py = b.oy + e.clientY - b.sy;
+        if (Math.abs(e.clientX - b.sx) + Math.abs(e.clientY - b.sy) > 6) b.moved = true;
+        kick();
+      });
+      var drop = function () {
+        if (!b.held) return;
+        b.held = false; if (held === b) held = null; b.el.style.cursor = 'grab';
+        later(function () { if (!b.held) b.el.style.zIndex = ''; }, 600);
+        kick();
+      };
+      on(b.el, 'pointerup', drop); on(b.el, 'pointercancel', drop);
+      // A tap or click makes the letter hop, and its neighbours follow.
+      on(b.el, 'click', function () {
+        if (b.moved || b.drop) return;
+        B.forEach(function (o) {
+          var gap = Math.abs(o.i - b.i); if (gap > 2) return;
+          later(function () { o.vy -= gap === 0 ? 1250 : gap === 1 ? 640 : 280; o.vr += (o.i % 2 ? 1 : -1) * (gap === 0 ? 260 : 120); kick(); }, gap * 70);
+        });
+      });
+    });
+    function step(b, dt) {
+      if (b.drop) {
+        if (b.wait > 0) { b.wait -= dt; return true; }
+        b.vy += 6400 * dt; b.y += b.vy * dt;
+        if (b.y >= 0) {
+          b.y = 0;
+          if (b.vy > 300) { b.q = 1 - Math.min(0.16, b.vy / 13000); b.vq = 0; b.vy = -b.vy * 0.28; b.vr = (b.i % 2 ? -1 : 1) * (30 + b.k2 * 2); }
+          else { b.vy = 0; b.drop = false; }
+        }
+        b.vr += (120 * (0 - b.r) - 12 * b.vr) * dt; b.r += b.vr * dt;
+        b.vq += (320 * (1 - b.q) - 18 * b.vq) * dt; b.q += b.vq * dt;
+        return true;
+      }
+      var tx = prog * (b.i - (B.length - 1) / 2) * 18, ty = prog * (50 + b.k1);
+      var tr = prog * (b.i % 2 ? 1 : -1) * (7 + b.k2), fx = 0, fy = 0;
+      if (b.held) { tx = b.px; ty = b.py; }
+      else {
+        if (held) {
+          var gap = Math.abs(held.i - b.i), pull = gap === 1 ? 0.4 : gap === 2 ? 0.15 : gap === 3 ? 0.05 : 0;
+          tx += held.x * pull; ty += held.y * pull;
+        }
+        var cx = nr.left + b.hx + b.x, cy = nr.top + b.hy + b.y;
+        var dx = cx - P.x, dy = cy - P.y, d = Math.sqrt(dx * dx + dy * dy), R = Math.max(120, b.h * 0.66);
+        if (d < R && d > 0.01) {
+          var near = 1 - d / R, f = near * near * 12500;
+          fx += f * dx / d; fy += f * dy / d * 0.55;
+          var sw = Math.min(1, (Math.abs(P.vx) + Math.abs(P.vy)) / 1500);
+          fx += P.vx * 3.4 * sw * near; fy += P.vy * 2.2 * sw * near;
+        }
+      }
+      var k = b.held ? 560 : 125, c = b.held ? 42 : 11.5;
+      b.vx += (k * (tx - b.x) - c * b.vx + fx) * dt; b.x += b.vx * dt;
+      b.vy += (k * (ty - b.y) - c * b.vy + fy) * dt; b.y += b.vy * dt;
+      var rt = tr + clamp(b.vx * 0.024, -17, 17);
+      b.vr += (140 * (rt - b.r) - 13 * b.vr) * dt; b.r += b.vr * dt;
+      b.vq += (320 * (1 - b.q) - 18 * b.vq) * dt; b.q += b.vq * dt;
+      return b.held || fx !== 0 || fy !== 0 || Math.abs(b.vx) + Math.abs(b.vy) > 1.2 || Math.abs(tx - b.x) + Math.abs(ty - b.y) > 0.3 ||
+        Math.abs(b.vr) > 0.6 || Math.abs(rt - b.r) > 0.06 || Math.abs(1 - b.q) > 0.002;
+    }
+    // Safety net: if frames stall while the letters are still in the air, put them in place.
+    later(function () {
+      B.forEach(function (b) {
+        if (!b.drop) return;
+        b.drop = false; b.y = 0; b.vy = 0; b.r = 0; b.vr = 0; b.q = 1; b.vq = 0; b.el.style.transform = '';
+      });
+      kick();
+    }, 4000);
+    measures.push(layout);
+    hooks.push(function (dt) {
+      var busy = false, sub = Math.max(1, Math.round(dt * 120));
+      for (var i = 0; i < B.length; i++) {
+        var b = B[i], moving = false;
+        for (var s = 0; s < sub; s++) moving = step(b, dt / sub);
+        if (moving) busy = true;
+        b.el.style.transform = 'translate3d(' + b.x.toFixed(2) + 'px,' + b.y.toFixed(2) + 'px,0) rotate(' + b.r.toFixed(3) + 'deg) scale(1,' + b.q.toFixed(4) + ')';
+      }
+      return busy;
+    });
+  })();
+
+  // ---- 2. A small label that follows the cursor over anything you can grab.
+  (function chip() {
+    var el = root.querySelector('[data-chip]');
+    if (!el || !fine || reduce) return;
+    var x = 0, y = 0, label = '';
+    on(root, 'pointerover', function (e) {
+      var t = e.target && e.target.closest ? e.target.closest('[data-grab]') : null;
+      var l = t ? t.getAttribute('data-grab') : '';
+      if (l === label) return;
+      if (l && !label) { x = P.x + 16; y = P.y + 22; }
+      label = l; if (l) el.textContent = l; el.style.opacity = l ? '1' : '0'; kick();
+    });
+    hooks.push(function (dt) {
+      if (!label) return false;
+      var tx = P.x + 16, ty = P.y + 22, a = Math.min(1, dt * 16);
+      x += (tx - x) * a; y += (ty - y) * a;
+      el.style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,0)';
+      return Math.abs(tx - x) + Math.abs(ty - y) > 0.5;
+    });
+  })();
+
+  // ---- 3. SpotGrove scene: the stage pins, a photo window opens to full bleed,
+  // the device rises, and the sentence lights up word by word as you scroll.
+  (function scene() {
+    var track = root.querySelector('[data-scene]');
+    if (!track || reduce) return;
+    var stage = track.querySelector('.sg-stage'), photo = track.querySelector('.sg-photo'), img = photo ? photo.querySelector('img') : null;
+    var scrim = track.querySelector('.sg-scrim'), dev = track.querySelector('.sg-dev'), words = all('[data-w]', track);
+    if (!stage || !photo || !img || !scrim || !dev) return;
+    if (!(W.CSS && W.CSS.supports && W.CSS.supports('position', 'sticky'))) return;
+    var p = 0, target = 0, shown = -1, pinned = false;
+    // Pin only while this window really scrolls the page; otherwise show the finished scene.
+    function setPin(yes) {
+      if (yes === pinned) return;
+      pinned = yes;
+      if (yes) { track.classList.add('pin'); shown = -1; return; }
+      track.classList.remove('pin');
+      photo.style.clipPath = ''; img.style.transform = ''; scrim.style.opacity = ''; dev.style.transform = '';
+      for (var i = 0; i < words.length; i++) words[i].style.opacity = '';
+    }
+    function measure() {
+      var first = !pinned;
+      setPin(ctx.pageScrolls() && ctx.viewH() >= 520);
+      if (!pinned) return;
+      var r = track.getBoundingClientRect(), span = r.height - stage.offsetHeight;
+      target = span > 0 ? clamp(-r.top / span, 0, 1) : 1;
+      if (first) { p = target; draw(); shown = p; }
+    }
+    function draw() {
+      var s = stage.offsetWidth < 860 ? [47, 6, 5, 6] : [19, 5, 13, 55];
+      var e = ease(p / 0.5), o = 1 - e;
+      photo.style.clipPath = 'inset(' + (s[0] * o).toFixed(2) + '% ' + (s[1] * o).toFixed(2) + '% ' + (s[2] * o).toFixed(2) + '% ' + (s[3] * o).toFixed(2) + '% round ' + (20 * o).toFixed(1) + 'px)';
+      img.style.transform = 'scale(' + (1.16 - 0.16 * ease(p / 0.7)).toFixed(4) + ')';
+      scrim.style.opacity = ease((p - 0.1) / 0.38).toFixed(3);
+      var d = ease((p - 0.26) / 0.46);
+      dev.style.transform = 'translate3d(0,' + ((1 - d) * 115).toFixed(2) + '%,0) rotate(' + (-7 + 5 * d).toFixed(2) + 'deg)';
+      for (var i = 0; i < words.length; i++) {
+        var st = 0.5 + (i / words.length) * 0.4;
+        words[i].style.opacity = (0.3 + 0.7 * clamp((p - st) / 0.05, 0, 1)).toFixed(3);
+      }
+    }
+    measures.push(measure);
+    hooks.push(function (dt) {
+      if (!pinned) return false;
+      p += (target - p) * Math.min(1, dt * 9);
+      if (Math.abs(target - p) < 0.0006) p = target;
+      if (p !== shown) { draw(); shown = p; }
+      return p !== target;
+    });
+    measure();
+  })();
+
+  // ---- 4. Screens that lean back and stand up as they scroll in.
+  all('[data-tilt]').forEach(function (el) {
+    if (reduce || !ctx.pageScrolls()) return;
+    var t = 1, c = 1, shown = -1;
+    function measure() { var r = el.parentElement.getBoundingClientRect(), h = ctx.viewH(); t = clamp((h - r.top) / (h * 0.6), 0, 1); }
+    function draw() {
+      var a = 1 - ease(c);
+      el.style.transform = 'perspective(1600px) rotateX(' + (22 * a).toFixed(2) + 'deg) translate3d(0,' + (80 * a).toFixed(1) + 'px,0) scale(' + (1 - 0.07 * a).toFixed(4) + ')';
+    }
+    measures.push(measure);
+    hooks.push(function (dt) {
+      c += (t - c) * Math.min(1, dt * 9);
+      if (Math.abs(t - c) < 0.0006) c = t;
+      if (c !== shown) { draw(); shown = c; }
+      return c !== t;
+    });
+    measure(); c = t; draw();
+  });
+
+  // ---- 5. Legacy code turning into modern code: the target word decodes in place.
+  (function scramble() {
+    var box = root.querySelector('[data-decode]');
+    if (!box || reduce) return;
+    var parts = all('[data-scramble]', box), glyphs = 'ABCDEFGHJKLMNOPRSTUVWXYZ01<>/{}', running = false, seed = 11;
+    function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+    function run() {
+      if (running) return; running = true;
+      var left = parts.length;
+      parts.forEach(function (el, n) {
+        var word = el.getAttribute('data-scramble'), frames = 14 + word.length * 5, f = 0;
+        later(function () {
+          var id = W.setInterval(function () {
+            f++;
+            var done = Math.floor((f / frames) * word.length), out = word.slice(0, done);
+            for (var i = done; i < word.length; i++) out += /[A-Za-z]/.test(word.charAt(i)) ? glyphs.charAt(Math.floor(rnd() * glyphs.length)) : word.charAt(i);
+            el.textContent = f >= frames ? word : out;
+            if (f >= frames) { W.clearInterval(id); left--; if (!left) running = false; }
+          }, 42);
+          ctx.on({ addEventListener: function () {}, removeEventListener: function () { W.clearInterval(id); } }, 'x', null);
+        }, n * 420);
+      });
+    }
+    if ('IntersectionObserver' in W && ctx.pageScrolls()) {
+      var io = new IntersectionObserver(function (en) { en.forEach(function (x) { if (x.isIntersecting) { run(); io.disconnect(); } }); }, { threshold: 0.5 });
+      io.observe(box);
+    }
+    if (fine) on(box, 'pointerenter', run);
+    on(box, 'click', run);
+  })();
+
+  // ---- A hanging sign: a damped pendulum. It swings in when it first comes
+  // into view, sways with the scroll, and you can push or pull it. On two
+  // straps each strap turns on its own fixing at the top and the board stays
+  // level between them, so the straps never leave the edge they hang from.
+  (function hang() {
+    var el = root.querySelector('[data-hang]');
+    if (!el || reduce) return;
+    var slash = el.querySelector('[data-slash]');
+    var a = 0, w = 0, held = false, let_go = false, lastY = W.pageYOffset || 0, shown = null, near = false;
+    var strapBox = el.querySelector('.straps'), straps = strapBox ? strapBox.querySelectorAll('i') : [], plate = el.querySelector('.board');
+    var sway = straps.length === 2 && !!plate, LIM = sway ? 0.6 : 0.33, START = sway ? 0.46 : 0.27, grabX = 0, grabA = 0;
+    function arm() { return Math.max(20, strapBox.offsetHeight - 5.5); }   // fixing at the top to the rivet on the board
+    var SLASH = 'rotate(-18.435deg) scaleX(';
+    function release() {
+      if (let_go) return; let_go = true;
+      a = START; w = 0; kick();
+      if (slash) later(function () { slash.style.transition = ''; slash.style.transform = SLASH + '1)'; }, 650);
+    }
+    if ('IntersectionObserver' in W && ctx.pageScrolls() && el.getBoundingClientRect().top > ctx.viewH() * 0.8) {
+      if (slash) { slash.style.transition = 'none'; slash.style.transform = SLASH + '0)'; }
+      var io = new IntersectionObserver(function (en) {
+        en.forEach(function (x) { near = x.isIntersecting; if (x.isIntersecting && x.intersectionRatio > 0.3) release(); });
+      }, { threshold: [0, 0.3, 0.6] });
+      io.observe(el);
+    } else { let_go = true; near = true; }
+    // Scrolling gives it a nudge, like a sign in the wind of a passing truck.
+    on(W, 'scroll', function () {
+      var y = W.pageYOffset || 0, dy = y - lastY; lastY = y;
+      if (!near || !let_go || held) return;
+      w += clamp(dy * 0.0016, -0.9, 0.9); kick();
+    }, { passive: true });
+    function pivot() { var r = el.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top, r: r }; }
+    on(el, 'pointerdown', function (e) {
+      if (e.pointerType === 'touch' || e.button > 0) return;
+      held = true; let_go = true; grabX = e.clientX; grabA = a;
+      try { el.setPointerCapture(e.pointerId); } catch (err) {}
+      el.style.cursor = 'grabbing'; e.preventDefault(); kick();
+    });
+    on(el, 'pointermove', function (e) {
+      if (!held) return;
+      if (sway) {
+        // The board follows the hand sideways, as far as the straps let it go.
+        var want = -Math.sin(grabA) + (grabX - e.clientX) / arm(), top = Math.sin(LIM - 0.01);
+        w = (Math.asin(clamp(want, -top, top)) - a) * 14; kick(); return;
+      }
+      // The pivot stays put while the sign rotates, so read it from the unrotated parent.
+      var pr = el.parentElement.getBoundingClientRect(), px = pr.left + pr.width / 2, py = pr.top;
+      var t = Math.atan2(px - e.clientX, Math.max(40, e.clientY - py));
+      w = (clamp(t, -0.32, 0.32) - a) * 14; kick();
+    });
+    var drop = function () { if (!held) return; held = false; el.style.cursor = 'grab'; kick(); };
+    on(el, 'pointerup', drop); on(el, 'pointercancel', drop);
+    on(el, 'click', function () { if (!fine) { w += (a >= 0 ? -1 : 1) * 1.6; let_go = true; kick(); } });
+    hooks.push(function (dt) {
+      if (!let_go) return false;
+      var sub = Math.max(1, Math.round(dt * 120)), h = dt / sub;
+      if (!held && fine && near) {
+        var r = (sway ? plate : el).getBoundingClientRect();
+        if (P.x > r.left - 10 && P.x < r.right + 10 && P.y > r.top && P.y < r.bottom + 10 && Math.abs(P.vx) > 140) {
+          var lever = sway ? 0.85 : clamp((P.y - r.top) / Math.max(1, r.height), 0.2, 1);
+          w += clamp(-P.vx * 0.00008 * lever * (dt * 60), -0.35, 0.35);
+        }
+      }
+      for (var i = 0; i < sub; i++) {
+        if (held) { a += w * h; w *= 0.9; }
+        else { w += (-22 * Math.sin(a) - 1.15 * w) * h; a += w * h; }
+        if (a > LIM) { a = LIM; w = Math.min(w, 0) * 0.4; } else if (a < -LIM) { a = -LIM; w = Math.max(w, 0) * 0.4; }
+      }
+      w = clamp(w, -3.6, 3.6);
+      var d = (a * 57.29578).toFixed(3);
+      if (d !== shown) {
+        shown = d;
+        if (sway) {
+          var L = arm();
+          straps[0].style.transform = straps[1].style.transform = 'rotate(' + d + 'deg)';
+          plate.style.transform = 'translate(' + (-L * Math.sin(a)).toFixed(2) + 'px,' + (-L * (1 - Math.cos(a))).toFixed(2) + 'px)';
+        } else el.style.transform = 'rotate(' + d + 'deg)';
+      }
+      return held || Math.abs(w) > 0.006 || Math.abs(a) > 0.0012;
+    });
+  })();
+
+  // ---- 6. The chessboard: 64 squares flip in a wave and become a portrait.
+  (function board() {
+    var host = root.querySelector('[data-board]');
+    if (!host || reduce) return;
+    var src = host.getAttribute('data-board'), N = 8, tiles = [], grid = D.createElement('div');
+    grid.className = 'bd-grid'; grid.setAttribute('aria-hidden', 'true');
+    for (var r = 0; r < N; r++) {
+      for (var c = 0; c < N; c++) {
+        var t = D.createElement('div'), a = D.createElement('i'), b = D.createElement('i');
+        t.className = 'bd-tile'; a.className = 'bd-sq ' + ((r + c) % 2 ? 'dk' : 'lt'); b.className = 'bd-ph';
+        b.style.backgroundImage = 'url("' + src + '")';
+        b.style.backgroundPosition = (c / (N - 1) * 100).toFixed(3) + '% ' + (r / (N - 1) * 100).toFixed(3) + '%';
+        t.appendChild(a); t.appendChild(b); grid.appendChild(t);
+        tiles.push({ el: t, r: r, c: c, busy: false });
+      }
+    }
+    function fit() { var w = Math.floor(host.clientWidth / N) * N; if (w > 0) grid.style.width = w + 'px'; }
+    host.appendChild(grid); host.classList.add('live'); fit(); measures.push(fit);
+    var opened = false;
+    function open() {
+      if (opened) return; opened = true;
+      tiles.forEach(function (t) { later(function () { t.el.classList.add('on'); }, 120 + (t.r + t.c) * 62); });
+    }
+    function blink(t, wait, hold) {
+      if (t.busy || !opened) return; t.busy = true;
+      later(function () { t.el.classList.remove('on'); }, wait);
+      later(function () { t.el.classList.add('on'); }, wait + hold);
+      later(function () { t.busy = false; }, wait + hold + 500);
+    }
+    function at(e) {
+      var g = grid.getBoundingClientRect(), s = g.width / N;
+      var c = Math.floor((e.clientX - g.left) / s), r = Math.floor((e.clientY - g.top) / s);
+      return (c < 0 || r < 0 || c >= N || r >= N) ? null : tiles[r * N + c];
+    }
+    if ('IntersectionObserver' in W && ctx.pageScrolls()) {
+      var io = new IntersectionObserver(function (en) { en.forEach(function (x) { if (x.isIntersecting) { open(); io.disconnect(); } }); }, { threshold: 0.45 });
+      io.observe(host);
+    } else { later(open, 400); }
+    if (fine) on(grid, 'pointermove', function (e) { var t = at(e); if (t) blink(t, 0, 620); });
+    on(grid, 'click', function (e) {
+      var o = at(e); if (!o) return;
+      tiles.forEach(function (t) { var d = Math.sqrt((t.r - o.r) * (t.r - o.r) + (t.c - o.c) * (t.c - o.c)); blink(t, d * 75, 520); });
+    });
+  })();
+};
+
+(function () {
+  // Start the motion only once the page is on screen, has a size, and frames are being drawn.
+  // Until then nothing is hidden or moved, so the page always shows its finished state.
+  var page = document.getElementById('jm-page'), started = false, queued = false, tries = 0, timer = 0;
+  if (/[?&]nomotion/.test(location.search)) return;
+  function sized() {
+    return document.visibilityState !== 'hidden' && window.innerWidth > 0 && window.innerHeight > 120 && page.getBoundingClientRect().width > 0;
+  }
+  function start() {
+    if (started) return;
+    started = true;
+    if (timer) window.clearInterval(timer);
+    try { window.__jm = new Component(); window.__jm.startMotion(page); } catch (err) { if (window.console) console.warn('motion disabled', err); }
+  }
+  function boot() {
+    if (started || queued || !sized()) return;
+    queued = true;
+    window.requestAnimationFrame(function () { queued = false; if (sized()) start(); });
+  }
+  boot();
+  if (!started) {
+    timer = window.setInterval(function () { tries++; boot(); if (started || tries > 60) window.clearInterval(timer); }, 250);
+    document.addEventListener('visibilitychange', boot);
+    window.addEventListener('resize', boot);
+    window.addEventListener('pageshow', boot);
+    if ('ResizeObserver' in window) { try { new ResizeObserver(boot).observe(document.documentElement); } catch (err) {} }
+  }
+})();
+</script>
 </body>
 </html>
