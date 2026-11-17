@@ -462,6 +462,10 @@ class Component extends DCLogic {
     }
 
     // ---- 5. The sticker pile: discs with gravity, collisions, spin and throwing.
+    // Every sticker is a uniform disc (mass by area, inertia of a solid disc).
+    // A hit keeps part of its speed, so stickers bounce like poker chips;
+    // friction at the contact turns sliding into rolling. Nothing is steered:
+    // a sticker rests at whatever angle it rolled to.
     var pile = null;
     var tray = root.querySelector('[data-tray]');
     if (tray && !reduce) pile = makePile(tray);
@@ -469,12 +473,15 @@ class Component extends DCLogic {
     function makePile(tray) {
       var els = all('[data-sticker]', tray);
       if (!els.length) return null;
-      var G = 2600, DT = 1 / 120, MU = 0.5;
+      var G = 2600, DT = 1 / 120, MU = 0.5, MU_PAIR = 0.16, RR = 0.07;   // grip on the tray, grip between two glossy stickers, rolling resistance
+      var E_WALL = 0.56, E_PAIR = 0.5, REST = 0.5, SLOW = 46;   // share of speed kept by a hit on the tray, and on another sticker
+      // Slow touches do not bounce, which is what lets the pile come to rest.
+      function keep(e, vn) { var s = (Math.abs(vn) - 70) / 250; return s <= 0 ? 0 : s >= 1 ? e : e * s; }
       var Wd = 0, Ht = 0, acc = 0, started = false, asleep = false, spawned = 0, clock = 0, seed = 7;
       function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
       var bodies = els.map(function (el) {
         return { el: el, r: el.offsetWidth / 2, m: 1, x: 0, y: 0, vx: 0, vy: 0, a: 0, w: 0,
-          live: false, held: false, hit: false, calm: 0, inside: false, gx: 0, gy: 0, tilt: 0 };
+          live: false, held: false, hit: false, touch: false, calm: 0, inside: false, gx: 0, gy: 0 };
       });
       function size() {
         Wd = tray.clientWidth;
@@ -502,16 +509,16 @@ class Component extends DCLogic {
         var lanes = Math.max(2, Math.floor(Wd / (b.r * 2.3)));
         var lane = (i * 5 + 2) % lanes;
         b.x = clamp((lane + 0.5 + (rnd() - 0.5) * 0.4) * (Wd / lanes), b.r + 2, Wd - b.r - 2);
-        b.y = -b.r - 6; b.vx = (rnd() - 0.5) * 260; b.vy = 240 + rnd() * 200;
-        b.a = (rnd() - 0.5) * 1.2; b.w = (rnd() - 0.5) * 5;
-        b.tilt = (rnd() - 0.5) * 0.3; b.live = true; b.inside = false; b.calm = 0; b.el.style.opacity = '1';
+        // Let go from just above the tray with a little sideways drift and spin.
+        b.y = -b.r - 6; b.vx = (rnd() - 0.5) * 220; b.vy = 200 + rnd() * 180;
+        b.a = (rnd() - 0.5) * 0.9; b.w = (rnd() - 0.5) * 3.2;
+        b.live = true; b.inside = false; b.calm = 0; b.touch = false; b.el.style.opacity = '1';
       }
-      function upright(b) { return b.tilt + 6.283185307 * Math.round((b.a - b.tilt) / 6.283185307); }
       function wall(b, nx, ny, pen) {
         b.x -= nx * pen; b.y -= ny * pen; b.hit = true;
         var vn = b.vx * nx + b.vy * ny;
         if (vn <= 0) return;
-        var e = vn > 240 ? 0.3 : 0, jn = (1 + e) * vn;
+        var jn = (1 + keep(E_WALL, vn)) * vn;
         b.vx -= jn * nx; b.vy -= jn * ny;
         var tx = -ny, ty = nx, s = b.vx * tx + b.vy * ty + b.w * b.r;
         var j = clamp(s / 3, -MU * jn, MU * jn);
@@ -528,11 +535,11 @@ class Component extends DCLogic {
         b.x -= nx * corr * ib; b.y -= ny * corr * ib; c.x += nx * corr * ic; c.y += ny * corr * ic;
         var vn = (c.vx - b.vx) * nx + (c.vy - b.vy) * ny;
         if (vn >= 0) return;
-        var e = vn < -240 ? 0.25 : 0, jn = -(1 + e) * vn / tot;
+        var jn = -(1 + keep(E_PAIR, vn)) * vn / tot;
         b.vx -= jn * ib * nx; b.vy -= jn * ib * ny; c.vx += jn * ic * nx; c.vy += jn * ic * ny;
         var tx = -ny, ty = nx;
         var s = (b.vx - c.vx) * tx + (b.vy - c.vy) * ty + b.w * b.r + c.w * c.r;
-        var j = clamp(s / (3 * tot), -MU * jn, MU * jn);
+        var j = clamp(s / (3 * tot), -MU_PAIR * jn, MU_PAIR * jn);
         b.vx -= j * ib * tx; b.vy -= j * ib * ty; c.vx += j * ic * tx; c.vy += j * ic * ty;
         b.w -= 2 * j * ib / b.r; c.w -= 2 * j * ic / c.r;
       }
@@ -544,10 +551,14 @@ class Component extends DCLogic {
             b.vx = (b.gx - b.x) * 24; b.vy = (b.gy - b.y) * 24; b.w *= 0.92; b.calm = 0;
           } else {
             if (!b.hit) b.calm = 0;
-            if (b.calm > 0.45) { b.vx = 0; b.vy = 0; b.w = 0; b.a += (upright(b) - b.a) * Math.min(1, DT * 3.4); }
+            if (b.calm > REST) { b.vx = 0; b.vy = 0; b.w = 0; }
             b.vy += G * DT;
           }
-          b.vx *= 0.9994; b.vy *= 0.9994; b.w *= 0.994;
+          // Air hardly slows a sticker. One that touches something loses spin to
+          // rolling resistance, a steady brake that brings it to a full stop.
+          if (b.touch && !b.held) { var dw = RR * G / b.r * DT; b.w = Math.abs(b.w) <= dw ? 0 : b.w - (b.w > 0 ? dw : -dw); }
+          b.vx *= 0.9994; b.vy *= 0.9994; b.w *= 0.9992;
+          b.touch = b.hit;
           b.x += b.vx * DT; b.y += b.vy * DT; b.a += b.w * DT;
           b.hit = false;
           if (!b.inside && b.y - b.r > 4) b.inside = true;
@@ -568,10 +579,10 @@ class Component extends DCLogic {
           b = bodies[i]; if (!b.live) { quiet = false; continue; }
           if (b.held) { quiet = false; continue; }
           var sp = Math.abs(b.vx) + Math.abs(b.vy);
-          if (b.calm > 0.45) { if (sp > 60) b.calm = 0; }
-          else if (b.hit && sp < 46 && Math.abs(b.w) < 1.2) b.calm += DT;
+          if (b.calm > REST) { if (sp > 60) b.calm = 0; }
+          else if (b.hit && sp < SLOW && Math.abs(b.w) < SLOW / 40) b.calm += DT;
           else b.calm = 0;
-          if (b.calm <= 0.45 || Math.abs(upright(b) - b.a) > 0.004) quiet = false;
+          if (b.calm <= REST) quiet = false;
         }
         return quiet;
       }
@@ -619,7 +630,7 @@ class Component extends DCLogic {
           var sp = Math.sqrt(b.vx * b.vx + b.vy * b.vy), cap = 3200;
           if (sp > cap) { b.vx *= cap / sp; b.vy *= cap / sp; }
           if (!b.moved && Date.now() - b.t0 < 300) {
-            b.vy = -(700 + rnd() * 260); b.vx = (rnd() - 0.5) * 420; b.w = (rnd() - 0.5) * 16;
+            b.vy = -(820 + rnd() * 300); b.vx = (rnd() - 0.5) * 420; b.w = (rnd() - 0.5) * 14;
           } else { b.w += b.vx / b.r * 0.35; }
           wake();
         };
