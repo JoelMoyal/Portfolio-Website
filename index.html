@@ -43,9 +43,30 @@ a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline
 .hero-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: clamp(36px, 5cqi, 72px); margin-top: clamp(22px, 3.2cqi, 46px); }
 .hero-text { flex: 1 1 520px; min-width: 0; max-width: 700px; display: flex; flex-direction: column; gap: clamp(20px, 2.4cqi, 30px); }
 .lede { margin: 0; font-family: var(--display); font-weight: 600; font-size: clamp(30px, 4.6cqi, 58px); line-height: 1; letter-spacing: -0.006em; }
-.apple { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 2px 24px; max-width: 34em; padding: 13px 0 12px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); font-family: var(--display); font-weight: 600; font-size: clamp(21px, 2.3cqi, 28px); line-height: 1.1; letter-spacing: -0.004em; }
-.apple-b { display: inline-flex; align-items: center; gap: 7px; color: var(--blue); }
-.apple:hover .apple-b, .sg-feat:hover .sg-feat-go { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
+/* The Apple sticker: one of my own stickers, in road-sign yellow. */
+.seal { display: block; box-sizing: border-box; width: 12em; height: 12em; border-radius: 50%; border: 0.42em solid #FFFFFF; background: #F2C230; color: var(--ink); box-shadow: 0 0.3em 0.8em rgba(22, 24, 28, 0.32); font-family: var(--display); font-weight: 700; text-transform: uppercase; text-align: center; line-height: 1; transform: rotate(var(--rot, 0deg)); transform-origin: 50% 50%; will-change: transform; -webkit-tap-highlight-color: transparent; }
+.seal-in { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; }
+.seal-in::before { content: ""; position: absolute; inset: 0.4em; border: 0.1em solid var(--ink); border-radius: 50%; }
+.seal-0 { font-size: 0.98em; letter-spacing: 0.13em; margin-bottom: 0.34em; padding-bottom: 0.3em; border-bottom: 0.1em solid var(--ink); }
+.seal-a { font-size: 1.1em; letter-spacing: 0.08em; }
+.seal-b { font-size: 3.15em; line-height: 0.9; letter-spacing: -0.004em; margin: 0.02em 0 0.05em; }
+.seal-c { font-size: 0.93em; line-height: 1.14; letter-spacing: 0.055em; }
+.seal:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
+@media (hover: hover) and (pointer: fine) { .seal { transition: transform 260ms cubic-bezier(0.2, 0.9, 0.3, 1.3); } .seal:hover { transform: rotate(calc(var(--rot, 0deg) + 5deg)) scale(1.06); } }
+.hero { position: relative; }
+.hero-text { position: relative; }
+.seal-t { position: absolute; z-index: 4; font-size: clamp(11.6px, 1cqi, 13.4px); left: min(calc(100% - 1.5em), calc(100cqi - 12.4em)); bottom: -5.4em; }
+.seal-n { display: none; }
+.seal-o { display: none; }
+@container (min-width: 990px) {
+  /* Text and objects side by side: the sticker sits on the SpotGrove place card, at the edge of the pile of screens. */
+  .seal-t { display: none; }
+  .seal-o { display: block; position: absolute; z-index: 4; left: -9%; top: 34%; font-size: clamp(11.6px, 1cqi, 13.4px); }
+}
+@container (max-width: 700px) {
+  .seal-t { display: none; }
+  .seal-n { display: block; position: absolute; z-index: 4; right: calc(var(--pad) - 8px); top: -10px; font-size: clamp(8.2px, 2.45cqi, 11px); }
+}
 .hero-objs { flex: 0 1 420px; width: 100%; max-width: 420px; margin: 0 auto; }
 @container (max-width: 700px) {
   .name { font-size: calc(100cqi / 2.36); }
@@ -71,10 +92,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline
 .sg-line { grid-column: 1; grid-row: 2; align-self: end; margin: 0; font-family: var(--display); font-weight: 500; font-size: clamp(30px, 3.9vw, 58px); line-height: 1.03; }
 .sg-dev { grid-column: 2; grid-row: 2; min-height: 0; display: flex; align-items: flex-end; justify-content: flex-end; transform: rotate(-2deg); transform-origin: 60% 100%; will-change: transform; }
 .sg-dev img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 28px 34px rgba(0, 0, 0, 0.5)); }
-.sg-feat { flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px 56px; padding-bottom: clamp(30px, 4vw, 52px); border-bottom: 1px solid rgba(244, 241, 234, 0.2); }
-.sg-feat-big { font-family: var(--display); font-weight: 600; font-size: clamp(54px, 9.4vw, 136px); line-height: 0.9; letter-spacing: -0.012em; }
-.sg-feat-txt { flex: 0 1 19em; display: flex; flex-direction: column; gap: 10px; padding-bottom: 0.5em; color: #E6EDE8; }
-.sg-feat-go { display: inline-flex; align-items: center; gap: 7px; font-weight: 500; color: #A9D8CC; }
+.seal-s { position: absolute; z-index: 3; right: clamp(12px, 6.4vw, 104px); top: clamp(66px, 11vh, 120px); font-size: clamp(8.6px, 1.2vw, 17px); box-shadow: 0 0.4em 1.2em rgba(0, 0, 0, 0.5); }
+@media (max-width: 860px) { .seal-s { top: 4px; right: 8px; font-size: 8.1px; } }
 .sg-rest { max-width: 1360px; margin: 0 auto; padding: clamp(48px, 7vw, 104px) var(--pad) clamp(64px, 9vw, 128px); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 36px 72px; }
 @media (max-width: 860px) {
   .sg-scrim { background: linear-gradient(180deg, rgba(16, 35, 31, 0.96) 0%, rgba(16, 35, 31, 0.8) 44%, rgba(16, 35, 31, 0) 80%); }
@@ -168,10 +187,11 @@ a.sm-name { display: inline-flex; align-items: center; gap: 8px; justify-self: s
 
 <section id="top" class="hero">
   <h1 class="name" data-name="1" aria-label="Joël Moyal"><span class="word" aria-hidden="true"><span class="L" data-letter="1" data-grab="Drag">J</span><span class="L" data-letter="1" data-grab="Drag">O</span><span class="L" data-letter="1" data-grab="Drag">Ë</span><span class="L" data-letter="1" data-grab="Drag">L</span></span><span class="word" aria-hidden="true"><span class="L" data-letter="1" data-grab="Drag">M</span><span class="L" data-letter="1" data-grab="Drag">O</span><span class="L" data-letter="1" data-grab="Drag">Y</span><span class="L" data-letter="1" data-grab="Drag">A</span><span class="L" data-letter="1" data-grab="Drag">L<img class="pip" src="assets/pip-point.png" alt="" draggable="false"></span></span></h1>
+  <a class="seal seal-n" href="https://apps.apple.com/us/iphone/story/id6827788573" data-seal="hero" data-rot="8" data-grab="Read" style="--rot: 8deg" aria-label="SpotGrove, featured by Apple in the App Store's App Trend of the Year 2026. Read the story on the App Store."><span class="seal-in" aria-hidden="true"><span class="seal-0">SpotGrove</span><span class="seal-a">Featured by</span><span class="seal-b">Apple</span><span class="seal-c">App Trend of<br>the Year 2026</span></span></a>
   <div class="hero-row">
     <div class="hero-text">
+      <a class="seal seal-t" href="https://apps.apple.com/us/iphone/story/id6827788573" data-seal="hero" data-rot="-9" data-grab="Read" style="--rot: -9deg" aria-label="SpotGrove, featured by Apple in the App Store's App Trend of the Year 2026. Read the story on the App Store."><span class="seal-in" aria-hidden="true"><span class="seal-0">SpotGrove</span><span class="seal-a">Featured by</span><span class="seal-b">Apple</span><span class="seal-c">App Trend of<br>the Year 2026</span></span></a>
       <p class="lede"><span style="display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em"><span data-rise="1" style="display: inline-block">AI/ML</span></span> <span style="display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em"><span data-rise="1" style="display: inline-block">engineer.</span></span> <span style="display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em"><span data-rise="1" style="display: inline-block">Founder</span></span> <span style="display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em"><span data-rise="1" style="display: inline-block">of</span></span> <span style="display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em"><span data-rise="1" style="display: inline-block"><a href="#spotgrove" style="text-decoration: underline; text-decoration-color: #006699; text-decoration-thickness: 0.055em; text-underline-offset: 0.1em; text-decoration-skip-ink: none">SpotGrove.app</a></span></span> <span style="display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em"><span data-rise="1" style="display: inline-block">and</span></span> <span style="display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em"><span data-rise="1" style="display: inline-block"><a href="#scribesnap" style="text-decoration: underline; text-decoration-color: #006699; text-decoration-thickness: 0.055em; text-underline-offset: 0.1em; text-decoration-skip-ink: none">ScribeSnap.ai</a>.</span></span></p>
-      <a class="apple" href="https://apps.apple.com/us/iphone/story/id6827788573" data-fade="1"><span class="apple-a">Featured by Apple</span><span class="apple-b">App Trend of the Year 2026 <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" style="width: 0.72em; height: 0.72em; flex: none; display: inline-block; vertical-align: -0.02em"><path d="M7 17 17 7M8.5 7H17v8.5"></path></svg></span></a>
       <div data-fade="1" style="display: flex; flex-direction: column; gap: 22px; max-width: 34em">
         <p style="margin: 0">I'm Joël. I grew up in Germany, live in the Bay Area, and build apps that strangers end up using every day. SpotGrove has 180,000 downloads. ScribeSnap gets about 5,000 people a day. I trained as a media designer first, so I design the screen before I build it.</p>
         <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px">
@@ -182,6 +202,7 @@ a.sm-name { display: inline-flex; align-items: center; gap: 8px; justify-self: s
     </div>
     <div class="hero-objs">
       <div style="position: relative; width: 100%; aspect-ratio: 43 / 46">
+        <a class="seal seal-o" href="https://apps.apple.com/us/iphone/story/id6827788573" data-seal="hero" data-rot="-9" data-grab="Read" style="--rot: -9deg" aria-label="SpotGrove, featured by Apple in the App Store's App Trend of the Year 2026. Read the story on the App Store."><span class="seal-in" aria-hidden="true"><span class="seal-0">SpotGrove</span><span class="seal-a">Featured by</span><span class="seal-b">Apple</span><span class="seal-c">App Trend of<br>the Year 2026</span></span></a>
         <div data-spring="1" data-enter="1" data-grab="Drag" data-rot="-5" data-depth="0.25" style="position: absolute; left: 0; top: 4%; width: 66%; z-index: 1; transform: rotate(-5deg); user-select: none">
           <img src="assets/scribe-crop.webp" alt="ScribeSnap.ai: paste a video link, get the transcript" draggable="false" style="display: block; width: 100%; height: auto; border: 1px solid rgba(22, 24, 28, 0.22); border-radius: 8px; box-shadow: 0 20px 36px -18px rgba(22, 24, 28, 0.5)">
         </div>
@@ -210,20 +231,18 @@ a.sm-name { display: inline-flex; align-items: center; gap: 8px; justify-self: s
         <p class="sg-line"><span data-w="1">I</span> <span data-w="1">kept</span> <span data-w="1">picking</span> <span data-w="1">cafés</span> <span data-w="1">with</span> <span data-w="1">bad</span> <span data-w="1">WiFi,</span> <span data-w="1">so</span> <span data-w="1">I</span> <span data-w="1">built</span> <span data-w="1">an</span> <span data-w="1">app</span> <span data-w="1">that</span> <span data-w="1">knows.</span></p>
         <div class="sg-dev"><img src="assets/duo-open.webp" alt="SpotGrove on an open iPhone Duo: nearby places on the left, the map on the right"></div>
       </div>
+      <a class="seal seal-s" href="https://apps.apple.com/us/iphone/story/id6827788573" data-seal="scene" data-rot="9" data-grab="Read" style="--rot: 9deg" aria-label="SpotGrove, featured by Apple in the App Store's App Trend of the Year 2026. Read the story on the App Store."><span class="seal-in" aria-hidden="true"><span class="seal-0">SpotGrove</span><span class="seal-a">Featured by</span><span class="seal-b">Apple</span><span class="seal-c">App Trend of<br>the Year 2026</span></span></a>
     </div>
   </div>
   <div class="sg-rest">
-    <a class="sg-feat" href="https://apps.apple.com/us/iphone/story/id6827788573" data-reveal="up">
-      <span class="sg-feat-big">Featured by Apple.</span>
-      <span class="sg-feat-txt">SpotGrove is one of the apps in the App Store's App Trend of the Year 2026. <span class="sg-feat-go">Read the story <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" style="width: 0.72em; height: 0.72em; flex: none; display: inline-block; vertical-align: -0.02em"><path d="M7 17 17 7M8.5 7H17v8.5"></path></svg></span></span>
-    </a>
     <p data-reveal="up" style="flex: 1 1 380px; max-width: 620px; margin: 0; font-size: clamp(20px, 1.9vw, 27px); line-height: 1.38; color: #E6EDE8">SpotGrove shows the WiFi, outlets and noise level of cafés, libraries and coworking spaces before you walk in. I launched it at WWDC26, where I sat down 1:1 with Apple engineers. Version 2.0 shipped in November 2026 with a 15-second WiFi speed test in every spot.</p>
     <div data-reveal="up" data-delay="120" style="flex: 1 1 360px; max-width: 520px; display: flex; flex-direction: column; gap: 24px">
       <dl style="margin: 0; display: flex; flex-direction: column">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 24px; padding: 12px 0; border-top: 1px solid rgba(244, 241, 234, 0.26)"><dt style="color: #A9D8CC; font-size: 0.9em">Downloads</dt><dd style="margin: 0; font-weight: 500; text-align: right">180,000</dd></div>
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 24px; padding: 12px 0; border-top: 1px solid rgba(244, 241, 234, 0.26)"><dt style="color: #A9D8CC; font-size: 0.9em">Places listed</dt><dd style="margin: 0; font-weight: 500; text-align: right">150,000+</dd></div>
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 24px; padding: 12px 0; border-top: 1px solid rgba(244, 241, 234, 0.26)"><dt style="color: #A9D8CC; font-size: 0.9em">Interactions</dt><dd style="margin: 0; font-weight: 500; text-align: right">8 million+</dd></div>
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 24px; padding: 12px 0; border-top: 1px solid rgba(244, 241, 234, 0.26); border-bottom: 1px solid rgba(244, 241, 234, 0.26)"><dt style="color: #A9D8CC; font-size: 0.9em">Launched</dt><dd style="margin: 0; font-weight: 500; text-align: right">At WWDC26</dd></div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 24px; padding: 12px 0; border-top: 1px solid rgba(244, 241, 234, 0.26)"><dt style="color: #A9D8CC; font-size: 0.9em">Launched</dt><dd style="margin: 0; font-weight: 500; text-align: right">At WWDC26</dd></div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 24px; padding: 12px 0; border-top: 1px solid rgba(244, 241, 234, 0.26); border-bottom: 1px solid rgba(244, 241, 234, 0.26)"><dt style="color: #A9D8CC; font-size: 0.9em">Featured</dt><dd style="margin: 0; font-weight: 500; text-align: right"><a href="https://apps.apple.com/us/iphone/story/id6827788573" style="text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px">By Apple, App Trend of the Year 2026</a></dd></div>
 </dl>
       <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px">
         <div style="display: flex; flex-wrap: wrap; gap: 0 28px">
@@ -739,6 +758,7 @@ class Component extends DCLogic {
     if (this.extras) {
       try {
         this.extras({ root: root, W: W, D: D, reduce: reduce, all: all, on: on, later: later, clamp: clamp, viewH: viewH,
+          jolt: function (power) { springs.forEach(function (o, i) { if (o.hold || o.drag) return; o.vy += power * (0.7 + 0.3 * i); o.vr += (i % 2 ? 1 : -1) * power * 0.2; }); kick(); },
           pageScrolls: pageScrolls, kick: kick, hooks: hooks, measures: measures, EASE: EASE });
       } catch (err) { if (W.console) console.warn('extras disabled', err); }
     }
@@ -765,6 +785,7 @@ Component.prototype.extras = function (ctx) {
 
   // Shared pointer state (mouse and pen only).
   var P = { x: -9999, y: -9999, vx: 0, vy: 0, t: 0 };
+  var thump = function () {};   // something heavy landed at (x, y): set by the letters, used by the sticker
   on(W, 'pointermove', function (e) {
     if (e.pointerType === 'touch') return;
     var now = W.performance.now(), gap = Math.max(8, now - P.t);
@@ -866,6 +887,20 @@ Component.prototype.extras = function (ctx) {
       return b.held || fx !== 0 || fy !== 0 || Math.abs(b.vx) + Math.abs(b.vy) > 1.2 || Math.abs(tx - b.x) + Math.abs(ty - b.y) > 0.3 ||
         Math.abs(b.vr) > 0.6 || Math.abs(rt - b.r) > 0.06 || Math.abs(1 - b.q) > 0.002;
     }
+    // A knock on the page: letters near the spot jump first and highest, the rest follow.
+    thump = function (x, y, power) {
+      var R = Math.max(520, nr.width * 0.85);
+      B.forEach(function (b) {
+        if (b.drop || b.held) return;
+        var dx = nr.left + b.hx + b.x - x, dy = nr.top + b.hy + b.y - y, d = Math.sqrt(dx * dx + dy * dy), f = Math.max(0, 1 - d / R);
+        if (!f) return;
+        later(function () {
+          if (b.drop || b.held) return;
+          b.vy -= power * (240 + 700 * f * f); b.vx += power * 300 * f * f * (dx / (d || 1));
+          b.vr += (b.i % 2 ? 1 : -1) * power * 190 * f; b.q = 1 - 0.06 * f; kick();
+        }, d / R * 140);
+      });
+    };
     // Safety net: if frames stall while the letters are still in the air, put them in place.
     later(function () {
       B.forEach(function (b) {
@@ -884,6 +919,47 @@ Component.prototype.extras = function (ctx) {
         b.el.style.transform = 'translate3d(' + b.x.toFixed(2) + 'px,' + b.y.toFixed(2) + 'px,0) rotate(' + b.r.toFixed(3) + 'deg) scale(1,' + b.q.toFixed(4) + ')';
       }
       return busy;
+    });
+  })();
+
+  // ---- The Apple sticker: it comes down on the page with a thud, and the name
+  // and the things on the desk jump from the knock. Without this it simply sits
+  // where the markup puts it.
+  (function seal() {
+    var el = null;
+    all('[data-seal="hero"]', root).forEach(function (e) { if (e.offsetWidth) el = e; });
+    if (!el || reduce) return;
+    var REST = parseFloat(el.getAttribute('data-rot')) || 0, T = -1, sq = 1, vq = 0, landed = false, done = false, FALL = 0.2;
+    function finish() { done = true; el.style.opacity = ''; el.style.transform = ''; el.style.boxShadow = ''; }
+    el.style.opacity = '0';
+    later(function () {
+      if (done) return;
+      var box = el.getBoundingClientRect();
+      if (box.bottom < 0 || box.top > ctx.viewH()) { finish(); return; }   // scrolled away already: just put it in place
+      T = 0; kick();
+    }, 1750);
+    later(function () { if (!done) finish(); }, 5200);            // safety net if frames stall
+    hooks.push(function (dt) {
+      if (T < 0 || done) return false;
+      T += dt;
+      if (T < FALL) {
+        var u = T / FALL, far = 1 - u * u;                         // it speeds up as it nears the page
+        el.style.opacity = Math.min(1, u * 3).toFixed(3);
+        el.style.transform = 'rotate(' + (REST - 24 * far).toFixed(2) + 'deg) scale(' + (1 + 2.2 * far).toFixed(4) + ')';
+        el.style.boxShadow = '0 ' + (0.3 + 2.6 * far).toFixed(2) + 'em ' + (0.8 + 3.6 * far).toFixed(2) + 'em rgba(22, 24, 28, ' + (0.32 - 0.2 * far).toFixed(3) + ')';
+        return true;
+      }
+      if (!landed) {
+        landed = true; sq = 0.9; vq = 0; el.style.opacity = '1'; el.style.boxShadow = '';
+        el.style.transform = 'rotate(' + REST + 'deg) scale(1)';
+        var b = el.getBoundingClientRect(), power = clamp(b.width / 165, 0.5, 1);
+        thump(b.left + b.width / 2, b.top + b.height / 2, power);
+        if (ctx.jolt) ctx.jolt(300 * power);
+      }
+      vq += (430 * (1 - sq) - 17 * vq) * dt; sq += vq * dt;
+      el.style.transform = 'rotate(' + REST + 'deg) scale(' + sq.toFixed(4) + ')';
+      if (Math.abs(1 - sq) < 0.002 && Math.abs(vq) < 0.03) { finish(); return false; }
+      return true;
     });
   })();
 
@@ -918,6 +994,7 @@ Component.prototype.extras = function (ctx) {
     if (!stage || !photo || !img || !scrim || !dev) return;
     if (!(W.CSS && W.CSS.supports && W.CSS.supports('position', 'sticky'))) return;
     var p = 0, target = 0, shown = -1, pinned = false;
+    var seal = track.querySelector('[data-seal="scene"]'), sealRot = seal ? parseFloat(seal.getAttribute('data-rot')) || 0 : 0, hit = false, sq = 1, vq = 0, jy = 0, jv = 0;
     // Pin only while this window really scrolls the page; otherwise show the finished scene.
     function setPin(yes) {
       if (yes === pinned) return;
@@ -925,6 +1002,7 @@ Component.prototype.extras = function (ctx) {
       if (yes) { track.classList.add('pin'); shown = -1; return; }
       track.classList.remove('pin');
       photo.style.clipPath = ''; img.style.transform = ''; scrim.style.opacity = ''; dev.style.transform = '';
+      if (seal) { seal.style.opacity = ''; seal.style.transform = ''; }
       for (var i = 0; i < words.length; i++) words[i].style.opacity = '';
     }
     function measure() {
@@ -933,7 +1011,7 @@ Component.prototype.extras = function (ctx) {
       if (!pinned) return;
       var r = track.getBoundingClientRect(), span = r.height - stage.offsetHeight;
       target = span > 0 ? clamp(-r.top / span, 0, 1) : 1;
-      if (first) { p = target; draw(); shown = p; }
+      if (first) { p = target; hit = p >= 0.95; draw(); shown = p; }
     }
     function draw() {
       var s = stage.offsetWidth < 860 ? [47, 6, 5, 6] : [19, 5, 13, 55];
@@ -942,7 +1020,15 @@ Component.prototype.extras = function (ctx) {
       img.style.transform = 'scale(' + (1.16 - 0.16 * ease(p / 0.7)).toFixed(4) + ')';
       scrim.style.opacity = ease((p - 0.1) / 0.38).toFixed(3);
       var d = ease((p - 0.26) / 0.46);
-      dev.style.transform = 'translate3d(0,' + ((1 - d) * 115).toFixed(2) + '%,0) rotate(' + (-7 + 5 * d).toFixed(2) + 'deg)';
+      dev.style.transform = 'translate3d(0,' + ((1 - d) * 115).toFixed(2) + '%,0) translateY(' + jy.toFixed(2) + 'px) rotate(' + (-7 + 5 * d + jy * 0.05).toFixed(2) + 'deg)';
+      if (seal) {
+        // The last stretch of the scroll brings the sticker down onto the scene.
+        var k = clamp((p - 0.84) / 0.11, 0, 1), far = 1 - k * k;
+        seal.style.opacity = clamp(k * 3.5, 0, 1).toFixed(3);
+        seal.style.transform = 'rotate(' + (sealRot - 24 * far).toFixed(2) + 'deg) scale(' + ((1 + 2.2 * far) * sq).toFixed(4) + ')';
+        if (k >= 1 && !hit) { hit = true; sq = 0.9; vq = 0; jy = 0; jv = 380; }
+        else if (k < 0.9) hit = false;
+      }
       for (var i = 0; i < words.length; i++) {
         var st = 0.5 + (i / words.length) * 0.4;
         words[i].style.opacity = (0.3 + 0.7 * clamp((p - st) / 0.05, 0, 1)).toFixed(3);
@@ -953,8 +1039,16 @@ Component.prototype.extras = function (ctx) {
       if (!pinned) return false;
       p += (target - p) * Math.min(1, dt * 9);
       if (Math.abs(target - p) < 0.0006) p = target;
+      var ringing = false, h = Math.min(dt, 0.034);
+      if (hit && (sq !== 1 || jy !== 0 || jv !== 0)) {
+        vq += (430 * (1 - sq) - 17 * vq) * h; sq += vq * h;
+        jv += (-330 * jy - 15 * jv) * h; jy += jv * h;
+        ringing = Math.abs(1 - sq) > 0.002 || Math.abs(vq) > 0.03 || Math.abs(jy) > 0.06 || Math.abs(jv) > 2;
+        if (!ringing) { sq = 1; vq = 0; jy = 0; jv = 0; }
+        shown = -1;
+      }
       if (p !== shown) { draw(); shown = p; }
-      return p !== target;
+      return p !== target || ringing;
     });
     measure();
   })();
