@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Joël Moyal | AI/ML engineer</title>
-<meta name="description" content="Joël Moyal is an AI/ML engineer in the Bay Area and the founder of SpotGrove.app and ScribeSnap.ai.">
+<meta name="description" content="Joël Moyal is an AI/ML engineer in the Bay Area and the founder of SpotGrove.app, featured by Apple in 2026, and ScribeSnap.ai.">
 <link rel="canonical" href="https://joelmoyal.com/">
 <link rel="icon" type="image/png" href="assets/jm-logo.png">
 <meta name="theme-color" content="#F4F1EA">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Joël Moyal">
 <meta property="og:title" content="Joël Moyal | AI/ML engineer">
-<meta property="og:description" content="Joël Moyal is an AI/ML engineer in the Bay Area and the founder of SpotGrove.app and ScribeSnap.ai.">
+<meta property="og:description" content="Joël Moyal is an AI/ML engineer in the Bay Area and the founder of SpotGrove.app, featured by Apple in 2026, and ScribeSnap.ai.">
 <meta property="og:url" content="https://joelmoyal.com/">
 <meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,6 +43,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline
 .hero-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: clamp(36px, 5cqi, 72px); margin-top: clamp(22px, 3.2cqi, 46px); }
 .hero-text { flex: 1 1 520px; min-width: 0; max-width: 700px; display: flex; flex-direction: column; gap: clamp(20px, 2.4cqi, 30px); }
 .lede { margin: 0; font-family: var(--display); font-weight: 600; font-size: clamp(30px, 4.6cqi, 58px); line-height: 1; letter-spacing: -0.006em; }
+.apple { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 2px 24px; max-width: 34em; padding: 13px 0 12px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); font-family: var(--display); font-weight: 600; font-size: clamp(21px, 2.3cqi, 28px); line-height: 1.1; letter-spacing: -0.004em; }
+.apple-b { display: inline-flex; align-items: center; gap: 7px; color: var(--blue); }
+.apple:hover .apple-b, .sg-feat:hover .sg-feat-go { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
 .hero-objs { flex: 0 1 420px; width: 100%; max-width: 420px; margin: 0 auto; }
 @container (max-width: 700px) {
   .name { font-size: calc(100cqi / 2.36); }
@@ -68,6 +71,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline
 .sg-line { grid-column: 1; grid-row: 2; align-self: end; margin: 0; font-family: var(--display); font-weight: 500; font-size: clamp(30px, 3.9vw, 58px); line-height: 1.03; }
 .sg-dev { grid-column: 2; grid-row: 2; min-height: 0; display: flex; align-items: flex-end; justify-content: flex-end; transform: rotate(-2deg); transform-origin: 60% 100%; will-change: transform; }
 .sg-dev img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 28px 34px rgba(0, 0, 0, 0.5)); }
+.sg-feat { flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px 56px; padding-bottom: clamp(30px, 4vw, 52px); border-bottom: 1px solid rgba(244, 241, 234, 0.2); }
+.sg-feat-big { font-family: var(--display); font-weight: 600; font-size: clamp(54px, 9.4vw, 136px); line-height: 0.9; letter-spacing: -0.012em; }
+.sg-feat-txt { flex: 0 1 19em; display: flex; flex-direction: column; gap: 10px; padding-bottom: 0.5em; color: #E6EDE8; }
+.sg-feat-go { display: inline-flex; align-items: center; gap: 7px; font-weight: 500; color: #A9D8CC; }
 .sg-rest { max-width: 1360px; margin: 0 auto; padding: clamp(48px, 7vw, 104px) var(--pad) clamp(64px, 9vw, 128px); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 36px 72px; }
 @media (max-width: 860px) {
   .sg-scrim { background: linear-gradient(180deg, rgba(16, 35, 31, 0.96) 0%, rgba(16, 35, 31, 0.8) 44%, rgba(16, 35, 31, 0) 80%); }
@@ -164,6 +171,7 @@ a.sm-name { display: inline-flex; align-items: center; gap: 8px; justify-self: s
   <div class="hero-row">
     <div class="hero-text">
       <p class="lede"><span style="display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em"><span data-rise="1" style="display: inline-block">AI/ML</span></span> <span style="display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em"><span data-rise="1" style="display: inline-block">engineer.</span></span> <span style="display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em"><span data-rise="1" style="display: inline-block">Founder</span></span> <span style="display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em"><span data-rise="1" style="display: inline-block">of</span></span> <span style="display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em"><span data-rise="1" style="display: inline-block"><a href="#spotgrove" style="text-decoration: underline; text-decoration-color: #006699; text-decoration-thickness: 0.055em; text-underline-offset: 0.1em; text-decoration-skip-ink: none">SpotGrove.app</a></span></span> <span style="display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em"><span data-rise="1" style="display: inline-block">and</span></span> <span style="display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em"><span data-rise="1" style="display: inline-block"><a href="#scribesnap" style="text-decoration: underline; text-decoration-color: #006699; text-decoration-thickness: 0.055em; text-underline-offset: 0.1em; text-decoration-skip-ink: none">ScribeSnap.ai</a>.</span></span></p>
+      <a class="apple" href="https://apps.apple.com/us/iphone/story/id6827788573" data-fade="1"><span class="apple-a">Featured by Apple</span><span class="apple-b">App Trend of the Year 2026 <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" style="width: 0.72em; height: 0.72em; flex: none; display: inline-block; vertical-align: -0.02em"><path d="M7 17 17 7M8.5 7H17v8.5"></path></svg></span></a>
       <div data-fade="1" style="display: flex; flex-direction: column; gap: 22px; max-width: 34em">
         <p style="margin: 0">I'm Joël. I grew up in Germany, live in the Bay Area, and build apps that strangers end up using every day. SpotGrove has 180,000 downloads. ScribeSnap gets about 5,000 people a day. I trained as a media designer first, so I design the screen before I build it.</p>
         <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px">
@@ -205,6 +213,10 @@ a.sm-name { display: inline-flex; align-items: center; gap: 8px; justify-self: s
     </div>
   </div>
   <div class="sg-rest">
+    <a class="sg-feat" href="https://apps.apple.com/us/iphone/story/id6827788573" data-reveal="up">
+      <span class="sg-feat-big">Featured by Apple.</span>
+      <span class="sg-feat-txt">SpotGrove is one of the apps in the App Store's App Trend of the Year 2026. <span class="sg-feat-go">Read the story <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" style="width: 0.72em; height: 0.72em; flex: none; display: inline-block; vertical-align: -0.02em"><path d="M7 17 17 7M8.5 7H17v8.5"></path></svg></span></span>
+    </a>
     <p data-reveal="up" style="flex: 1 1 380px; max-width: 620px; margin: 0; font-size: clamp(20px, 1.9vw, 27px); line-height: 1.38; color: #E6EDE8">SpotGrove shows the WiFi, outlets and noise level of cafés, libraries and coworking spaces before you walk in. I launched it at WWDC26, where I sat down 1:1 with Apple engineers. Version 2.0 shipped in November 2026 with a 15-second WiFi speed test in every spot.</p>
     <div data-reveal="up" data-delay="120" style="flex: 1 1 360px; max-width: 520px; display: flex; flex-direction: column; gap: 24px">
       <dl style="margin: 0; display: flex; flex-direction: column">
